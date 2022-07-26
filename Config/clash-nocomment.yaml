@@ -114,10 +114,10 @@ dns:
     - "xnotify.xboxlive.com"
     - "y.qq.com"
   nameserver:
-    - tls://dns.pub:853
-    - tls://dns.alidns.com:853
     - 119.29.29.29
     - 223.6.6.6
+    - tls://dns.pub:853
+    - tls://dns.alidns.com:853
   fallback-filter:
     geoip: true
     ipcidr:
@@ -209,7 +209,7 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingMedia/StreamingSE.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/StreamingSE.yaml
+    url: https://ruleset.isteed.cc/List/Clash/StreamingSE.yaml
     interval: 86400
   Global:
     type: http
@@ -227,13 +227,13 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/Extra/Telegram.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Telegram/Telegram.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Telegram.yaml
     interval: 86400
   OneDrive:
     type: http
     behavior: classical
     path: ./RuleSet/Extra/OneDrive.yaml
-    url: https://clash-sub.isteed.cc/RuleSet/Extra/Microsoft/OneDrive.yaml
+    url: https://ruleset.isteed.cc/List/Clash/OneDrive.yaml
     interval: 86400
   AD:
     type: http
@@ -245,13 +245,13 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/DirectCustom.yaml
-    url: https://clash-sub.isteed.cc/RuleSet/DirectCustom.yaml
+    url: https://ruleset.isteed.cc/List/Clash/DirectCustom.yaml
     interval: 86400
   ProxyCustom:
     type: http
     behavior: classical
     path: ./RuleSet/ProxyCustom.yaml
-    url: https://clash-sub.isteed.cc/RuleSet/ProxyCustom.yaml
+    url: https://ruleset.isteed.cc/List/Clash/ProxyCustom.yaml
     interval: 86400
 rules:
   - RULE-SET,DirectCustom,DIRECT
