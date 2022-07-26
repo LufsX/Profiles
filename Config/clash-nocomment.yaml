@@ -1,0 +1,277 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+hosts:
+  "mtalk.google.com": 108.177.125.188
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  default-nameserver:
+    - 119.29.29.29
+    - 223.6.6.6
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.126.net"
+    - "*.example"
+    - "*.ffxiv.com"
+    - "*.finalfantasyxiv.com"
+    - "*.home.arpa"
+    - "*.invalid"
+    - "*.kuwo.cn"
+    - "*.lan"
+    - "*.linksys.com"
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "*.linksyssmartwifi.com"
+    - "*.local"
+    - "*.localdomain"
+    - "*.localhost"
+    - "*.mcdn.bilivideo.cn"
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - "*.music.163.com"
+    - "*.music.migu.cn"
+    - "*.ntp.org.cn"
+    - "*.pool.ntp.org"
+    - "*.router.asus.com"
+    - "*.square-enix.com"
+    - "*.test"
+    - "*.time.edu.cn"
+    - "*.xiami.com"
+    - "*.y.qq.com"
+    - "+.battlenet.com.cn"
+    - "+.nflxvideo.net"
+    - "+.pool.ntp.org"
+    - "+.srv.nintendo.net"
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.playstation.net"
+    - "+.wargaming.net"
+    - "+.wggames.cn"
+    - "+.wotgame.cn"
+    - "+.wowsgame.cn"
+    - "amobile.music.tc.qq.com"
+    - "api-jooxtt.sanook.com"
+    - "api.joox.com"
+    - "aqqmusic.tc.qq.com"
+    - "dl.stream.qqmusic.qq.com"
+    - "heartbeat.belkin.com"
+    - "isure.stream.qqmusic.qq.com"
+    - "joox.com"
+    - "lens.l.google.com"
+    - "localhost.ptlogin2.qq.com"
+    - "localhost.sec.qq.com"
+    - "mesu.apple.com"
+    - "mobileoc.music.tc.qq.com"
+    - "msftconnecttest.com"
+    - "msftncsi.com"
+    - "music.163.com"
+    - "music.migu.cn"
+    - "music.taihe.com"
+    - "musicapi.taihe.com"
+    - "ntp.*.com"
+    - "ntp.*.com"
+    - "ntp1.*.com"
+    - "ntp2.*.com"
+    - "ntp3.*.com"
+    - "ntp4.*.com"
+    - "ntp5.*.com"
+    - "ntp6.*.com"
+    - "ntp7.*.com"
+    - "proxy.golang.org"
+    - "songsearch.kugou.com"
+    - "streamoc.music.tc.qq.com"
+    - "stun.*.*"
+    - "stun.*.*.*"
+    - "stun.l.google.com"
+    - "swcdn.apple.com"
+    - "swdist.apple.com"
+    - "swdownload.apple.com"
+    - "swquery.apple.com"
+    - "swscan.apple.com"
+    - "time.*.apple.com"
+    - "time.*.com"
+    - "time.*.edu.cn"
+    - "time.*.gov"
+    - "time1.*.com"
+    - "time1.cloud.tencent.com"
+    - "time2.*.com"
+    - "time3.*.com"
+    - "time4.*.com"
+    - "time5.*.com"
+    - "time6.*.com"
+    - "time7.*.com"
+    - "time8.*.com"
+    - "time9.*.com"
+    - "trackercdn.kugou.com"
+    - "xbox.*.microsoft.com"
+    - "xnotify.xboxlive.com"
+    - "y.qq.com"
+  nameserver:
+    - tls://dns.pub:853
+    - tls://dns.alidns.com:853
+    - 119.29.29.29
+    - 223.6.6.6
+  fallback-filter:
+    geoip: true
+    ipcidr:
+proxies:
+proxy-providers:
+  ProxyList:
+    type: http
+    url: https://url
+    interval: 86400
+    path: ./Proxy/List.yaml
+    health-check:
+      enable: true
+      interval: 86400
+      url: http://www.gstatic.com/generate_204
+  ProxyList-SE:
+    type: http
+    url: https://se.url
+    interval: 86400
+    path: ./Proxy/SE/List-SE.yaml
+    health-check:
+      enable: true
+  ProxyList-Telegram:
+    type: http
+    url: https://telegram.url
+    interval: 86400
+    path: ./Proxy/Telegram/List-Telegram.yaml
+    health-check:
+      enable: true
+      interval: 86400
+      url: http://www.gstatic.com/generate_204
+proxy-groups:
+  - name: "Fallback"
+    type: fallback
+    use:
+      - ProxyList
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+  - name: "PROXY"
+    type: select
+    proxies:
+      - Fallback
+    use:
+      - ProxyList
+  - name: "MATCH"
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+  - name: "Streaming"
+    type: select
+    proxies:
+      - PROXY
+  - name: "StreamingSE"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - ProxyList-SE
+  - name: "Telegram"
+    type: select
+    proxies:
+      - PROXY
+    use:
+      - ProxyList-Telegram
+  - name: "OneDrive"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+  - name: "Advertisement"
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+rule-providers:
+  Unbreak:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Unbreak.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Unbreak.yaml
+    interval: 86400
+  Streaming:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/Streaming.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml
+    interval: 86400
+  StreamingSE:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/StreamingSE.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/StreamingSE.yaml
+    interval: 86400
+  Global:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Global.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
+    interval: 86400
+  China:
+    type: http
+    behavior: classical
+    path: ./RuleSet/China.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/Telegram.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Telegram/Telegram.yaml
+    interval: 86400
+  OneDrive:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/OneDrive.yaml
+    url: https://clash-sub.isteed.cc/RuleSet/Extra/Microsoft/OneDrive.yaml
+    interval: 86400
+  AD:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/AD.yaml
+    url: https://cors.isteed.cc/https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Clash/Basic/common-ad-keyword.yaml
+    interval: 86400
+  DirectCustom:
+    type: http
+    behavior: classical
+    path: ./RuleSet/DirectCustom.yaml
+    url: https://clash-sub.isteed.cc/RuleSet/DirectCustom.yaml
+    interval: 86400
+  ProxyCustom:
+    type: http
+    behavior: classical
+    path: ./RuleSet/ProxyCustom.yaml
+    url: https://clash-sub.isteed.cc/RuleSet/ProxyCustom.yaml
+    interval: 86400
+rules:
+  - RULE-SET,DirectCustom,DIRECT
+  - RULE-SET,ProxyCustom,PROXY
+  - RULE-SET,AD,Advertisement
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,OneDrive,OneDrive
+  - RULE-SET,Unbreak,DIRECT
+  - RULE-SET,Streaming,Streaming
+  - RULE-SET,StreamingSE,StreamingSE
+  - RULE-SET,Global,PROXY
+  - RULE-SET,China,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  - IP-CIDR,224.0.0.0/4,DIRECT
+  - IP-CIDR,fe80::/10,DIRECT
+  - IP-CIDR,119.28.28.28/32,DIRECT
+  - IP-CIDR,182.254.116.0/24,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,MATCH
