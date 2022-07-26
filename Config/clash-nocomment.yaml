@@ -187,23 +187,18 @@ proxy-groups:
     proxies:
       - DIRECT
       - PROXY
-  - name: "Advertisement"
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
 rule-providers:
   Unbreak:
     type: http
     behavior: classical
     path: ./RuleSet/Unbreak.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Unbreak.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Unbreak.yaml
     interval: 86400
   Streaming:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingMedia/Streaming.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Streaming.yaml
     interval: 86400
   StreamingSE:
     type: http
@@ -215,13 +210,13 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/Global.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Global.yaml
     interval: 86400
   China:
     type: http
     behavior: classical
     path: ./RuleSet/China.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
+    url: https://ruleset.isteed.cc/List/Clash/China.yaml
     interval: 86400
   Telegram:
     type: http
@@ -234,12 +229,6 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/Extra/OneDrive.yaml
     url: https://ruleset.isteed.cc/List/Clash/OneDrive.yaml
-    interval: 86400
-  AD:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Extra/AD.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Clash/Basic/common-ad-keyword.yaml
     interval: 86400
   DirectCustom:
     type: http
@@ -256,7 +245,6 @@ rule-providers:
 rules:
   - RULE-SET,DirectCustom,DIRECT
   - RULE-SET,ProxyCustom,PROXY
-  - RULE-SET,AD,Advertisement
   - RULE-SET,Telegram,Telegram
   - RULE-SET,OneDrive,OneDrive
   - RULE-SET,Unbreak,DIRECT

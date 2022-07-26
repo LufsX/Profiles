@@ -199,7 +199,6 @@ dns:
     - "xnotify.xboxlive.com"
     - "y.qq.com"
 
-
   # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
   # All DNS questions are sent directly to the nameserver, without proxies
   # involved. Clash answers the DNS question with the first result gathered.
@@ -471,12 +470,6 @@ proxy-groups:
       - PROXY
       # - 2
 
-  - name: "Advertisement"
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-
 # 关于 Rule Provider 请查阅：https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 
 rule-providers:
@@ -491,14 +484,14 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/Unbreak.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Unbreak.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Unbreak.yaml
     interval: 86400
 
   Streaming:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingMedia/Streaming.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Streaming.yaml
     interval: 86400
 
   StreamingSE:
@@ -512,14 +505,14 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/Global.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Global.yaml
     interval: 86400
 
   China:
     type: http
     behavior: classical
     path: ./RuleSet/China.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
+    url: https://ruleset.isteed.cc/List/Clash/China.yaml
     interval: 86400
 
   Telegram:
@@ -534,13 +527,6 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/Extra/OneDrive.yaml
     url: https://ruleset.isteed.cc/List/Clash/OneDrive.yaml
-    interval: 86400
-
-  AD:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Extra/AD.yaml
-    url: https://cors.isteed.cc/https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Clash/Basic/common-ad-keyword.yaml
     interval: 86400
 
   DirectCustom:
@@ -562,9 +548,6 @@ rules:
   # Custom
   - RULE-SET,DirectCustom,DIRECT
   - RULE-SET,ProxyCustom,PROXY
-
-  # common-ad-keyword
-  - RULE-SET,AD,Advertisement
 
   ## Telegram
   - RULE-SET,Telegram,Telegram
