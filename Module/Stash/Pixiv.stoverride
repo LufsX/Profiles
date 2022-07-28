@@ -14,5 +14,5 @@ http:
 
 script-providers: # by @SukkaW
   Unlock_Pixiv:
-    url: https://ruleset.isteed.cc/Script/pixiv_permium.js
+    url: https://ruleset.isteed.cc/Script/pixiv_premium.js
     interval: 86400
