@@ -11,6 +11,4 @@ if (body?.user) {
 }
 body = JSON.stringify(body);
 
-$done({ body })
-// Js by @SukkaW
-// https://github.com/SukkaW/Surge/blob/master/Script/pixiv_premium.js
+$done({ body });
