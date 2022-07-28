@@ -1,5 +1,5 @@
-#!name: Unlock Pixiv
-#!desc: 解锁 Pixiv Premium @Sk-itsu @LufsX
+#!name=Unlock Pixiv
+#!desc=解锁 Pixiv Premium @Sk-itsu @LufsX
 
 [MITM]
 hostname=%APPEND% oauth.secure.pixiv.net
