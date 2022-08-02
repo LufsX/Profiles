@@ -15,6 +15,8 @@ for dirpath, dirnames, filenames in os.walk('../List/Surge'):
                     f.writelines("")
                 elif line.startswith('#'):
                     line = '  '+line
+                elif line.startswith('USER-AGENT'):
+                    line = '  # - '+line
                 else:
                     line = '  - '+line
                 f.writelines(line)
