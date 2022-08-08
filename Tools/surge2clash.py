@@ -20,9 +20,9 @@ for dirpath, dirnames, filenames in os.walk('../List/Surge'):
                 # 处理 Clash 不支持的规则
                 elif line.startswith('USER-AGENT'):
                     line = '  # - '+line
-                # 处理 Domainset
-                elif line.startswith('.'):
-                    line = '  - *'+line
+                # # 处理 Domainset
+                # elif line.startswith('.'):
+                #     line = '  - *'+line
                 # 处理正常规则
                 else:
                     line = '  - '+line
