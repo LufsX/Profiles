@@ -166,6 +166,11 @@ proxy-groups:
     proxies:
       - PROXY
       - DIRECT
+  - name: "GUARD"
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
   - name: "Streaming"
     type: select
     proxies:
@@ -212,6 +217,12 @@ rule-providers:
     path: ./RuleSet/Global.yaml
     url: https://ruleset.isteed.cc/List/Clash/Global.yaml
     interval: 86400
+  Guard:
+    type: http
+    behavior: domain
+    path: ./RuleSet/Guard.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Guard.yaml
+    interval: 86400
   China:
     type: http
     behavior: classical
@@ -245,6 +256,7 @@ rule-providers:
 rules:
   - RULE-SET,DirectCustom,DIRECT
   - RULE-SET,ProxyCustom,PROXY
+  - RULE-SET,Guard,GUARD
   - RULE-SET,Telegram,Telegram
   - RULE-SET,OneDrive,OneDrive
   - RULE-SET,Unbreak,DIRECT
