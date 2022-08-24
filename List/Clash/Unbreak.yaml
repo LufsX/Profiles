@@ -37,3 +37,13 @@ payload:
   # > Umeng
   - DOMAIN,msg.umeng.com
   - DOMAIN,msg.umengcloud.com
+  # > Downloader
+  - PROCESS-NAME,aria2c
+  - PROCESS-NAME,fdm
+  - PROCESS-NAME,Folx
+  - PROCESS-NAME,NetTransport
+  - PROCESS-NAME,Thunder
+  - PROCESS-NAME,Transmission
+  - PROCESS-NAME,uTorrent
+  - PROCESS-NAME,WebTorrent
+  - PROCESS-NAME,WebTorrent Helper
