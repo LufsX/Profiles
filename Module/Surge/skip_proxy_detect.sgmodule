@@ -1,0 +1,6 @@
+#!name=Skip Proxy Detect
+#!desc=跳过部分应用的代理检测
+
+[General]
+
+skip-proxy = %APPEND% www.baidu.com, wxh.wo.cn
