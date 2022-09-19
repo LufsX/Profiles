@@ -31,3 +31,6 @@ payload:
 
   ## Apple cdn?
   - DOMAIN-KEYWORD,cdn-apple.com
+
+  ## PayPal
+  - DOMAIN-KEYWORD,payapl
