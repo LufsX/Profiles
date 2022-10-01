@@ -27,6 +27,7 @@ payload:
   # > Steam
   - DOMAIN-SUFFIX,cm.steampowered.com
   - DOMAIN,api.steampowered.com
+  - DOMAIN,store.steampowered.com
   # > Tencent
   - IP-CIDR,182.254.116.0/24,no-resolve
   - IP-CIDR,203.205.238.0/23,no-resolve
