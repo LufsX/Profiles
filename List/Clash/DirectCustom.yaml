@@ -34,3 +34,6 @@ payload:
 
   ## PayPal
   - DOMAIN-KEYWORD,payapl
+
+  ## Steam CDN
+  - DOMAIN-KEYWORD,steamcontent.com
