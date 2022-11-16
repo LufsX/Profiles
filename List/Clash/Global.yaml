@@ -515,3 +515,8 @@ payload:
   - DOMAIN,apple.comscoreresearch.com
   # >> Oracle
   - DOMAIN-SUFFIX,oracle.com
+  # >> Cloudflare Workers
+  - DOMAIN-SUFFIX,workers.dev
+  - DOMAIN-SUFFIX,pages.dev
+  # > Vercel
+  - DOMAIN-KEYWORD,vercel

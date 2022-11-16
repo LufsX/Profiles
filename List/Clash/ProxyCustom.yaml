@@ -16,5 +16,3 @@ payload:
   ## jsdelivr cdn
   - DOMAIN-SUFFIX,jsdelivr.com
   - DOMAIN-SUFFIX,cdn.jsdelivr.net
-  ## Cloudflare Workers
-  - DOMAIN-SUFFIX,workers.dev
