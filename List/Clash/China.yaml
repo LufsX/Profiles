@@ -4,7 +4,7 @@ payload:
   - DOMAIN-SUFFIX,gandi.net
   - DOMAIN-SUFFIX,snapdrop.net
   - DOMAIN,download.jetbrains.com
-  - DOMAIN,origin-a.akamaihd.net
+  - DOMAIN,origin-a.akamaihd.net # Origin Download
   # ---(Microsoft)---
   # > Outlook
   - DOMAIN,outlook.office365.com
@@ -25,9 +25,10 @@ payload:
   - DOMAIN-SUFFIX,paypal-mktg.com
   - DOMAIN-SUFFIX,paypalobjects.com
   # > Steam
-  - DOMAIN-SUFFIX,cm.steampowered.com
+  - DOMAIN-SUFFIX,cm.steampowered.com # Steam Connect Manager Servers
+  - DOMAIN-SUFFIX,steamserver.net
   - DOMAIN,api.steampowered.com
-  - DOMAIN,store.steampowered.com
+  # DOMAIN,store.steampowered.com
   # > Tencent
   - IP-CIDR,182.254.116.0/24,no-resolve
   - IP-CIDR,203.205.238.0/23,no-resolve

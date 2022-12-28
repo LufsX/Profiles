@@ -234,6 +234,7 @@ payload:
   - DOMAIN-SUFFIX,goog
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,gv.com
+  # DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,gvt0.com
   - DOMAIN-SUFFIX,gvt1.com
   - DOMAIN-SUFFIX,gvt3.com
@@ -249,6 +250,7 @@ payload:
   - DOMAIN-SUFFIX,synergyse.com
   - DOMAIN-SUFFIX,tenor.com
   - DOMAIN-SUFFIX,tensorflow.org
+  - DOMAIN-SUFFIX,tenor.com
   - DOMAIN-SUFFIX,tfhub.dev
   - DOMAIN-SUFFIX,tiltbrush.com
   - DOMAIN-SUFFIX,waveprotocol.org
@@ -412,7 +414,6 @@ payload:
   # > Steam
   - DOMAIN-SUFFIX,steamcommunity.com
   # DOMAIN,store.steampowered.com
-  # DOMAIN,store.steampowered.com
   # > Telegram
   - DOMAIN-SUFFIX,legra.ph
   - DOMAIN-SUFFIX,t.me
@@ -486,19 +487,19 @@ payload:
   - DOMAIN-SUFFIX,ifixit.com
   - DOMAIN-SUFFIX,terabox.com
   - DOMAIN-SUFFIX,zaobao.com.sg
-  - DOMAIN,addons.mozilla.org
+  - DOMAIN,addons.mozilla.org // Firefox Add-ons HTTP 451
   - DOMAIN,wego.here.com
   # > Alphabet
   - DOMAIN-SUFFIX,go.dev
   - DOMAIN-SUFFIX,golang.org
   # ---(Apple)---
-  - DOMAIN-SUFFIX,appsto.re
-  - DOMAIN-SUFFIX,smoot.apple.com
-  - DOMAIN,amp-api.podcasts.apple.com
-  - DOMAIN,beta.music.apple.com
-  - DOMAIN,books.itunes.apple.com
-  - DOMAIN,lookup-api.apple.com
-  - DOMAIN,radio.itunes.apple.com
+  - DOMAIN-SUFFIX,appsto.re // Apple URL Shortener
+  - DOMAIN-SUFFIX,smoot.apple.com // Spotlight
+  - DOMAIN,amp-api.podcasts.apple.com // Podcasts
+  - DOMAIN,beta.music.apple.com // Apple Music Web
+  - DOMAIN,books.itunes.apple.com // iBooks Store download
+  - DOMAIN,lookup-api.apple.com // Look Up
+  - DOMAIN,radio.itunes.apple.com // Apple Music Radio
   # > Web Preview
   - DOMAIN,apps.apple.com
   - DOMAIN,books.apple.com
