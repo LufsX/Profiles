@@ -14,6 +14,10 @@ payload:
   - .laomaotao.net
   - .weddingeeos.com
   - .rjno1.com
+  - .taio.app
+  - .headcaptcha.live
+  # fake pirate bay
+  - .thepiratebay3.com
 
   # >> Qihoo 360
   - hot.m.shouji.360tpcdn.com
@@ -246,7 +250,6 @@ payload:
   - .appboy.com
   - .appier.net
   - .appnext.com
-  - .appsflyer.com
   - .apptentive.com
   - .atwola.com
   - .bidswitch.com
@@ -425,7 +428,6 @@ payload:
   - stats.umsns.com
   - trackapp.guahao.cn
   - traffic.mogujie.com
-  - .mmstat.com
   - wmlog.meituan.com
   - ad.winrar.com.cn
   - .inner-active.mobi
@@ -566,6 +568,12 @@ payload:
   - events.jianshu.io
   - .mobileadtrading.com
 
+  - t.yesware.com
+  - .charlestownwyllie.oaklawnnonantum.com
+  - .auwrtou.cn
+
+  - .shockynews.com
+
   # >> Tracking
   - tracking.yorg.app
   - .taginstall.com
@@ -584,6 +592,7 @@ payload:
   - .ironbeast.io
   - static.hotjar.com
   - script.hotjar.com
+  - vars.hotjar.com
   - .onesignal.com
   - collector.xhamster.com
   - dc.services.visualstudio.com
@@ -616,6 +625,9 @@ payload:
   - .collect.yinyuetai.com
   - .sdklog.uu.cc
   - .tagtic.cn
+  - sa.holopin.io
+  - analytics.infomaniak.com
+  - .prtrackings.com
 
   - .adjust.io
   - .airbrake.io
@@ -627,7 +639,6 @@ payload:
   - .burstly.com
   - .chartboost.com
   - .count.ly
-  - .crashlytics.com
   - .crittercism.com
   - .do-not-tracker.org
   - .eviltracker.net
@@ -645,6 +656,8 @@ payload:
   - .telemetry.mozilla.org
   - .union.6.cn
   - api-analytics-cn.huami.com
+  - stat.u.sb
+  - .footprintdns.com
 
   - .stats.mokeedev.com
   - tongji.tom.com
@@ -675,6 +688,16 @@ payload:
   - .iad.apple.com
   - .qwapi.com
   - .wwads.cn
+
+  # >> Crashlytics
+  - e.crashlytics.com
+  - reports.crashlytics.com
+  - settings.crashlytics.com
+
+  # >> AppFlyer
+  - events.appsflyer.com
+  - stats.appsflyer.com
+  - t.appsflyer.com
 
   # >> Spotify
   - adeventtracker.spotify.com
@@ -730,12 +753,7 @@ payload:
   - .googletraveladservices.com
 
   # >> Huawei
-  - metrics.data.hicloud.com
-  - metrics1.data.hicloud.com
-  - metrics2.data.hicloud.com
-  - metrics3.data.hicloud.com
-  - metrics4.data.hicloud.com
-  - metrics5.data.hicloud.com
+  - .data.hicloud.com
   - logservice.hicloud.com
   - logservice1.hicloud.com
 
@@ -944,6 +962,7 @@ payload:
   - .toolbar.baidu.com
   - .tracker.baidu.com
   - .tuijian.baidu.com
+  - .ubmcmm.baidustatic.com
 
   # >> Qihoo 360
   - .stat.360safe.com
@@ -1291,7 +1310,6 @@ payload:
   - adnet.sohu.com
   - adv-sv-show.focus.cn
   - data.vod.itc.cn
-  - epro.sogou.com
   - go.sohu.com
   - golden1.sogou.com
   - .optaim.com
@@ -1678,3 +1696,11 @@ payload:
   - adserve2.tom.com
   - .pub.tom.com
   - .discovery.tom.com
+
+  # brightdata (luminati) SDK
+  - .lum-sdk.io
+  - .luminatinet.com
+  - .luminati-china.io
+  - .luminati.io
+  - .lum-cn.io
+  - .luminati-china.biz
