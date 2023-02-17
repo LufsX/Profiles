@@ -388,14 +388,6 @@ payload:
   - DOMAIN,assets2.xboxlive.com
   - DOMAIN,az416426.vo.msecnd.net
   - DOMAIN,az668014.vo.msecnd.net
-  - DOMAIN-SUFFIX,office365.com
-  - DOMAIN-SUFFIX,windows.net
-  # ------
-  - DOMAIN-SUFFIX,bing.com
-  - DOMAIN-SUFFIX,linkedin.com
-  - DOMAIN-SUFFIX,licdn.com
-  - DOMAIN-SUFFIX,msn.com
-  - DOMAIN-SUFFIX,skype.com
   # > Pinterest
   - DOMAIN-SUFFIX,pinimg.com
   - DOMAIN-KEYWORD,.pinterest.
@@ -521,3 +513,10 @@ payload:
   - DOMAIN-SUFFIX,pages.dev
   # > Vercel
   - DOMAIN-KEYWORD,vercel
+  # ------
+  # > Microsoft
+  - DOMAIN-SUFFIX,bing.com
+  - DOMAIN-SUFFIX,linkedin.com
+  - DOMAIN-SUFFIX,licdn.com
+  - DOMAIN-SUFFIX,msn.com
+  - DOMAIN-SUFFIX,skype.com
