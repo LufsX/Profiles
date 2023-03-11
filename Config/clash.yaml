@@ -403,16 +403,6 @@ proxy-groups:
   #     - DuckDuckGoUS # 这是上面「proxy-providers」的名称
 
   # Fallback 比较实用的策略组类型，用于测试服务器节点的可用性，当第一个节点不可用时切换到第二个，以此类推。
-  - name: "Fallback"
-    type: fallback
-    # proxies:
-    #   - 1
-    #   - 2
-    #   - 3
-    use:
-      - ProxyList
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
 
   # 代理节点选择
   - name: "PROXY"
@@ -476,6 +466,27 @@ proxy-groups:
       - PROXY
       # - 2
 
+  - name: "Autotest"
+    type: url-test
+    # proxies:
+    #   - 1
+    #   - 2
+    #   - 3
+    use:
+      - ProxyList
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+
+  - name: "Fallback"
+    type: fallback
+    # proxies:
+    #   - 1
+    #   - 2
+    #   - 3
+    use:
+      - ProxyList
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
 # 关于 Rule Provider 请查阅：https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 
 rule-providers:
