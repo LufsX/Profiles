@@ -153,6 +153,7 @@ proxy-groups:
     type: select
     proxies:
       - Fallback
+      - Autotest
     use:
       - ProxyList
   - name: "MATCH"

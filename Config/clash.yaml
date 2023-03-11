@@ -409,6 +409,7 @@ proxy-groups:
     type: select
     proxies:
       - Fallback
+      - Autotest
       # - 1
       # - 2
       # - 3
