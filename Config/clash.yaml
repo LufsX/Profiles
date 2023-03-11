@@ -408,8 +408,8 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Fallback
       - Autotest
+      - Fallback
       # - 1
       # - 2
       # - 3

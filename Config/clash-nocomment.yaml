@@ -152,8 +152,8 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Fallback
       - Autotest
+      - Fallback
     use:
       - ProxyList
   - name: "MATCH"
