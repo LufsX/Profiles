@@ -91,8 +91,8 @@ dns:
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
   default-nameserver:
-    - 119.29.29.29
     - 223.6.6.6
+    - 119.29.29.29
   enhanced-mode: fake-ip # or redir-host
   fake-ip-range: 198.18.0.1/16 # Fake IP addresses pool CIDR
   # use-hosts: true # lookup hosts and return IP record
