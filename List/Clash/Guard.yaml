@@ -572,8 +572,6 @@ payload:
   - .charlestownwyllie.oaklawnnonantum.com
   - .auwrtou.cn
 
-  - .shockynews.com
-
   # >> Tracking
   - tracking.yorg.app
   - .taginstall.com
@@ -590,12 +588,8 @@ payload:
   - .atom-data.io
   - .analytics-data.io
   - .ironbeast.io
-  - static.hotjar.com
-  - script.hotjar.com
-  - vars.hotjar.com
   - .onesignal.com
   - collector.xhamster.com
-  - dc.services.visualstudio.com
   - firebaselogging-pa.googleapis.com
   - in.appcenter.ms
   - e2clock.gcp.gvt2.com
@@ -663,10 +657,13 @@ payload:
   - tongji.tom.com
   - ads.tvb.com
   - ad.juksy.com
-  - .actonservice.com
   - tag.clearbitscripts.com
 
   - femetrics.grammarly.io
+  - f-log-extension.grammarly.io
+  - femetrics.qagr.io
+
+  - cname.ebis.ne.jp
 
   # >> Alexa
   - data.alexa.com
@@ -705,6 +702,7 @@ payload:
   - .log.spotify.com
 
   # >> Microsoft
+  - mobile.events.data.microsoft.com
   - .vortex-win.data.microsoft.com
   - .vortex.data.microsoft.com
   - .vortex.data.microsoft.com.akadns.net
