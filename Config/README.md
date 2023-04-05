@@ -23,7 +23,7 @@ Clash 仅兼容 Premium 内核
 
 # 策略组说明
 
-策略组是可以嵌套选择的，比如现在有个 `PROXY` 策略组，这个策略组选择了 `EXAMPLE` 策略组，而 `EXAMPLE` 策略组选择了 `TEST` `策略组，TEST` 策略组选择了 `HK1`
+策略组是可以嵌套选择的，比如现在有个 `PROXY` 策略组，这个策略组选择了 `EXAMPLE` 策略组，而 `EXAMPLE` 策略组选择了 `TEST` 策略组，`TEST` 策略组选择了 `HK1`
 
 则整个链路为 `PROXY` -> `EXAMPLE` -> `TEST` -> `HK1`，既最后为 `HK1` 在起作用
 
