@@ -341,7 +341,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: https://cp.cloudflare.com/generate_204
   ProxyList-SE:
     <<: *ProxyList
     filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳"
@@ -461,7 +461,7 @@ proxy-groups:
     #   - 3
     use:
       - ProxyList
-    url: "http://www.gstatic.com/generate_204"
+    url: "https://cp.cloudflare.com/generate_204"
     interval: 300
 
   - name: "Fallback"
@@ -472,7 +472,7 @@ proxy-groups:
     #   - 3
     use:
       - ProxyList
-    url: "http://www.gstatic.com/generate_204"
+    url: "https://cp.cloudflare.com/generate_204"
     interval: 300
 # 关于 Rule Provider 请查阅：https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 
