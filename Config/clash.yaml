@@ -344,7 +344,7 @@ proxy-providers:
       url: https://cp.cloudflare.com/generate_204
   ProxyList-SE:
     <<: *ProxyList
-    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳"
+    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳门"
   ProxyList-Telegram:
     <<: *ProxyList
     filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国"
