@@ -333,7 +333,7 @@ proxy-providers:
   #     interval: 600
   #     url: http://www.gstatic.com/generate_204
 
-  ProxyList:
+  ProxyList: &ProxyList
     type: http
     url: https://url
     interval: 86400
@@ -342,22 +342,12 @@ proxy-providers:
       enable: true
       interval: 86400
       url: http://www.gstatic.com/generate_204
-  ProxyList-SE:
-    type: http
-    url: https://se.url
-    interval: 86400
-    path: ./Proxy/SE/List-SE.yaml
-    health-check:
-      enable: true
+  ProxyList-StreamSE:
+    <<: *ProxyList
+    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|港|台"
   ProxyList-Telegram:
-    type: http
-    url: https://telegram.url
-    interval: 86400
-    path: ./Proxy/Telegram/List-Telegram.yaml
-    health-check:
-      enable: true
-      interval: 86400
-      url: http://www.gstatic.com/generate_204
+    <<: *ProxyList
+    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国"
 
 proxy-groups:
   # 策略组示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
