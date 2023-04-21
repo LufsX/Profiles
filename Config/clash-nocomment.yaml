@@ -5,8 +5,6 @@ mode: rule
 log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
-hosts:
-  "mtalk.google.com": 108.177.125.188
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -17,7 +15,6 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "*.126.net"
-    - "*.example"
     - "*.ffxiv.com"
     - "*.finalfantasyxiv.com"
     - "*.home.arpa"
@@ -25,11 +22,8 @@ dns:
     - "*.kuwo.cn"
     - "*.lan"
     - "*.linksys.com"
-    - "*.linksys.com"
-    - "*.linksyssmartwifi.com"
     - "*.linksyssmartwifi.com"
     - "*.local"
-    - "*.localdomain"
     - "*.localhost"
     - "*.mcdn.bilivideo.cn"
     - "*.msftconnecttest.com"
@@ -37,13 +31,8 @@ dns:
     - "*.music.163.com"
     - "*.music.migu.cn"
     - "*.ntp.org.cn"
-    - "*.pool.ntp.org"
     - "*.router.asus.com"
     - "*.square-enix.com"
-    - "*.test"
-    - "*.time.edu.cn"
-    - "*.xiami.com"
-    - "*.y.qq.com"
     - "+.battlenet.com.cn"
     - "+.nflxvideo.net"
     - "+.pool.ntp.org"
@@ -51,19 +40,15 @@ dns:
     - "+.stun.*.*"
     - "+.stun.*.*.*"
     - "+.stun.*.*.*.*"
-    - "+.stun.playstation.net"
     - "+.wargaming.net"
     - "+.wggames.cn"
     - "+.wotgame.cn"
     - "+.wowsgame.cn"
     - "amobile.music.tc.qq.com"
-    - "api-jooxtt.sanook.com"
-    - "api.joox.com"
     - "aqqmusic.tc.qq.com"
     - "dl.stream.qqmusic.qq.com"
     - "heartbeat.belkin.com"
     - "isure.stream.qqmusic.qq.com"
-    - "joox.com"
     - "lens.l.google.com"
     - "localhost.ptlogin2.qq.com"
     - "localhost.sec.qq.com"
@@ -71,21 +56,15 @@ dns:
     - "mobileoc.music.tc.qq.com"
     - "msftconnecttest.com"
     - "msftncsi.com"
-    - "music.163.com"
-    - "music.migu.cn"
-    - "music.taihe.com"
-    - "musicapi.taihe.com"
-    - "ntp.*.com"
-    - "ntp.*.com"
-    - "ntp1.*.com"
-    - "ntp2.*.com"
-    - "ntp3.*.com"
-    - "ntp4.*.com"
-    - "ntp5.*.com"
-    - "ntp6.*.com"
-    - "ntp7.*.com"
+    - "ntp.*.*"
+    - "ntp1.*.*"
+    - "ntp2.*.*"
+    - "ntp3.*.*"
+    - "ntp4.*.*"
+    - "ntp5.*.*"
+    - "ntp6.*.*"
+    - "ntp7.*.*"
     - "proxy.golang.org"
-    - "songsearch.kugou.com"
     - "streamoc.music.tc.qq.com"
     - "stun.*.*"
     - "stun.*.*.*"
@@ -95,59 +74,71 @@ dns:
     - "swdownload.apple.com"
     - "swquery.apple.com"
     - "swscan.apple.com"
-    - "time.*.apple.com"
-    - "time.*.com"
+    - "time.*.*"
+    - "time.*.*.*"
     - "time.*.edu.cn"
     - "time.*.gov"
-    - "time1.*.com"
-    - "time1.cloud.tencent.com"
-    - "time2.*.com"
-    - "time3.*.com"
-    - "time4.*.com"
-    - "time5.*.com"
-    - "time6.*.com"
-    - "time7.*.com"
-    - "time8.*.com"
-    - "time9.*.com"
-    - "trackercdn.kugou.com"
+    - "time1.*.*"
+    - "time2.*.*"
+    - "time3.*.*"
+    - "time4.*.*"
+    - "time5.*.*"
+    - "time6.*.*"
+    - "time7.*.*"
+    - "time8.*.*"
+    - "time9.*.*"
     - "xbox.*.microsoft.com"
     - "xnotify.xboxlive.com"
-    - "y.qq.com"
   nameserver:
-    - 119.29.29.29
     - 223.6.6.6
+    - 119.29.29.29
     - tls://dns.pub:853
     - tls://dns.alidns.com:853
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
   fallback-filter:
     geoip: true
+    geoip-code: CN
+    domain:
+      - "+.facebook.com"
+      - "+.github.com"
+      - "+.google.com"
+      - "+.youtube.com"
     ipcidr:
+      - "0.0.0.0/8"
+      - "10.0.0.0/8"
+      - "100.64.0.0/10"
+      - "127.0.0.0/8"
+      - "169.254.0.0/16"
+      - "172.16.0.0/12"
+      - "192.0.0.0/24"
+      - "192.0.2.0/24"
+      - "192.168.0.0/16"
+      - "192.88.99.0/24"
+      - "198.18.0.0/15"
+      - "198.51.100.0/24"
+      - "203.0.113.0/24"
+      - "220.0.0.0/4"
+      - "224.0.0.0/3"
+      - "240.0.0.0/4"
 proxies:
 proxy-providers:
-  ProxyList:
+  ProxyList: &ProxyList
     type: http
     url: https://url
     interval: 86400
     path: ./Proxy/List.yaml
     health-check:
       enable: true
-      interval: 86400
+      interval: 600
       url: http://www.gstatic.com/generate_204
-  ProxyList-SE:
-    type: http
-    url: https://se.url
-    interval: 86400
-    path: ./Proxy/SE/List-SE.yaml
-    health-check:
-      enable: true
+  ProxyList-StreamSE:
+    <<: *ProxyList
+    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳"
   ProxyList-Telegram:
-    type: http
-    url: https://telegram.url
-    interval: 86400
-    path: ./Proxy/Telegram/List-Telegram.yaml
-    health-check:
-      enable: true
-      interval: 86400
-      url: http://www.gstatic.com/generate_204
+    <<: *ProxyList
+    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国"
 proxy-groups:
   - name: "PROXY"
     type: select

@@ -340,11 +340,11 @@ proxy-providers:
     path: ./Proxy/List.yaml
     health-check:
       enable: true
-      interval: 86400
+      interval: 600
       url: http://www.gstatic.com/generate_204
   ProxyList-StreamSE:
     <<: *ProxyList
-    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|港|台"
+    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳"
   ProxyList-Telegram:
     <<: *ProxyList
     filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国"
