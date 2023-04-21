@@ -342,7 +342,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  ProxyList-StreamSE:
+  ProxyList-SE:
     <<: *ProxyList
     filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳"
   ProxyList-Telegram:
