@@ -181,8 +181,8 @@ dns:
   # All DNS questions are sent directly to the nameserver, without proxies
   # involved. Clash answers the DNS question with the first result gathered.
   nameserver:
-    - 119.29.29.29
     - 223.6.6.6
+    - 119.29.29.29
     - tls://dns.pub:853 # DNS over TLS
     - tls://dns.alidns.com:853 # DNS over TLS
     # - tls://dns.rubyfish.cn:853 # DNS over TLS
@@ -192,8 +192,9 @@ dns:
   # to the servers in this section along with servers in `nameservers`.
   # The answers from fallback servers are used when the GEOIP country
   # is not `CN`.
-  # fallback:
-  #   - tcp://1.1.1.1
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
 
   # If IP addresses resolved with servers in `nameservers` are in the specified
   # subnets below, they are considered invalid and results from `fallback`
@@ -208,12 +209,29 @@ dns:
   # This is a countermeasure against DNS pollution attacks.
   fallback-filter:
     geoip: true
+    geoip-code: CN
+    domain:
+      - "+.facebook.com"
+      - "+.github.com"
+      - "+.google.com"
+      - "+.youtube.com"
     ipcidr:
-      # - 240.0.0.0/4
-    # domain:
-    #   - '+.google.com'
-    #   - '+.facebook.com'
-    #   - '+.youtube.com'
+      - "0.0.0.0/8"
+      - "10.0.0.0/8"
+      - "100.64.0.0/10"
+      - "127.0.0.0/8"
+      - "169.254.0.0/16"
+      - "172.16.0.0/12"
+      - "192.0.0.0/24"
+      - "192.0.2.0/24"
+      - "192.168.0.0/16"
+      - "192.88.99.0/24"
+      - "198.18.0.0/15"
+      - "198.51.100.0/24"
+      - "203.0.113.0/24"
+      - "220.0.0.0/4"
+      - "224.0.0.0/3"
+      - "240.0.0.0/4"
 
 #
 # https://github.com/Dreamacro/clash/wiki/premium-core-features
