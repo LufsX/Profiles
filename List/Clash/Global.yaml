@@ -191,7 +191,7 @@ payload:
   - DOMAIN,a771.dscq.akamai.net
   # > Amazon
   - DOMAIN-SUFFIX,amazon.co.jp
-  - DOMAIN,d3c33hcgiwev3.cloudfront.net
+  - DOMAIN-SUFFIX,cloudfront.net
   - DOMAIN,payments-jp.amazon.com
   - DOMAIN,s3-ap-northeast-1.amazonaws.com
   - DOMAIN,s3-ap-southeast-2.amazonaws.com
@@ -380,6 +380,8 @@ payload:
   - DOMAIN-SUFFIX,github.blog
   - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,github.io
+  - DOMAIN-SUFFIX,githubstatus.com
+  - DOMAIN-SUFFIX,github.community
   - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,githubusercontent.com
   - DOMAIN-SUFFIX,onedrive.live.com
@@ -479,19 +481,24 @@ payload:
   - DOMAIN-SUFFIX,ifixit.com
   - DOMAIN-SUFFIX,terabox.com
   - DOMAIN-SUFFIX,zaobao.com.sg
-  - DOMAIN,addons.mozilla.org // Firefox Add-ons HTTP 451
+  - DOMAIN,addons.mozilla.org
   - DOMAIN,wego.here.com
   # > Alphabet
   - DOMAIN-SUFFIX,go.dev
   - DOMAIN-SUFFIX,golang.org
   # ---(Apple)---
-  - DOMAIN-SUFFIX,appsto.re // Apple URL Shortener
-  - DOMAIN-SUFFIX,smoot.apple.com // Spotlight
-  - DOMAIN,amp-api.podcasts.apple.com // Podcasts
-  - DOMAIN,beta.music.apple.com // Apple Music Web
-  - DOMAIN,books.itunes.apple.com // iBooks Store download
-  - DOMAIN,lookup-api.apple.com // Look Up
-  - DOMAIN,radio.itunes.apple.com // Apple Music Radio
+  - DOMAIN-SUFFIX,appsto.re
+  - DOMAIN-SUFFIX,smoot.apple.com
+  - DOMAIN,amp-api.podcasts.apple.com
+  - DOMAIN,audiocontentdownload.apple.com
+  - DOMAIN,beta.itunes.apple.com
+  - DOMAIN,beta.music.apple.com
+  - DOMAIN,books.itunes.apple.com
+  - DOMAIN,embed.music.apple.com
+  - DOMAIN,hls.itunes.apple.com
+  - DOMAIN,lookup-api.apple.com
+  - DOMAIN,news-edge.apple.com
+  - DOMAIN,radio.itunes.apple.com
   # > Web Preview
   - DOMAIN,apps.apple.com
   - DOMAIN,books.apple.com
@@ -513,6 +520,7 @@ payload:
   - DOMAIN-SUFFIX,pages.dev
   # > Vercel
   - DOMAIN-KEYWORD,vercel
+  - DOMAIN-SUFFIX,now.sh
   # ------
   # > Microsoft
   - DOMAIN-SUFFIX,bing.com
@@ -520,3 +528,18 @@ payload:
   - DOMAIN-SUFFIX,licdn.com
   - DOMAIN-SUFFIX,msn.com
   - DOMAIN-SUFFIX,skype.com
+  - DOMAIN-SUFFIX,office365.com
+  - DOMAIN-SUFFIX,windows.net
+  # >> Other
+  - DOMAIN,ccmdl.adobe.com
+  - DOMAIN,media.steampowered.com
+  - DOMAIN,wego.here.com
+
+  - DOMAIN-SUFFIX,gameloft.com
+  - DOMAIN-SUFFIX,majsoul.union-game.com
+
+  - DOMAIN-SUFFIX,520cc.cc
+  - DOMAIN-SUFFIX,majsoul.union-game.com
+  - DOMAIN-SUFFIX,newsblur.com
+
+  - DOMAIN-SUFFIX,mojang.com
