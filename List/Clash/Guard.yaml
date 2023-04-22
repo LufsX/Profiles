@@ -591,7 +591,6 @@ payload:
   - .onesignal.com
   - collector.xhamster.com
   - firebaselogging-pa.googleapis.com
-  - in.appcenter.ms
   - e2clock.gcp.gvt2.com
   - s.deepl.com
   - geolocation.onetrust.com
