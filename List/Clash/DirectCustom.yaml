@@ -38,3 +38,7 @@ payload:
   ## Steam CDN
   - DOMAIN-KEYWORD,steamcontent.com
   - DOMAIN-KEYWORD,steamstatic.com
+
+  ## Emby
+  - DOMAIN-SUFFIX,mulgore.net
+  - DOMAIN-SUFFIX,tseb.cloud
