@@ -110,7 +110,7 @@ proxy-providers:
     filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳门"
   ProxyList-Telegram:
     <<: *ProxyList
-    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国"
+    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国|Premium"
 proxy-groups:
   - name: "PROXY"
     type: select

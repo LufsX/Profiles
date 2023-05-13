@@ -347,7 +347,7 @@ proxy-providers:
     filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳门"
   ProxyList-Telegram:
     <<: *ProxyList
-    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国"
+    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国|Premium"
 
 proxy-groups:
   # 策略组示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
