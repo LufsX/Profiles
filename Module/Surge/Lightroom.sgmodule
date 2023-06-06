@@ -5,4 +5,4 @@
 hostname=%APPEND% photos.adobe.io
 
 [Script]
-Lightroom = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts,requires-body=1,max-size=0,script-path=https://ruleset.isteed.cc/Script/lightroom.js
+Lightroom = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts,requires-body=1,max-size=0,script-path=https://ruleset.isteed.cc/Script/lightroom.min.js

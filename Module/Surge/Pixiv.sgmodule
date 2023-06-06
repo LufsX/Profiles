@@ -5,4 +5,4 @@
 hostname=%APPEND% oauth.secure.pixiv.net
 
 [Script]
-Pixiv = type=http-response,pattern=^https:\/\/oauth\.secure\.pixiv\.net\/auth\/token,requires-body=1,max-size=0,script-path=https://ruleset.isteed.cc/Script/pixiv_premium.js
+Pixiv = type=http-response,pattern=^https:\/\/oauth\.secure\.pixiv\.net\/auth\/token,requires-body=1,max-size=0,script-path=https://ruleset.isteed.cc/Script/pixiv_premium.min.js
