@@ -1,4 +1,4 @@
-mixed-port: 7890
+mixed-port: 7767
 allow-lan: true
 bind-address: "*"
 mode: rule
@@ -172,13 +172,13 @@ rule-providers:
   Streaming:
     type: http
     behavior: classical
-    path: ./RuleSet/StreamingMedia/Streaming.yaml
+    path: ./RuleSet/Streaming.yaml
     url: https://ruleset.isteed.cc/List/Clash/Streaming.yaml
     interval: 86400
   StreamingSE:
     type: http
     behavior: classical
-    path: ./RuleSet/StreamingMedia/StreamingSE.yaml
+    path: ./RuleSet/StreamingSE.yaml
     url: https://ruleset.isteed.cc/List/Clash/StreamingSE.yaml
     interval: 86400
   Global:
@@ -199,16 +199,22 @@ rule-providers:
     path: ./RuleSet/China.yaml
     url: https://ruleset.isteed.cc/List/Clash/China.yaml
     interval: 86400
+  ChinaIP:
+    type: http
+    behavior: classical
+    path: ./RuleSet/ChinaIP.yaml
+    url: https://ruleset.isteed.cc/List/Clash/ChinaIP.yaml
+    interval: 86400
   Telegram:
     type: http
     behavior: classical
-    path: ./RuleSet/Extra/Telegram.yaml
+    path: ./RuleSet/Telegram.yaml
     url: https://ruleset.isteed.cc/List/Clash/Telegram.yaml
     interval: 86400
   OneDrive:
     type: http
     behavior: classical
-    path: ./RuleSet/Extra/OneDrive.yaml
+    path: ./RuleSet/OneDrive.yaml
     url: https://ruleset.isteed.cc/List/Clash/OneDrive.yaml
     interval: 86400
   DirectCustom:
@@ -227,9 +233,9 @@ rules:
   - RULE-SET,DirectCustom,DIRECT
   - RULE-SET,ProxyCustom,PROXY
   - RULE-SET,Guard,GUARD
+  - RULE-SET,Unbreak,DIRECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,OneDrive,OneDrive
-  - RULE-SET,Unbreak,DIRECT
   - RULE-SET,Streaming,Streaming
   - RULE-SET,StreamingSE,StreamingSE
   - RULE-SET,Global,PROXY
@@ -241,7 +247,5 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,224.0.0.0/4,DIRECT
   - IP-CIDR,fe80::/10,DIRECT
-  - IP-CIDR,119.28.28.28/32,DIRECT
-  - IP-CIDR,182.254.116.0/24,DIRECT
-  - GEOIP,CN,DIRECT
+  - RULE-SET,ChinaIP,DIRECT
   - MATCH,MATCH
