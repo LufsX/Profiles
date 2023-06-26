@@ -5,6 +5,8 @@ payload:
   # Pangu advertisement
   - .pglstatp-toutiao.com
   - .pangolin-sdk-toutiao.com
+  - .pangolin-sdk-toutiao1.com
+  - .pangolin-sdk-toutiao-b.com
   # Tracker
   - utoken.umeng.com
   - .ut.taobao.com
