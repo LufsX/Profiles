@@ -8,12 +8,12 @@ payload:
   - .pangolin-sdk-toutiao1.com
   - .pangolin-sdk-toutiao-b.com
   # Tracker
-  - utoken.umeng.com
-  - .ut.taobao.com
-  - mon.zijieapi.com
-  - shark-tracer.netease.com
-  - .shuzilm.cn
-  - guid.tpns.tencent.com
+  # utoken.umeng.com
+  # .ut.taobao.com
+  # mon.zijieapi.com
+  # shark-tracer.netease.com
+  # .shuzilm.cn
+  # guid.tpns.tencent.com
 
   # >> General
   - .kuaizip.com
