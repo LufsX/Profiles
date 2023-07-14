@@ -85,8 +85,8 @@ external-controller: 127.0.0.1:9090
 # This section is optional. When not present, the DNS server will be disabled.
 dns:
   enable: true
-  listen: 0.0.0.0:53
-  # ipv6: false # when the false, response to AAAA questions will be empty
+  listen: 0.0.0.0:1053
+  ipv6: false # when the false, response to AAAA questions will be empty
 
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
@@ -236,14 +236,14 @@ dns:
 #
 # https://github.com/Dreamacro/clash/wiki/premium-core-features
 #
-# tun:
-#   enable: true
-#   stack: system # or gvisor
-#   # dns-hijack:
-#   #   - 8.8.8.8:53
-#   #   - tcp://8.8.8.8:53
-#   macOS-auto-route: true # auto set global route
-#   macOS-auto-detect-interface: true # conflict with interface-name
+tun:
+  enable: true
+  stack: system # or gvisor
+  dns-hijack:
+    - any:53
+  auto-route: true # manage `ip route` and `ip rules`
+  auto-redir: true # manage nftable REDIRECT
+  auto-detect-interface: true # conflict with `interface-name`
 
 proxies:
   # 支持的协议及加密算法示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration

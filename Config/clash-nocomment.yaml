@@ -7,7 +7,8 @@ ipv6: false
 external-controller: 127.0.0.1:9090
 dns:
   enable: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
+  ipv6: false
   default-nameserver:
     - 223.6.6.6
     - 119.29.29.29
@@ -94,6 +95,14 @@ dns:
     - 119.29.29.29
     - tls://dns.pub:853
     - tls://dns.alidns.com:853
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-redir: true
+  auto-detect-interface: true
 proxies:
 proxy-providers:
   ProxyList: &ProxyList
