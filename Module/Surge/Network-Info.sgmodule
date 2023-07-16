@@ -9,7 +9,7 @@
 NetInfoPanel=title="",content="",style=info,script-name=net-info-panel.js,update-interval=1
 
 [Script]
-net-info-panel.js=script-path=https://ruleset.isteed.cc/Script/network_info.min.js,type=generic,timeout=30
+net-info-panel.js=script-path=https://ruleset.isteed.cc/Script/network_info.js,type=generic,timeout=30
 
 [Host]
 ip-api.com = 208.95.112.1
