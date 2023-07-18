@@ -193,7 +193,7 @@ rule-providers:
     interval: 86400
   AppleCDN:
     type: http
-    behavior: classical
+    behavior: domain
     path: ./RuleSet/AppleCDN.yaml
     url: https://ruleset.isteed.cc/List/Clash/AppleCDN.yaml
     interval: 86400
