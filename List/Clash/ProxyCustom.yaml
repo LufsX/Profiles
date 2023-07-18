@@ -5,7 +5,7 @@ payload:
   ## https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Rulesets/Clash/Basic/Apple-proxy.yaml
   - DOMAIN,developer.apple.com
   - DOMAIN-SUFFIX,digicert.com
-  - PROCESS-NAME,trustd,Proxy
+  - PROCESS-NAME,trustd
   - DOMAIN-SUFFIX,apple-dns.net
   - DOMAIN,testflight.apple.com
   - DOMAIN,sandbox.itunes.apple.com
