@@ -201,7 +201,6 @@ payload:
   - .ok365.com
   - .114so.cn
   - .dragonparking.com
-  - .minisplat.cn
 
   # --- AD Block ---
 
@@ -219,6 +218,7 @@ payload:
   - .mradx.net
   - .sdk.qzbonline.com
   - stat.loli.net
+  - analyze.innei.ren
   - .x.clearbitjs.com
   - .1391.com
   - .3lift.com
@@ -341,7 +341,6 @@ payload:
   - .nr-data.net
   - .odb.outbrain.com
   - .offerstrack.net
-  - .omtrdc.net
   - .outbrain.com
   - .parsely.com
   - .peak-adx.com
@@ -544,7 +543,6 @@ payload:
   - .ssacdn.com
   - supersonicads-a.akamaihd.net
 
-  - .uberads.com
 
   - .ad-plus.cn
   - .hot-mob.com
@@ -612,7 +610,6 @@ payload:
   - .analytics.live.com
   - .gridsumdissector.com
   - .gridsum.com
-  - .growingio.com
   - .gtags.net
   - .statcounter.com
   - .segment.io
@@ -623,7 +620,6 @@ payload:
   - informer.yandex.ru
   - analytics.slashdotmedia.com
   - .bluekai.com
-  - .bkrtx.com
   - .ads.pro-market.net
   - .stat.xtom.com
   - .analytics.archive.org
@@ -640,7 +636,6 @@ payload:
   - .apsalar.com
   - .bango.combango.org
   - .bango.net
-  - .bkrtx.com
   - .bugsense.com
   - .burstly.com
   - .chartboost.com
@@ -663,7 +658,6 @@ payload:
   - .union.6.cn
   - api-analytics-cn.huami.com
   - stat.u.sb
-  - .footprintdns.com
 
   - .stats.mokeedev.com
   - tongji.tom.com
@@ -789,8 +783,6 @@ payload:
   - logservice-dra.platform.hicloud.com
   - logservice-dre.platform.dbankcloud.cn
   - logservice-dre.platform.hicloud.com
-  - logservice.hicloud.com
-  - logservice1.hicloud.com
 
   # >> JD
   - jrad.jd.com
@@ -828,7 +820,6 @@ payload:
   - afp.alicdn.com
   - agoodm.m.taobao.com
   - agoodm.wapa.taobao.com
-  - .alipaylog.com
   - amdc.alipay.com
   - amdc.m.taobao.com
   - api.wapa.taobao.com
@@ -921,9 +912,6 @@ payload:
   - .umeng.cn
   - .umeng.com
   - .umengcloud.com
-  - .mobmore.com
-  - .uyunad.com
-  - .puata.info
   - .whalecloud.com
 
   # >> Baidu
@@ -1037,7 +1025,6 @@ payload:
   - show.look.360.cn
   - .dftoutiao.com
   - new.taobc.com
-  - .s.360.cn
   - mclean.lato.cloud.360safe.com
   - mvconf.lato.cloud.360safe.com
   - mclean.cloud.360safe.com
@@ -1128,7 +1115,6 @@ payload:
   - .beacon.qq.com
   - qring-tms.qq.com
   - pingjs.qq.com
-  - .info.appbuyapp.com
   - .mazu.m.qq.com
   - .qzs.qq.com
   - .ad.qq.com
@@ -1173,8 +1159,6 @@ payload:
   - report.qqweb.qq.com
   - btrace.qq.com
   - mtrace.qq.com
-  - pingtcss.qq.com
-  - splashqqlive.gtimg.com
   - access-sngapm.qcloud.com
   - beacon.gtimg.com
   - .l.qq.com
@@ -1378,14 +1362,11 @@ payload:
 
   # >> LeTV
   - api.game.letvstore.com
-  - ark.letv.com
   - dc.letv.com
   - dev.dc.letv.com
   - fz.letv.com
-  - g3.letv.com
   - minisite.letv.com
   - msg.m.letv.com
-  - n.mark.letv.com
   - plog.dc.letv.com
   - pro.hoye.letv.com
   - pro.letv.com
@@ -1562,8 +1543,6 @@ payload:
   - hd.hupu.com
 
   # >> Tonghuahshun
-  - adm.10jqka.com.cn
-  - stat.10jqka.com.cn
 
   # >> 58
   - track.58.com

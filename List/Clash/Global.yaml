@@ -229,12 +229,12 @@ payload:
   - DOMAIN-SUFFIX,ggpht.com
   - DOMAIN-SUFFIX,gmail.com
   - DOMAIN-SUFFIX,gmodules.com
+  - DOMAIN-SUFFIX,go.dev
   - DOMAIN-SUFFIX,godoc.org
   - DOMAIN-SUFFIX,golang.org
   - DOMAIN-SUFFIX,goog
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,gv.com
-  # DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,gvt0.com
   - DOMAIN-SUFFIX,gvt1.com
   - DOMAIN-SUFFIX,gvt3.com
@@ -250,7 +250,6 @@ payload:
   - DOMAIN-SUFFIX,synergyse.com
   - DOMAIN-SUFFIX,tenor.com
   - DOMAIN-SUFFIX,tensorflow.org
-  - DOMAIN-SUFFIX,tenor.com
   - DOMAIN-SUFFIX,tfhub.dev
   - DOMAIN-SUFFIX,tiltbrush.com
   - DOMAIN-SUFFIX,waveprotocol.org
@@ -262,18 +261,18 @@ payload:
   - DOMAIN-SUFFIX,widevine.com
   - DOMAIN-SUFFIX,x.company
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
   - DOMAIN-SUFFIX,youtu.be
   - DOMAIN-SUFFIX,yt.be
   - DOMAIN-SUFFIX,ytimg.com
   - DOMAIN-SUFFIX,zynamics.com
   # DOMAIN-KEYWORD,google
   - DOMAIN-KEYWORD,.blogspot.
-  - DOMAIN-SUFFIX,goog
   # > Apple
+  - DOMAIN,amp-api.podcasts.apple.com
   - DOMAIN,api-glb-sea.smoot.apple.com
   - DOMAIN,audiocontentdownload.apple.com
   - DOMAIN,beta.itunes.apple.com
+  - DOMAIN,beta.music.apple.com
   - DOMAIN,books.itunes.apple.com
   - DOMAIN,embed.music.apple.com
   - DOMAIN,hls.itunes.apple.com
@@ -281,8 +280,21 @@ payload:
   - DOMAIN,lookup-api.apple.com
   - DOMAIN,news-client.apple.com
   - DOMAIN,news-edge.apple.com
+  - DOMAIN,radio.itunes.apple.com
   - DOMAIN,testflight.apple.com
   - DOMAIN-SUFFIX,appsto.re
+  - DOMAIN-SUFFIX,smoot.apple.com
+  # >> Web Preview
+  - DOMAIN,apps.apple.com
+  - DOMAIN,books.apple.com
+  - DOMAIN,tv.apple.com
+  # >> News
+  - DOMAIN,gateway.icloud.com
+  - DOMAIN-SUFFIX,apple.news
+  - DOMAIN,news-assets.apple.com
+  - DOMAIN,news-client-search.apple.com
+  - DOMAIN,news-events.apple.com
+  - DOMAIN,apple.comscoreresearch.com
   # > Automattic
   - DOMAIN-SUFFIX,gravatar.com
   - DOMAIN-SUFFIX,tumblr.com
@@ -408,28 +420,6 @@ payload:
   # > Steam
   - DOMAIN-SUFFIX,steamcommunity.com
   # DOMAIN,store.steampowered.com
-  # > Telegram
-  - DOMAIN-SUFFIX,legra.ph
-  - DOMAIN-SUFFIX,t.me
-  - DOMAIN-SUFFIX,tdesktop.com
-  - DOMAIN-SUFFIX,telegra.ph
-  - DOMAIN-SUFFIX,telegram.me
-  - DOMAIN-SUFFIX,telegram.org
-  - DOMAIN-SUFFIX,telesco.pe
-  - IP-CIDR,91.108.4.0/22,no-resolve
-  - IP-CIDR,91.108.8.0/22,no-resolve
-  - IP-CIDR,91.108.12.0/22,no-resolve
-  - IP-CIDR,91.108.16.0/22,no-resolve
-  - IP-CIDR,91.108.20.0/22,no-resolve
-  - IP-CIDR,91.108.56.0/22,no-resolve
-  - IP-CIDR,91.105.192.0/23,no-resolve
-  - IP-CIDR,149.154.160.0/20,no-resolve
-  - IP-CIDR,185.76.151.0/24,no-resolve
-  - IP-CIDR6,2001:b28:f23d::/48,no-resolve
-  - IP-CIDR6,2001:b28:f23f::/48,no-resolve
-  - IP-CIDR6,2001:67c:4e8::/48,no-resolve
-  - IP-CIDR6,2001:b28:f23c::/48,no-resolve
-  - IP-CIDR6,2a0a:f280::/32,no-resolve
   # > The Economist
   - DOMAIN-SUFFIX,economist.com
   - DOMAIN-SUFFIX,static-economist.com
@@ -483,36 +473,6 @@ payload:
   - DOMAIN-SUFFIX,zaobao.com.sg
   - DOMAIN,addons.mozilla.org
   - DOMAIN,wego.here.com
-  # > Alphabet
-  - DOMAIN-SUFFIX,go.dev
-  - DOMAIN-SUFFIX,golang.org
-  # ---(Apple)---
-  - DOMAIN-SUFFIX,appsto.re
-  - DOMAIN-SUFFIX,smoot.apple.com
-  - DOMAIN,amp-api.podcasts.apple.com
-  - DOMAIN,audiocontentdownload.apple.com
-  - DOMAIN,beta.itunes.apple.com
-  - DOMAIN,beta.music.apple.com
-  - DOMAIN,books.itunes.apple.com
-  - DOMAIN,embed.music.apple.com
-  - DOMAIN,hls.itunes.apple.com
-  - DOMAIN,lookup-api.apple.com
-  - DOMAIN,news-edge.apple.com
-  - DOMAIN,radio.itunes.apple.com
-  # > Web Preview
-  - DOMAIN,apps.apple.com
-  - DOMAIN,books.apple.com
-  - DOMAIN,itunes.apple.com
-  - DOMAIN,tv.apple.com
-  # > News
-  - DOMAIN,gateway.icloud.com
-  - DOMAIN-SUFFIX,apple.news
-  - DOMAIN,news-assets.apple.com
-  - DOMAIN,news-client.apple.com
-  - DOMAIN,news-client-search.apple.com
-  - DOMAIN,news-edge.apple.com
-  - DOMAIN,news-events.apple.com
-  - DOMAIN,apple.comscoreresearch.com
   # >> Oracle
   - DOMAIN-SUFFIX,oracle.com
   # >> Cloudflare Workers
@@ -533,13 +493,11 @@ payload:
   # >> Other
   - DOMAIN,ccmdl.adobe.com
   - DOMAIN,media.steampowered.com
-  - DOMAIN,wego.here.com
 
   - DOMAIN-SUFFIX,gameloft.com
   - DOMAIN-SUFFIX,majsoul.union-game.com
 
   - DOMAIN-SUFFIX,520cc.cc
-  - DOMAIN-SUFFIX,majsoul.union-game.com
   - DOMAIN-SUFFIX,newsblur.com
 
   - DOMAIN-SUFFIX,mojang.com
