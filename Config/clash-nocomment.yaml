@@ -128,20 +128,22 @@ proxy-groups:
       - Fallback
     use:
       - ProxyList
-  - name: "MATCH"
+  - name: "Apple"
     type: select
     proxies:
+      - DIRECT
       - PROXY
-      - DIRECT
-  - name: "GUARD"
+  - name: "OneDrive"
     type: select
     proxies:
-      - REJECT
       - DIRECT
+      - PROXY
   - name: "Streaming"
     type: select
     proxies:
       - PROXY
+    use:
+      - ProxyList
   - name: "StreamingSE"
     type: select
     proxies:
@@ -154,11 +156,16 @@ proxy-groups:
       - PROXY
     use:
       - ProxyList-Telegram
-  - name: "OneDrive"
+  - name: "GUARD"
     type: select
     proxies:
+      - REJECT
       - DIRECT
+  - name: "MATCH"
+    type: select
+    proxies:
       - PROXY
+      - DIRECT
   - name: "Autotest"
     type: url-test
     use:
@@ -177,6 +184,18 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/Unbreak.yaml
     url: https://ruleset.isteed.cc/List/Clash/Unbreak.yaml
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Apple.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Apple.yaml
+    interval: 86400
+  AppleCDN:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Apple.yaml
+    url: https://ruleset.isteed.cc/List/Clash/AppleCDN.yaml
     interval: 86400
   Streaming:
     type: http
@@ -243,6 +262,8 @@ rules:
   - RULE-SET,ProxyCustom,PROXY
   - RULE-SET,Guard,GUARD
   - RULE-SET,Unbreak,DIRECT
+  - RULE-SET,Apple,Apple
+  - RULE-SET,AppleCDN,DIRECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,OneDrive,OneDrive
   - RULE-SET,Streaming,Streaming

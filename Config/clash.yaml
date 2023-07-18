@@ -396,35 +396,30 @@ proxy-groups:
     proxies:
       - Autotest
       - Fallback
-      # - 1
-      # - 2
-      # - 3
-      # - DuckDuckGo # 嵌套使用订阅节点策略组
     use:
       - ProxyList
 
-  # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道别动
-  - name: "MATCH"
+  # Apple 服务
+  - name: "Apple"
     type: select
     proxies:
+      - DIRECT
       - PROXY
-      - DIRECT
 
-  - name: "GUARD"
+  # OneDrive 网盘服务
+  - name: "OneDrive"
     type: select
     proxies:
-      - REJECT
       - DIRECT
+      - PROXY
 
   # 国际流媒体服务
   - name: "Streaming"
     type: select
     proxies:
       - PROXY
-      # - 1
-      # - 2
-      # - 3
-      # - US
+    use:
+      - ProxyList
 
   # 中国流媒体服务（面向海外版本）
   # 用于观看部分国内流媒体面向港澳台的地区的限定内容，此处应放港澳台节点，如果没有此需求可删除此处策略组及相关规则
@@ -445,13 +440,18 @@ proxy-groups:
     use:
       - ProxyList-Telegram
 
-  # OneDrive 网盘服务
-  - name: "OneDrive"
+  - name: "GUARD"
     type: select
     proxies:
+      - REJECT
       - DIRECT
+
+  # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道的话别动
+  - name: "MATCH"
+    type: select
+    proxies:
       - PROXY
-      # - 2
+      - DIRECT
 
   - name: "Autotest"
     type: url-test
@@ -489,6 +489,20 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/Unbreak.yaml
     url: https://ruleset.isteed.cc/List/Clash/Unbreak.yaml
+    interval: 86400
+
+  Apple:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Apple.yaml
+    url: https://ruleset.isteed.cc/List/Clash/Apple.yaml
+    interval: 86400
+
+  AppleCDN:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Apple.yaml
+    url: https://ruleset.isteed.cc/List/Clash/AppleCDN.yaml
     interval: 86400
 
   Streaming:
@@ -572,6 +586,14 @@ rules:
 
   # Unbreak
   - RULE-SET,Unbreak,DIRECT
+
+  # Apple
+
+  - RULE-SET,Apple,Apple
+
+  # Apple CDN
+
+  - RULE-SET,AppleCDN,DIRECT
 
   ## Telegram
   - RULE-SET,Telegram,Telegram
