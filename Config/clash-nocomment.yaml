@@ -107,7 +107,7 @@ proxies:
 proxy-providers:
   ProxyList: &ProxyList
     type: http
-    url: https://url
+    url: https://example.com/nodelist
     interval: 86400
     path: ./Proxy/List.yaml
     health-check:
