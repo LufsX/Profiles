@@ -399,20 +399,6 @@ proxy-groups:
     use:
       - ProxyList
 
-  # Apple 服务
-  - name: "Apple"
-    type: select
-    proxies:
-      - DIRECT
-      - PROXY
-
-  # OneDrive 网盘服务
-  - name: "OneDrive"
-    type: select
-    proxies:
-      - DIRECT
-      - PROXY
-
   # 国际流媒体服务
   - name: "Streaming"
     type: select
@@ -439,6 +425,20 @@ proxy-groups:
       # - 2
     use:
       - ProxyList-Telegram
+
+  # Apple 服务
+  - name: "Apple"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+
+  # OneDrive 网盘服务
+  - name: "OneDrive"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
 
   - name: "GUARD"
     type: select

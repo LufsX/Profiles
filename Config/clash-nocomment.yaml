@@ -128,16 +128,6 @@ proxy-groups:
       - Fallback
     use:
       - ProxyList
-  - name: "Apple"
-    type: select
-    proxies:
-      - DIRECT
-      - PROXY
-  - name: "OneDrive"
-    type: select
-    proxies:
-      - DIRECT
-      - PROXY
   - name: "Streaming"
     type: select
     proxies:
@@ -156,6 +146,16 @@ proxy-groups:
       - PROXY
     use:
       - ProxyList-Telegram
+  - name: "Apple"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+  - name: "OneDrive"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
   - name: "GUARD"
     type: select
     proxies:
