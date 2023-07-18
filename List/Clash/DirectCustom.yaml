@@ -8,12 +8,6 @@ payload:
   ## https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Rulesets/Clash/Basic/Apple-direct.yaml
   - DOMAIN,safebrowsing.urlsec.qq.com
   - DOMAIN,safebrowsing.googleapis.com
-  - DOMAIN-SUFFIX,mzstatic.com
-  - DOMAIN-SUFFIX,itunes.apple.com
-  - DOMAIN-SUFFIX,icloud.com
-  - DOMAIN-SUFFIX,icloud-content.com
-  - DOMAIN-SUFFIX,me.com
-  - DOMAIN-SUFFIX,aaplimg.com
   - DOMAIN-SUFFIX,cdn20.com
   - DOMAIN-SUFFIX,cdn-apple.com
   - DOMAIN-SUFFIX,akadns.net
@@ -21,9 +15,6 @@ payload:
   - DOMAIN-SUFFIX,edgekey.net
   - DOMAIN-SUFFIX,mwcloudcdn.com
   - DOMAIN-SUFFIX,mwcname.com
-  - DOMAIN-SUFFIX,apple.com
-  - DOMAIN-SUFFIX,apple-cloudkit.com
-  - DOMAIN-SUFFIX,apple-mapkit.com
 
   ## Apple Push Notification Service
   - DOMAIN-KEYWORD,push.apple.com
