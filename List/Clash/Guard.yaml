@@ -3,10 +3,7 @@ payload:
 
   # >> Custom
   # Pangu advertisement
-  - .pglstatp-toutiao.com
-  - .pangolin-sdk-toutiao.com
-  - .pangolin-sdk-toutiao1.com
-  - .pangolin-sdk-toutiao-b.com
+  - DOMAIN-KEYWORD,pangolin-sdk
   # Tracker
   # utoken.umeng.com
   # .ut.taobao.com
@@ -14,6 +11,8 @@ payload:
   # shark-tracer.netease.com
   # .shuzilm.cn
   # guid.tpns.tencent.com
+  # Others
+  - mssdk.volces.com
 
   # >> General
   - .kuaizip.com
