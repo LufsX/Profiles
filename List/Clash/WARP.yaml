@@ -1,8 +1,0 @@
-payload:
-  - DOMAIN-KEYWORD,1.1.1.1
-  - DOMAIN-KEYWORD,cloudflare
-  - DOMAIN-SUFFIX,2606:4700:4700::1111
-  - DOMAIN-SUFFIX,api.cloudflareclient.com
-  - DOMAIN-SUFFIX,cloudflare.com
-  - DOMAIN-SUFFIX,zero-trust-client.cloudflareclient.com
-  - IP-CIDR6,2606:4700:4700::1111,no-resolve
