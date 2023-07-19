@@ -440,14 +440,14 @@ proxy-groups:
       - DIRECT
       - PROXY
 
-  - name: "GUARD"
+  - name: "Guard"
     type: select
     proxies:
       - REJECT
       - DIRECT
 
   # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道的话别动
-  - name: "MATCH"
+  - name: "Final"
     type: select
     proxies:
       - PROXY
@@ -582,7 +582,7 @@ rules:
   - RULE-SET,ProxyCustom,PROXY
 
   # Guard
-  - RULE-SET,Guard,GUARD
+  - RULE-SET,Guard,Guard
 
   # Unbreak
   - RULE-SET,Unbreak,DIRECT
@@ -629,4 +629,4 @@ rules:
   # GeoIP China
   # - GEOIP,CN,DIRECT
 
-  - MATCH,MATCH
+  - MATCH,Final

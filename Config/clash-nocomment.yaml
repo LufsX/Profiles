@@ -156,12 +156,12 @@ proxy-groups:
     proxies:
       - DIRECT
       - PROXY
-  - name: "GUARD"
+  - name: "Guard"
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: "MATCH"
+  - name: "Final"
     type: select
     proxies:
       - PROXY
@@ -260,7 +260,7 @@ rule-providers:
 rules:
   - RULE-SET,DirectCustom,DIRECT
   - RULE-SET,ProxyCustom,PROXY
-  - RULE-SET,Guard,GUARD
+  - RULE-SET,Guard,Guard
   - RULE-SET,Unbreak,DIRECT
   - RULE-SET,Apple,Apple
   - RULE-SET,AppleCDN,DIRECT
@@ -278,4 +278,4 @@ rules:
   - IP-CIDR,224.0.0.0/4,DIRECT
   - IP-CIDR,fe80::/10,DIRECT
   - RULE-SET,ChinaIP,DIRECT
-  - MATCH,MATCH
+  - MATCH,Final
