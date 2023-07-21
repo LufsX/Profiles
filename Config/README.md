@@ -6,11 +6,21 @@ Surge 配置兼容较新版本的 Surge（iOS 4.13.0 或 Mac 4.5.2 以上）
 
 - `You can now use a full profile as the external policy group (policy-path). All proxies in the [Proxy] section will be used.`
 
+配置使用方法：将 [Proxy Group] 中的 `https://example.com/sub` 替换为你的订阅地址
+
 ---
 
 Clash 仅兼容 Premium 内核
 
-仅 Premium 内核才可使用 `proxy-providers` 与 `rule-providers`，本配置可搭配 [LufsX/shell-sub](https://github.com/LufsX/shell-sub) 来提取订阅中的 NodeList
+仅 Premium 内核才可使用 `proxy-providers` 与 `rule-providers`，本配置可搭配个人自建 API 来提取订阅中的 NodeList
+
+配置使用方法：将 `proxy-providers` 下的 `ProxyList` 中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/api/sub?url=` + 你的订阅地址的 [URLENCODE](https://urlencode.org/)
+
+例如你的订阅地址为 `https://example.com/api/v1/client/subscribe?token=1145141919810`
+
+去 [URLENCODE](https://urlencode.org/) 粘贴你的订阅地址，点击 `Encode`，最后得到 `https%3A%2F%2Fexample.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1145141919810`
+
+最后将配置文件中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/api/sub?url=https%3A%2F%2Fexample.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1145141919810`
 
 <!-- prettier-ignore -->
 | 软件 | 内核 |
@@ -38,6 +48,7 @@ Clash 仅兼容 Premium 内核
 | 自动回退 | - | 按照代理列表顺序依次测试，若不可用则切换到下一个 |
 | 流媒体 | 代理 | 大部分海外流媒体平台，如 Netflix |
 | 港澳台流媒体 | 直连 | 在大陆提供服务，但港澳台有限定资源的流媒体，如哔哩哔哩 |
+| Apple | 直连 | Apple 及其相关服务 |
 | Telegram | 代理 | Telegram 及其相关服务 |
 | OneDrive | 直连 | OneDrive 及其相关服务 |
 
@@ -49,9 +60,9 @@ Clash 仅兼容 Premium 内核
 | 代理 | `PROXY` | `Proxy` |
 | 直连 | `DIRECT` | `Direct` |
 | 拒绝 | `REJECT` | `Reject` |
-| 匹配 | `MATCH` | `Final` |
+| 匹配 | `Final` | `Final` |
 | 流媒体 | `Streaming` | `Streaming` |
-| 广告拦截 | `GURAD` | `Guard` |
+| 广告拦截 | `Guard` | `Guard` |
 | 自动测试 | `Autotest` | `Autotest` |
 | 自动回退 | `Fallback` | `Fallback` |
 | 港澳台流媒体 | `StreamingSE` | `StreamingSE` |
