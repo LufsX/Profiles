@@ -1,7 +1,7 @@
 import sys, os
 
 RulesetDir = (
-    os.path.join(os.path.abspath(os.path.dirname(sys.path[0])), 'List', 'Surge') + '/'
+    os.path.join(os.path.abspath(os.path.dirname(sys.path[0])), 'List') + '/'
 )
 
 
