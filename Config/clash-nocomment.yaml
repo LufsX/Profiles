@@ -189,98 +189,98 @@ rule-providers:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/Unbreak.yaml
+    path: ./RuleSet/Unbreak.conf
     url: https://ruleset.isteed.cc/List/Unbreak.conf
     interval: 86400
   Apple:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/Apple.yaml
+    path: ./RuleSet/Apple.conf
     url: https://ruleset.isteed.cc/List/Apple.conf
     interval: 86400
   AppleCDN:
     type: http
     format: text
     behavior: domain
-    path: ./RuleSet/AppleCDN.yaml
+    path: ./RuleSet/AppleCDN.conf
     url: https://ruleset.isteed.cc/List/AppleCDN.conf
     interval: 86400
   Streaming:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/Streaming.yaml
+    path: ./RuleSet/Streaming.conf
     url: https://ruleset.isteed.cc/List/Streaming.conf
     interval: 86400
   StreamingSE:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/StreamingSE.yaml
+    path: ./RuleSet/StreamingSE.conf
     url: https://ruleset.isteed.cc/List/StreamingSE.conf
     interval: 86400
   Global:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/Global.yaml
+    path: ./RuleSet/Global.conf
     url: https://ruleset.isteed.cc/List/Global.conf
     interval: 86400
   Guard:
     type: http
     format: text
     behavior: domain
-    path: ./RuleSet/Guard.yaml
+    path: ./RuleSet/Guard.conf
     url: https://ruleset.isteed.cc/List/Guard.conf
     interval: 86400
   ChatAI:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/ChatAI.yaml
+    path: ./RuleSet/ChatAI.conf
     url: https://ruleset.isteed.cc/List/ChatAI.conf
     interval: 86400
   China:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/China.yaml
+    path: ./RuleSet/China.conf
     url: https://ruleset.isteed.cc/List/China.conf
     interval: 86400
   ChinaIP:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/ChinaIP.yaml
+    path: ./RuleSet/ChinaIP.conf
     url: https://ruleset.isteed.cc/List/ChinaIP.conf
     interval: 86400
   Telegram:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/Telegram.yaml
+    path: ./RuleSet/Telegram.conf
     url: https://ruleset.isteed.cc/List/Telegram.conf
     interval: 86400
   OneDrive:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/OneDrive.yaml
+    path: ./RuleSet/OneDrive.conf
     url: https://ruleset.isteed.cc/List/OneDrive.conf
     interval: 86400
   DirectCustom:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/DirectCustom.yaml
+    path: ./RuleSet/DirectCustom.conf
     url: https://ruleset.isteed.cc/List/DirectCustom.conf
     interval: 86400
   ProxyCustom:
     type: http
     format: text
     behavior: classical
-    path: ./RuleSet/ProxyCustom.yaml
+    path: ./RuleSet/ProxyCustom.conf
     url: https://ruleset.isteed.cc/List/ProxyCustom.conf
     interval: 86400
 rules:
