@@ -146,6 +146,12 @@ proxy-groups:
       - PROXY
     use:
       - ProxyList-Telegram
+  - name: "ChatAI"
+    type: select
+    proxies:
+      - PROXY
+    use:
+      - ProxyList
   - name: "Apple"
     type: select
     proxies:
@@ -228,6 +234,13 @@ rule-providers:
     path: ./RuleSet/Guard.yaml
     url: https://ruleset.isteed.cc/List/Guard.conf
     interval: 86400
+  ChatAI:
+    type: http
+    format: text
+    behavior: classical
+    path: ./RuleSet/ChatAI.yaml
+    url: https://ruleset.isteed.cc/List/ChatAI.conf
+    interval: 86400
   China:
     type: http
     format: text
@@ -277,6 +290,7 @@ rules:
   - RULE-SET,Unbreak,DIRECT
   - RULE-SET,Apple,Apple
   - RULE-SET,AppleCDN,DIRECT
+  - RULE-SET,ChatAI,ChatAI
   - RULE-SET,Telegram,Telegram
   - RULE-SET,OneDrive,OneDrive
   - RULE-SET,Streaming,Streaming
