@@ -14,13 +14,11 @@ Clash 仅兼容 Premium 内核
 
 仅 Premium 内核才可使用 `proxy-providers` 与 `rule-providers`，本配置可搭配个人自建 API 来提取订阅中的 NodeList
 
-配置使用方法：将 `proxy-providers` 下的 `ProxyList` 中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/sub?url=` + 你的订阅地址的 [URLENCODE](https://urlencode.org/)
+配置使用方法：将 `proxy-providers` 下的 `ProxyList` 中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/sub?url=` + 你的订阅地址
 
 例如你的订阅地址为 `https://example.com/api/v1/client/subscribe?token=1145141919810`
 
-去 [URLENCODE](https://urlencode.org/) 粘贴你的订阅地址，点击 `Encode`，最后得到 `https%3A%2F%2Fexample.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1145141919810`
-
-最后将配置文件中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/sub?url=https%3A%2F%2Fexample.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1145141919810`
+那就将配置文件中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/sub?url=https://example.com/api/v1/client/subscribe?token=1145141919810` 即可
 
 <!-- prettier-ignore -->
 | 软件 | 内核 |
