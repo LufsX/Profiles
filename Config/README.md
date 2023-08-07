@@ -1,6 +1,22 @@
-# 配置说明
+# 懒人版食用说明
 
-Surge 配置兼容较新版本的 Surge（iOS 4.13.0 或 Mac 4.5.2 以上）
+## Surge
+
+1. 订阅远程代理：`https://api.isteed.cc/sub?target=surge&url=` + `你的 Surge 订阅地址`
+2. 打开 `首页` - `修改` 中的 `MitM`、`Rewrite` 和 `脚本`
+3. 在 `MitM` 中生成并安装证书
+4. Enjoy ～
+
+## Clash
+
+1. 订阅远程代理：`https://api.isteed.cc/sub?target=clash&url=` + `你的 Clash 订阅地址`
+2. Enjoy ～
+
+# 手动版食用说明
+
+## Surge
+
+Surge 配置兼容较新版本的 Surge（iOS **4.13.0** 或 Mac **4.5.2** 以上）
 
 这个版本更新了这个功能，本配置中用于处理订阅链接
 
@@ -8,9 +24,9 @@ Surge 配置兼容较新版本的 Surge（iOS 4.13.0 或 Mac 4.5.2 以上）
 
 配置使用方法：将 [Proxy Group] 中的 `https://example.com/sub` 替换为你的订阅地址
 
----
+## Clash
 
-Clash 仅兼容 Premium 内核
+Clash 仅兼容 **Premium 内核**
 
 仅 Premium 内核才可使用 `proxy-providers` 与 `rule-providers`，本配置可搭配个人自建 API 来提取订阅中的 NodeList
 
@@ -46,6 +62,7 @@ Clash 仅兼容 Premium 内核
 | 自动回退 | - | 按照代理列表顺序依次测试，若不可用则切换到下一个 |
 | 流媒体 | 代理 | 大部分海外流媒体平台，如 Netflix |
 | 港澳台流媒体 | 直连 | 在大陆提供服务，但港澳台有限定资源的流媒体，如哔哩哔哩 |
+| 部分 AI 聊天服务 | 代理 | ChatGPT、Claude 和 Bard |
 | Apple | 直连 | Apple 及其相关服务 |
 | Telegram | 代理 | Telegram 及其相关服务 |
 | OneDrive | 直连 | OneDrive 及其相关服务 |
@@ -64,5 +81,7 @@ Clash 仅兼容 Premium 内核
 | 自动测试 | `Autotest` | `Autotest` |
 | 自动回退 | `Fallback` | `Fallback` |
 | 港澳台流媒体 | `StreamingSE` | `StreamingSE` |
+| 部分 AI 聊天服务 | `ChatAI` | `ChatAI` |
+| Apple | `Apple` | `Apple` |
 | Telegram | `Telegram` | `Telegram` |
 | OneDrive | `OneDrive` | `OneDrive` |
