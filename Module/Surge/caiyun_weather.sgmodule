@@ -1,0 +1,8 @@
+#!name=彩云天气
+#!desc=解锁 SVIP 会员
+
+[Script]
+caiyun_weather = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/biz\.cyapi\.cn\/v2\/user\?app_name\=weather,script-path=https://ruleset.isteed.cc/Script/caiyun_weather.js
+
+[MITM]
+hostname = %APPEND% biz.cyapi.cn
