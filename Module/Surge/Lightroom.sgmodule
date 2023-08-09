@@ -1,8 +1,0 @@
-#!name=Unlock Lightroom
-#!desc=解锁 Lightroom 高级功能
-
-[Script]
-Lightroom = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts,requires-body=1,max-size=0,script-path=https://ruleset.isteed.cc/Script/lightroom.min.js
-
-[MITM]
-hostname = %APPEND% photos.adobe.io
