@@ -1,0 +1,8 @@
+#!name=Unlock Pixiv
+#!desc=解锁 Pixiv Premium @Sk-itsu @LufsX
+
+[Script]
+pixiv = type = http-response, pattern = ^https:\/\/oauth\.secure\.pixiv\.net\/auth\/token, requires-body = 1, max-size = 0, script-path = https://ruleset.isteed.cc/Script/pixiv_premium.min.js
+
+[MITM]
+hostname = %APPEND% oauth.secure.pixiv.net
