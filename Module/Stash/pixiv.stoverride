@@ -1,0 +1,17 @@
+name: Unlock Pixiv @Sk-itsu @LufsX
+desc: 解锁 Pixiv Premium
+
+http:
+  mitm:
+    - "oauth.secure.pixiv.net"
+  script:
+    - match: ^https:\/\/oauth\.secure\.pixiv\.net\/auth\/token
+      name: Unlock_Pixiv
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers: # by @SukkaW
+  Unlock_Pixiv:
+    url: https://ruleset.isteed.cc/Script/pixiv_premium.js
+    interval: 86400

@@ -1,0 +1,18 @@
+name: Unlock CaiYun Weather
+desc: "解锁 SVIP 会员"
+
+http:
+  script:
+    - match: ^https:\/\/biz\.cyapi\.cn\/v2\/user\?app_name\=weather
+      name: "caiyun_weather"
+      type: response
+      timeout: 10
+      require-body: true
+
+  mitm:
+    - "biz.cyapi.cn"
+
+script-providers:
+  "caiyun_weather":
+    url: https://ruleset.isteed.cc/Script/caiyun_weather.js
+    interval: 86400

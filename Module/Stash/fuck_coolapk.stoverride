@@ -1,0 +1,41 @@
+name: "Fuck CoolApk"
+desc: "日他妈的酷安广告（去开屏广告需要全新应用）"
+
+http:
+  rewrite:
+    # 屏蔽搜索热词
+    - >-
+      ^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch - reject-dict
+
+  script:
+    - match: https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig
+      name: "fuck_coolapk"
+      type: response
+      timeout: 10
+      require-body: true
+
+    - match: https:\/\/api\.coolapk\.com\/v6\/feed\/(replyList|detail)
+      name: "fuck_coolapk"
+      type: response
+      timeout: 10
+      require-body: true
+
+    - match: https:\/\/api\.coolapk\.com\/v6\/page\/dataList
+      name: "fuck_coolapk"
+      type: response
+      timeout: 10
+      require-body: true
+
+    - match: https:\/\/api\.coolapk\.com\/v6\/main\/(init|indexV8)
+      name: "fuck_coolapk"
+      type: response
+      timeout: 10
+      require-body: true
+
+  mitm:
+    - "api.coolapk.com"
+
+script-providers:
+  "fuck_coolapk":
+    url: https://ruleset.isteed.cc/Script/fuck_coolapk.js
+    interval: 86400

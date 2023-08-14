@@ -1,0 +1,18 @@
+name: "微信去广告"
+desc: "去除微信公众号文章底部广告"
+
+http:
+  script:
+    - match: ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
+      name: "wechat"
+      type: response
+      timeout: 10
+      require-body: true
+
+  mitm:
+    - "mp.weixin.qq.com"
+
+script-providers:
+  "wechat":
+    url: https://ruleset.isteed.cc/Script/wechat.min.js
+    interval: 86400
