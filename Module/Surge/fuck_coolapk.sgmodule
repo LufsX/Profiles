@@ -1,11 +1,13 @@
 #!name=Fuck CoolApk
-#!desc=日他妈的酷安广告
+#!desc=日他妈的酷安广告（去开屏广告需要全新应用）
 
 [Script]
-
 fuck_coolapk_once = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig, requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
+# 酷安帖子/评论广告
 fuck_coolapk_twice = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/feed\/(replyList|detail), requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
+# 酷安推广广告
 fuck_coolapk_three_times = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/page\/dataList, requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
+# 酷安开屏广告（需要卸载重装）
 fuck_coolapk_four_times = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/main\/(init|indexV8), requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
 
 [Map Local]
