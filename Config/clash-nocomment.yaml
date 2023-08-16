@@ -95,31 +95,33 @@ dns:
     - 119.29.29.29
     - tls://dns.pub:853
     - tls://dns.alidns.com:853
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-    - any:53
-  auto-route: true
-  auto-redir: true
-  auto-detect-interface: true
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
 proxies:
+  null
 proxy-providers:
   ProxyList: &ProxyList
-    type: http
     url: https://example.com/nodelist
-    interval: 86400
     path: ./Proxy/List.yaml
+    type: http
+    interval: 86400
     health-check:
       enable: true
-      interval: 600
-      url: https://cp.cloudflare.com/generate_204
+      interval: 1800
+      url: http://cp.cloudflare.com/generate_204
   ProxyList-SE:
     <<: *ProxyList
-    filter: "HK|TW|Hongkong|Taiwan|HongKong|TaiWan|Macau|港|台|澳门"
+    filter: "(?i)(h(ong)?k(ong)?|ta?i?w|macau)|澳门|港|台|🇭🇰|🇲🇴|🇹🇼"
   ProxyList-Telegram:
     <<: *ProxyList
-    filter: "SG|US|NL|Singapore|United|Netherland|新加坡|荷兰|美国|Premium"
+    filter: "(?i)(sg|us|nl|singapore|united|netherland)|新加坡|荷兰|美国|狮城|🇸🇬|🇳🇱|🇺🇸"
+  ProxyList-ChatAI:
+    <<: *ProxyList
+    filter: "(?i)(u[sk]|america|united)|[美英]国|🇺🇸|🇬🇧"
 proxy-groups:
   - name: "PROXY"
     type: select
@@ -151,7 +153,7 @@ proxy-groups:
     proxies:
       - PROXY
     use:
-      - ProxyList
+      - ProxyList-ChatAI
   - name: "Apple"
     type: select
     proxies:
@@ -174,115 +176,81 @@ proxy-groups:
       - DIRECT
   - name: "Autotest"
     type: url-test
+    lazy: true
     use:
       - ProxyList
     url: "https://cp.cloudflare.com/generate_204"
     interval: 300
   - name: "Fallback"
     type: fallback
+    lazy: true
     use:
       - ProxyList
     url: "https://cp.cloudflare.com/generate_204"
     interval: 300
+classical: &classical
+  type: http
+  format: text
+  behavior: classical
+  interval: 86400
+domain: &domain
+  type: http
+  format: text
+  behavior: domain
+  interval: 86400
 rule-providers:
   Unbreak:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/Unbreak.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/Unbreak.conf
-    interval: 86400
+    path: ./RuleSet/Unbreak.conf
   Apple:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/Apple.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/Apple.conf
-    interval: 86400
+    path: ./RuleSet/Apple.conf
   AppleCDN:
-    type: http
-    format: text
-    behavior: domain
-    path: ./RuleSet/AppleCDN.conf
+    <<: *domain
     url: https://ruleset.isteed.cc/List/AppleCDN.conf
-    interval: 86400
+    path: ./RuleSet/AppleCDN.conf
   Streaming:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/Streaming.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/Streaming.conf
-    interval: 86400
+    path: ./RuleSet/Streaming.conf
   StreamingSE:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/StreamingSE.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/StreamingSE.conf
-    interval: 86400
+    path: ./RuleSet/StreamingSE.conf
   Global:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/Global.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/Global.conf
-    interval: 86400
+    path: ./RuleSet/Global.conf
   Guard:
-    type: http
-    format: text
-    behavior: domain
-    path: ./RuleSet/Guard.conf
+    <<: *domain
     url: https://ruleset.isteed.cc/List/Guard.conf
-    interval: 86400
+    path: ./RuleSet/Guard.conf
   ChatAI:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/ChatAI.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/ChatAI.conf
-    interval: 86400
+    path: ./RuleSet/ChatAI.conf
   China:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/China.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/China.conf
-    interval: 86400
-  ChinaIP:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/ChinaIP.conf
-    url: https://ruleset.isteed.cc/List/ChinaIP.conf
-    interval: 86400
+    path: ./RuleSet/China.conf
   Telegram:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/Telegram.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/Telegram.conf
-    interval: 86400
+    path: ./RuleSet/Telegram.conf
   OneDrive:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/OneDrive.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/OneDrive.conf
-    interval: 86400
+    path: ./RuleSet/OneDrive.conf
   DirectCustom:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/DirectCustom.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/DirectCustom.conf
-    interval: 86400
+    path: ./RuleSet/DirectCustom.conf
   ProxyCustom:
-    type: http
-    format: text
-    behavior: classical
-    path: ./RuleSet/ProxyCustom.conf
+    <<: *classical
     url: https://ruleset.isteed.cc/List/ProxyCustom.conf
-    interval: 86400
+    path: ./RuleSet/ProxyCustom.conf
 rules:
   - RULE-SET,DirectCustom,DIRECT
   - RULE-SET,ProxyCustom,PROXY
@@ -304,5 +272,5 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,224.0.0.0/4,DIRECT
   - IP-CIDR,fe80::/10,DIRECT
-  - RULE-SET,ChinaIP,DIRECT
+  - GEOIP,CN,DIRECT
   - MATCH,Final
