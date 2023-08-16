@@ -192,9 +192,9 @@ dns:
   # to the servers in this section along with servers in `nameservers`.
   # The answers from fallback servers are used when the GEOIP country
   # is not `CN`.
-  fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
+  # fallback:
+  #   - https://cloudflare-dns.com/dns-query
+  #   - https://dns.google/dns-query
 
   # If IP addresses resolved with servers in `nameservers` are in the specified
   # subnets below, they are considered invalid and results from `fallback`
@@ -207,9 +207,9 @@ dns:
   # are always used if not match `fallback-filter.ipcidr`.
   #
   # This is a countermeasure against DNS pollution attacks.
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
+  # fallback-filter:
+  #   geoip: true
+  #   geoip-code: CN
   #   domain:
   #     - "+.facebook.com"
   #     - "+.github.com"

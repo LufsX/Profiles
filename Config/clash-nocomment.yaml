@@ -95,12 +95,6 @@ dns:
     - 119.29.29.29
     - tls://dns.pub:853
     - tls://dns.alidns.com:853
-  fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
 proxies:
   null
 proxy-providers:
