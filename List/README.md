@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-|名称|用途|
+| 名称 | 用途 |
 |:-|:-|
 | Apple.conf | Apple 相关内容服务|
 | AppleCDN.conf | Apple 相关 CDN |
