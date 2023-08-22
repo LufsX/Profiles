@@ -1,5 +1,5 @@
 #!name=Fuck CoolApk
-#!desc=日他妈的酷安广告（去开屏广告需要全新应用）
+#!desc=日他妈的酷安广告
 
 [Script]
 fuck_coolapk_once = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig, requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
