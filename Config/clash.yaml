@@ -395,23 +395,23 @@ proxy-groups:
   # Fallback 比较实用的策略组类型，用于测试服务器节点的可用性，当第一个节点不可用时切换到第二个，以此类推。
 
   # 代理节点选择
-  - name: "PROXY"
+  - name: "𝐏𝐫𝐨𝐱𝐲"
     type: select
     proxies:
-      - Autotest
-      - Fallback
+      - 𝐀𝐮𝐭𝐨𝐭𝐞𝐬𝐭
+      - 𝐅𝐚𝐥𝐥𝐛𝐚𝐜𝐤
     use:
       - ProxyList
   # 国际流媒体服务
-  - name: "Streaming"
+  - name: "𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
     use:
       - ProxyList
   # 中国流媒体服务（面向海外版本）
   # 用于观看部分国内流媒体面向港澳台的地区的限定内容，此处应放港澳台节点，如果没有此需求可删除此处策略组及相关规则
-  - name: "StreamingSE"
+  - name: "𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠𝐒𝐄"
     type: select
     proxies:
       - DIRECT
@@ -419,45 +419,45 @@ proxy-groups:
     use:
       - ProxyList-SE
   # Telegram 即时通讯
-  - name: "Telegram"
+  - name: "𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
       # - 2
     use:
       - ProxyList-Telegram
-  - name: "ChatAI"
+  - name: "𝐂𝐡𝐚𝐭𝐀𝐈"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
     use:
       - ProxyList-ChatAI
   # Apple 服务
-  - name: "Apple"
+  - name: "𝐀𝐩𝐩𝐥𝐞"
     type: select
     proxies:
       - DIRECT
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
   # OneDrive 网盘服务
-  - name: "OneDrive"
+  - name: "𝐎𝐧𝐞𝐃𝐫𝐢𝐯𝐞"
     type: select
     proxies:
       - DIRECT
-      - PROXY
-  - name: "Guard"
+      - 𝐏𝐫𝐨𝐱𝐲
+  - name: "𝐆𝐮𝐚𝐫𝐝"
     type: select
     proxies:
       - REJECT
       - DIRECT
 
   # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道的话别动
-  - name: "Final"
+  - name: "𝐅𝐢𝐧𝐚𝐥"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
       - DIRECT
 
-  - name: "Autotest"
+  - name: "𝐀𝐮𝐭𝐨𝐭𝐞𝐬𝐭"
     type: url-test
     lazy: true
     use:
@@ -469,7 +469,7 @@ proxy-groups:
     #   - 2
     #   - 3
 
-  - name: "Fallback"
+  - name: "𝐅𝐚𝐥𝐥𝐛𝐚𝐜𝐤"
     type: fallback
     lazy: true
     use:
@@ -563,27 +563,27 @@ rule-providers:
 rules:
   # Custom
   - RULE-SET,DirectCustom,DIRECT
-  - RULE-SET,ProxyCustom,PROXY
+  - RULE-SET,ProxyCustom,𝐏𝐫𝐨𝐱𝐲
   # Guard
-  - RULE-SET,Guard,Guard
+  - RULE-SET,Guard,𝐆𝐮𝐚𝐫𝐝
   # Unbreak
   - RULE-SET,Unbreak,DIRECT
   # Apple
-  - RULE-SET,Apple,Apple
+  - RULE-SET,Apple,𝐀𝐩𝐩𝐥𝐞
   # Apple CDN
   - RULE-SET,AppleCDN,DIRECT
   # Chat AI
-  - RULE-SET,ChatAI,ChatAI
+  - RULE-SET,ChatAI,𝐂𝐡𝐚𝐭𝐀𝐈
   # Telegram
-  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Telegram,𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦
   # OneDrive
-  - RULE-SET,OneDrive,OneDrive
+  - RULE-SET,OneDrive,𝐎𝐧𝐞𝐃𝐫𝐢𝐯𝐞
   # (Streaming Media)
-  - RULE-SET,Streaming,Streaming
+  - RULE-SET,Streaming,𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠
   # (StreamingSE)
-  - RULE-SET,StreamingSE,StreamingSE
+  - RULE-SET,StreamingSE,𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠𝐒𝐄
   # (DNS Cache Pollution) / (IP Blackhole) / (Region-Restricted Access Denied) / (Network Jitter)
-  - RULE-SET,Global,PROXY
+  - RULE-SET,Global,𝐏𝐫𝐨𝐱𝐲
   # China Area Network
   - RULE-SET,China,DIRECT
   # Local Area Network
@@ -598,4 +598,4 @@ rules:
   # - RULE-SET,ChinaIP,DIRECT
   # GeoIP China
   - GEOIP,CN,DIRECT
-  - MATCH,Final
+  - MATCH,𝐅𝐢𝐧𝐚𝐥

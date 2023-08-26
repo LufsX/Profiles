@@ -117,65 +117,65 @@ proxy-providers:
     <<: *ProxyList
     filter: "(?i)(u[sk]|america|united)|[美英]国|🇺🇸|🇬🇧"
 proxy-groups:
-  - name: "PROXY"
+  - name: "𝐏𝐫𝐨𝐱𝐲"
     type: select
     proxies:
-      - Autotest
-      - Fallback
+      - 𝐀𝐮𝐭𝐨𝐭𝐞𝐬𝐭
+      - 𝐅𝐚𝐥𝐥𝐛𝐚𝐜𝐤
     use:
       - ProxyList
-  - name: "Streaming"
+  - name: "𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
     use:
       - ProxyList
-  - name: "StreamingSE"
+  - name: "𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠𝐒𝐄"
     type: select
     proxies:
       - DIRECT
     use:
       - ProxyList-SE
-  - name: "Telegram"
+  - name: "𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
     use:
       - ProxyList-Telegram
-  - name: "ChatAI"
+  - name: "𝐂𝐡𝐚𝐭𝐀𝐈"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
     use:
       - ProxyList-ChatAI
-  - name: "Apple"
+  - name: "𝐀𝐩𝐩𝐥𝐞"
     type: select
     proxies:
       - DIRECT
-      - PROXY
-  - name: "OneDrive"
+      - 𝐏𝐫𝐨𝐱𝐲
+  - name: "𝐎𝐧𝐞𝐃𝐫𝐢𝐯𝐞"
     type: select
     proxies:
       - DIRECT
-      - PROXY
-  - name: "Guard"
+      - 𝐏𝐫𝐨𝐱𝐲
+  - name: "𝐆𝐮𝐚𝐫𝐝"
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: "Final"
+  - name: "𝐅𝐢𝐧𝐚𝐥"
     type: select
     proxies:
-      - PROXY
+      - 𝐏𝐫𝐨𝐱𝐲
       - DIRECT
-  - name: "Autotest"
+  - name: "𝐀𝐮𝐭𝐨𝐭𝐞𝐬𝐭"
     type: url-test
     lazy: true
     use:
       - ProxyList
     url: "https://cp.cloudflare.com/generate_204"
     interval: 300
-  - name: "Fallback"
+  - name: "𝐅𝐚𝐥𝐥𝐛𝐚𝐜𝐤"
     type: fallback
     lazy: true
     use:
@@ -247,17 +247,17 @@ rule-providers:
     path: ./RuleSet/ProxyCustom.conf
 rules:
   - RULE-SET,DirectCustom,DIRECT
-  - RULE-SET,ProxyCustom,PROXY
-  - RULE-SET,Guard,Guard
+  - RULE-SET,ProxyCustom,𝐏𝐫𝐨𝐱𝐲
+  - RULE-SET,Guard,𝐆𝐮𝐚𝐫𝐝
   - RULE-SET,Unbreak,DIRECT
-  - RULE-SET,Apple,Apple
+  - RULE-SET,Apple,𝐀𝐩𝐩𝐥𝐞
   - RULE-SET,AppleCDN,DIRECT
-  - RULE-SET,ChatAI,ChatAI
-  - RULE-SET,Telegram,Telegram
-  - RULE-SET,OneDrive,OneDrive
-  - RULE-SET,Streaming,Streaming
-  - RULE-SET,StreamingSE,StreamingSE
-  - RULE-SET,Global,PROXY
+  - RULE-SET,ChatAI,𝐂𝐡𝐚𝐭𝐀𝐈
+  - RULE-SET,Telegram,𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦
+  - RULE-SET,OneDrive,𝐎𝐧𝐞𝐃𝐫𝐢𝐯𝐞
+  - RULE-SET,Streaming,𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠
+  - RULE-SET,StreamingSE,𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠𝐒𝐄
+  - RULE-SET,Global,𝐏𝐫𝐨𝐱𝐲
   - RULE-SET,China,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
@@ -267,4 +267,4 @@ rules:
   - IP-CIDR,224.0.0.0/4,DIRECT
   - IP-CIDR,fe80::/10,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,Final
+  - MATCH,𝐅𝐢𝐧𝐚𝐥
