@@ -4,5 +4,8 @@
 [URL Rewrite]
 ^https?:\/\/([a-zA-Z0-9\\-_]+)\.(?:m\.)?wikipedia\.org\/(wiki|zh|zh-tw|zh-hk|zh-mo|zh-sg|zh-cn|zh-hant|zh-hans)\/(.*)$ https://www.wikiwand.com/$1/$3 302
 
+[Header Rewrite]
+^https:\/\/(www\.|mobileapps\.)?wikiwand\.com\/.* header-add Cookie "wikiwand.extension.installed=true; wikiwand.donate.hide=true"
+
 [MITM]
-hostname = %APPEND% *.wikipedia.org
+hostname = %APPEND% *.wikipedia.org, *wikiwand.com
