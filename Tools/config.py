@@ -16,7 +16,7 @@ dnsmasq_china_list = {
 init_dir_name = []
 # init_dir_name = [os.path.join("List", "smartdns")]
 
-copy_dir_name = ["List", "Config", "Mock", "Script"]
+copy_dir_name = ["List", "Config", "Mock", "Script", "Module"]
 
 config_file_clear = {
     os.path.join(out_dir, "Config", "clash.yaml"): os.path.join(
