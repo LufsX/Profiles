@@ -9,7 +9,7 @@ init_dir_name = config.init_dir_name
 copy_dir_name = config.copy_dir_name
 process_dir = config.process_dir
 ruleset_dir = config.ruleset_dir
-proxy_setting = config.proxy_setting
+out_ruleset_dir = config.out_ruleset_dir
 
 
 def init():
@@ -37,7 +37,7 @@ def clear_config_comment():
 def build_form_dnsmasq_china_list():
     import build_form_dnsmasq_china_list
 
-    build_form_dnsmasq_china_list.build(config.dnsmasq_china_list, out_dir)
+    build_form_dnsmasq_china_list.build(config.dnsmasq_china_list, out_ruleset_dir)
 
 
 def build_smartdns_guard_rule():
@@ -53,9 +53,15 @@ def build_smartdns_guard_rule():
             filtered.append(line)
 
     with open(
-        os.path.join(out_dir, "List", "smartdns", "Guard.txt"), "w", encoding="utf-8"
+        os.path.join(out_ruleset_dir, "smartdns", "Guard.txt"), "w", encoding="utf-8"
     ) as f:
         f.write("".join(filtered))
+
+
+def build_form_misakaio_chnroutes2():
+    import build_form_misakaio_chnroutes2
+
+    build_form_misakaio_chnroutes2.build(config.misakaio_chnroutes2, out_ruleset_dir)
 
 
 init()
@@ -63,3 +69,4 @@ copy_files()
 clear_config_comment()
 build_form_dnsmasq_china_list()
 build_smartdns_guard_rule()
+build_form_misakaio_chnroutes2()
