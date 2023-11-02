@@ -512,7 +512,7 @@ rule-providers:
     path: ./RuleSet/Apple.conf
   AppleCDN:
     <<: *domain
-    url: https://ruleset.isteed.cc/List/AppleCDN.conf
+    url: https://ruleset.isteed.cc/List/ChinaApple.conf
     path: ./RuleSet/AppleCDN.conf
   Streaming:
     <<: *classical
