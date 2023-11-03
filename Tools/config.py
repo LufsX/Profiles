@@ -18,7 +18,7 @@ dnsmasq_china_list = {
     "ChinaGoogle": "https://github.com/felixonmars/dnsmasq-china-list/raw/master/google.china.conf",
 }
 
-misakaio_chnroutes2 = "https://github.com/misakaio/chnroutes2/blob/master/chnroutes.txt"
+misakaio_chnroutes2 = "https://github.com/misakaio/chnroutes2/raw/master/chnroutes.txt"
 
 """
 文件相关
