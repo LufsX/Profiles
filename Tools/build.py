@@ -2,11 +2,14 @@ import config
 import os
 import shutil
 import until
+import datetime
+
+start_time = datetime.datetime.now()
 
 
 out_dir = config.out_dir
 init_dir_name = config.init_dir_name
-copy_dir_name = config.copy_dir_name
+copy_path = config.copy_path
 process_dir = config.process_dir
 ruleset_dir = config.ruleset_dir
 out_ruleset_dir = config.out_ruleset_dir
@@ -22,11 +25,18 @@ def init():
 
 def copy_files():
     print("Copy files that do not need to be generated…")
-    for dir in copy_dir_name:
-        shutil.copytree(os.path.join(process_dir, dir), os.path.join(out_dir, dir))
-    shutil.copyfile(
-        os.path.join(process_dir, "vercel.json"), os.path.join(out_dir, "vercel.json")
-    )
+    for path in copy_path:
+        if os.path.isdir(path):
+            shutil.copytree(
+                os.path.join(process_dir, path),
+                os.path.join(out_dir, path),
+                dirs_exist_ok=True,
+            )
+        else:
+            shutil.copyfile(
+                os.path.join(process_dir, path),
+                os.path.join(out_dir, path),
+            )
 
 
 def clear_config_comment():
@@ -70,3 +80,7 @@ clear_config_comment()
 build_form_dnsmasq_china_list()
 build_smartdns_guard_rule()
 build_form_misakaio_chnroutes2()
+
+end_time = datetime.datetime.now()
+
+print(f"Total time: {end_time - start_time}")

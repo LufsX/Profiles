@@ -24,11 +24,9 @@ misakaio_chnroutes2 = "https://github.com/misakaio/chnroutes2/raw/master/chnrout
 文件相关
 """
 
-init_dir_name = []
-# 临时措施
-# init_dir_name = [os.path.join("List", "smartdns")]
+init_dir_name = (os.path.join("List", "smartdns"),)
 
-copy_dir_name = ["List", "Config", "Mock", "Script", "Module"]
+copy_path = ("List", "Config", "Mock", "Script", "Module", "vercel.json")
 
 config_file_clear = {
     os.path.join(out_dir, "Config", "clash.yaml"): os.path.join(
