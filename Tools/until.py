@@ -1,4 +1,5 @@
 import re
+import threading
 
 
 def clear_comment(src_file, dest_file):
@@ -38,6 +39,10 @@ def deduplicate(src_file, dest_file):
     with open(dest_file, "w", encoding="utf-8") as file:
         file.writelines(output_lines)
 
+def run_in_threads(functions):
+    threads = [threading.Thread(target=lambda f=f: f()) for f in functions]
+    [thread.start() for thread in threads]
+    [thread.join() for thread in threads]
 
 if __name__ == "__main__":
     import os

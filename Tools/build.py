@@ -1,8 +1,8 @@
 import config
+import datetime
 import os
 import shutil
 import until
-import datetime
 
 start_time = datetime.datetime.now()
 
@@ -40,8 +40,11 @@ def copy_files():
 
 
 def clear_config_comment():
+    print("Start clear config comment…")
     for src_file, dest_file in config.config_file_clear.items():
         until.clear_comment(src_file, dest_file)
+
+    print("End clearing config comment")
 
 
 def build_form_dnsmasq_china_list():
@@ -51,6 +54,7 @@ def build_form_dnsmasq_china_list():
 
 
 def build_smartdns_guard_rule():
+    print("Start build smartdns guard rule…")
     with open(os.path.join(ruleset_dir, "Guard.conf"), "r", encoding="utf-8") as f:
         content = f.readlines()
 
@@ -67,6 +71,8 @@ def build_smartdns_guard_rule():
     ) as f:
         f.write("".join(filtered))
 
+    print("End building smartdns guard rule")
+
 
 def build_form_misakaio_chnroutes2():
     import build_form_misakaio_chnroutes2
@@ -76,10 +82,19 @@ def build_form_misakaio_chnroutes2():
 
 init()
 copy_files()
-clear_config_comment()
-build_form_dnsmasq_china_list()
-build_smartdns_guard_rule()
-build_form_misakaio_chnroutes2()
+# clear_config_comment()
+# build_form_dnsmasq_china_list()
+# build_smartdns_guard_rule()
+# build_form_misakaio_chnroutes2()
+
+until.run_in_threads(
+    [
+        clear_config_comment,
+        build_form_dnsmasq_china_list,
+        build_smartdns_guard_rule,
+        build_form_misakaio_chnroutes2,
+    ]
+)
 
 end_time = datetime.datetime.now()
 

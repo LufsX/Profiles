@@ -2,9 +2,9 @@ import requests, re, os, datetime
 
 
 def build(dnsmasq_china_list, out_dir):
-    update_info = (
-        f'# Updated: {datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"}\n'
-    )
+    print("Start build form dnsmasq china list…")
+
+    update_info = f'# Updated: {datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"}\n'
     for name, link in dnsmasq_china_list.items():
         content = requests.get(link).text
 
@@ -20,3 +20,5 @@ def build(dnsmasq_china_list, out_dir):
             with open(os.path.join(out_dir, name + ".conf"), "w") as outfile:
                 outfile.write(update_info)
                 outfile.write("." + "\n.".join(filtered_matches))
+
+    print("End building form dnsmasq china list")
