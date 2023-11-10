@@ -1,23 +1,19 @@
-import re
-import threading
+import concurrent.futures
+import re, datetime
 
 
 def clear_comment(src_file, dest_file):
     with open(src_file, "r", encoding="utf-8") as src:
         lines = src.readlines()
 
-    cleaned_lines = []
+    cleaned_lines = [
+        re.match(r"^[^#]*", line).group(0).rstrip() + "\n" for line in lines
+    ]
 
-    for line in lines:
-        match = re.match(r"^[^#]*", line)
-        if match:
-            result = match.group(0)
-            result = result.rstrip()
-            if result:
-                cleaned_lines.append(result + "\n")
+    cleaned_lines = [line for line in cleaned_lines if line.strip()]
 
     with open(dest_file, "w", encoding="utf-8") as dest:
-        dest.writelines(cleaned_lines)
+        dest.writelines(filter(None, cleaned_lines))
 
 
 def deduplicate(src_file, dest_file):
@@ -39,10 +35,11 @@ def deduplicate(src_file, dest_file):
     with open(dest_file, "w", encoding="utf-8") as file:
         file.writelines(output_lines)
 
+
 def run_in_threads(functions):
-    threads = [threading.Thread(target=lambda f=f: f()) for f in functions]
-    [thread.start() for thread in threads]
-    [thread.join() for thread in threads]
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(lambda f: f(), functions)
+
 
 if __name__ == "__main__":
     import os

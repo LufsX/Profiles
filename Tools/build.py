@@ -40,7 +40,8 @@ def copy_files():
 
 
 def clear_config_comment():
-    print("Start clear config comment…")
+    print("Start clearing config comment…")
+
     for src_file, dest_file in config.config_file_clear.items():
         until.clear_comment(src_file, dest_file)
 
@@ -54,17 +55,17 @@ def build_form_dnsmasq_china_list():
 
 
 def build_smartdns_guard_rule():
-    print("Start build smartdns guard rule…")
+    print("Start building smartdns guard rule…")
     with open(os.path.join(ruleset_dir, "Guard.conf"), "r", encoding="utf-8") as f:
         content = f.readlines()
 
     filtered = []
 
-    for line in content:
-        if line.startswith("."):
-            filtered.append(line.replace(".", "", 1))
-        elif not line.startswith("#") and line != "" and line != "\n":
-            filtered.append(line)
+    filtered = [
+        line.replace(".", "", 1) if line.startswith(".") else line
+        for line in content
+        if not line.startswith("#") and line.strip()
+    ]
 
     with open(
         os.path.join(out_ruleset_dir, "smartdns", "Guard.txt"), "w", encoding="utf-8"
