@@ -42,8 +42,11 @@ def copy_files():
 def clear_config_comment():
     print("Start clearing config comment…")
 
-    for src_file, dest_file in config.config_file_clear.items():
-        until.clear_comment(src_file, dest_file)
+    clear_functions = [
+        lambda src=src, dest=dest: until.clear_comment(src, dest)
+        for src, dest in config.config_file_clear.items()
+    ]
+    until.run_in_threads(clear_functions)
 
     print("End clearing config comment")
 
