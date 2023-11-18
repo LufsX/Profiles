@@ -351,7 +351,7 @@ proxy-providers:
     filter: "(?i)(sg|us|nl|singapore|united|netherland)|新加坡|荷兰|美国|狮城|🇸🇬|🇳🇱|🇺🇸"
   ProxyList-ChatAI:
     <<: *ProxyList
-    filter: "(?i)(u[sk]|america|united)|[美英]国|🇺🇸|🇬🇧"
+    filter: "(?i)(jp|japan)|(u[sk]|america|united)|[美英]国|日本|🇺🇸|🇬🇧|🇯🇵"
 
 proxy-groups:
   # 策略组示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
