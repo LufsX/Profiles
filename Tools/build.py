@@ -78,10 +78,10 @@ def build_smartdns_guard_rule():
     print("End building smartdns guard rule")
 
 
-def build_form_misakaio_chnroutes2():
-    import build_form_misakaio_chnroutes2
+def build_china_ip():
+    import build_china_ip
 
-    build_form_misakaio_chnroutes2.build(config.misakaio_chnroutes2, out_ruleset_dir)
+    build_china_ip.build(config.china_ip_sources, out_ruleset_dir)
 
 
 init()
@@ -89,14 +89,14 @@ copy_files()
 # clear_config_comment()
 # build_form_dnsmasq_china_list()
 # build_smartdns_guard_rule()
-# build_form_misakaio_chnroutes2()
+# build_china_ip()
 
 until.run_in_threads(
     [
         clear_config_comment,
         build_form_dnsmasq_china_list,
         build_smartdns_guard_rule,
-        build_form_misakaio_chnroutes2,
+        build_china_ip,
     ]
 )
 

@@ -18,7 +18,11 @@ dnsmasq_china_list = {
     "ChinaGoogle": "https://github.com/felixonmars/dnsmasq-china-list/raw/master/google.china.conf",
 }
 
-misakaio_chnroutes2 = "https://github.com/misakaio/chnroutes2/raw/master/chnroutes.txt"
+china_ip_sources = [
+    "https://github.com/misakaio/chnroutes2/raw/master/chnroutes.txt",
+    "https://github.com/17mon/china_ip_list/raw/master/china_ip_list.txt",
+    "https://ispip.clang.cn/all_cn_cidr.txt",
+]
 
 """
 文件相关
@@ -44,4 +48,5 @@ config_file_clear = {
 if proxy_setting:
     for name, link in dnsmasq_china_list.items():
         dnsmasq_china_list[name] = "https://cors.isteed.cc/" + dnsmasq_china_list[name]
-    misakaio_chnroutes2 = "https://cors.isteed.cc/" + misakaio_chnroutes2
+    for i in range(len(china_ip_sources)):
+        china_ip_sources[i] = "https://cors.isteed.cc/" + china_ip_sources[i]
