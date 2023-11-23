@@ -3,7 +3,7 @@ from until import run_in_threads
 
 
 def download_and_process(link, exclude):
-    print(f"Downloading and processing {link}...")
+    print(f"Downloading and processing {link} ...")
     content = requests.get(link).text
     lines = [
         line
@@ -41,11 +41,11 @@ def build(china_ip_sources, out_dir):
         except ValueError:
             print(f"Invalid network format: {line}")
 
-    sorted_networks = sorted(all_networks)
+    merged_networks = ipaddress.collapse_addresses(all_networks)
 
     with open(os.path.join(out_dir, "ChinaIP.conf"), "w") as f:
         f.write(update_info)
-        for network in sorted_networks:
+        for network in merged_networks:
             f.write(f"IP-CIDR,{network}\n")
 
     print("End building from china IP sources")
