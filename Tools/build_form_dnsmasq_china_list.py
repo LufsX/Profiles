@@ -21,17 +21,19 @@ def download_and_process(name, link, out_dir, update_info):
         with open(os.path.join(out_dir, f"{name}.conf"), "w") as outfile:
             outfile.write(update_info)
             outfile.write("\n".join(matches))
-    
+
     print(f"End downloading and processing {name}")
 
 
 def build(dnsmasq_china_list, out_dir):
     print("Start building from dnsmasq china list…")
 
-    update_info = f'# Updated: {datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"}\n'
+    update_info = f'# Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}\n'
 
     download_functions = [
-        lambda name=name, link=link: download_and_process(name, link, out_dir, update_info)
+        lambda name=name, link=link: download_and_process(
+            name, link, out_dir, update_info
+        )
         for name, link in dnsmasq_china_list.items()
     ]
 

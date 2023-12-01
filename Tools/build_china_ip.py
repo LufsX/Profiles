@@ -16,7 +16,7 @@ def download_and_process(link, exclude):
 def build(china_ip_sources, out_dir):
     print("Start building from china IP sources…")
 
-    update_info = f'# Updated: {datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"}\n'
+    update_info = f'# Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}\n'
     exclude = {"223.118.0.0/15", "223.120.0.0/15", ""}
 
     all_lines = set()
