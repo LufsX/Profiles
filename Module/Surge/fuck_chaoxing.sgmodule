@@ -2,8 +2,8 @@
 #!desc=日他妈的学习通广告
 
 [Script]
-fuck_cx = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
 fuck_cx_once = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
+fuck_cx_twice = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/home-yd\.chaoxing\.com\/apis\/banner\/getConfigInfoForClient, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
 
 [MITM]
 hostname = %APPEND% learn.chaoxing.com, home-yd.chaoxing.com
