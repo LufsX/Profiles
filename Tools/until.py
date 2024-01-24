@@ -1,5 +1,5 @@
 import concurrent.futures
-import re, datetime
+import re
 
 
 def clear_comment(src_file, dest_file):
