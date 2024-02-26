@@ -13,12 +13,14 @@ def download_and_process(name, link, out_dir, update_info):
         if not match.startswith("#")
     ]
 
-    with open(os.path.join(out_dir, "smartdns", f"{name}.txt"), "w") as outfile:
+    with open(
+        os.path.join(out_dir, "smartdns", f"{name}.txt"), "w", newline="\n"
+    ) as outfile:
         outfile.write(update_info)
         outfile.write("\n".join(matches))
 
     if name != "ChinaDomain":
-        with open(os.path.join(out_dir, f"{name}.conf"), "w") as outfile:
+        with open(os.path.join(out_dir, f"{name}.conf"), "w", newline="\n") as outfile:
             outfile.write(update_info)
             outfile.write("\n".join(matches))
 

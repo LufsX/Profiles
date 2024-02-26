@@ -43,7 +43,7 @@ def build(china_ip_sources, out_dir):
 
     merged_networks = ipaddress.collapse_addresses(all_networks)
 
-    with open(os.path.join(out_dir, "ChinaIP.conf"), "w") as f:
+    with open(os.path.join(out_dir, "ChinaIP.conf"), "w", newline="\n") as f:
         f.write(update_info)
         for network in merged_networks:
             f.write(f"IP-CIDR,{network}\n")

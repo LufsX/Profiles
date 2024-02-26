@@ -71,7 +71,10 @@ def build_smartdns_guard_rule():
     ]
 
     with open(
-        os.path.join(out_ruleset_dir, "smartdns", "Guard.txt"), "w", encoding="utf-8"
+        os.path.join(out_ruleset_dir, "smartdns", "Guard.txt"),
+        "w",
+        encoding="utf-8",
+        newline="\n",
     ) as f:
         f.write("".join(filtered))
 

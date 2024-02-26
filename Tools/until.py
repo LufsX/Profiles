@@ -12,7 +12,7 @@ def clear_comment(src_file, dest_file):
 
     cleaned_lines = [line for line in cleaned_lines if line.strip()]
 
-    with open(dest_file, "w", encoding="utf-8") as dest:
+    with open(dest_file, "w", encoding="utf-8", newline="\n") as dest:
         dest.writelines(filter(None, cleaned_lines))
 
 
@@ -32,7 +32,7 @@ def deduplicate(src_file, dest_file):
                 if stripped_line != "":
                     lines_seen.add(stripped_line)
 
-    with open(dest_file, "w", encoding="utf-8") as file:
+    with open(dest_file, "w", encoding="utf-8", newline="\n") as file:
         file.writelines(output_lines)
 
 
