@@ -1,5 +1,6 @@
 #!name=Unlock Photoshop Express
 #!desc=解锁 Photoshop Express 高级功能
+#!category=体验增强
 
 [Script]
 photoshop = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile\/nul\/v[12], script-path=https://ruleset.isteed.cc/Script/photoshop.js

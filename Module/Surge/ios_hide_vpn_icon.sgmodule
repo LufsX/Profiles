@@ -1,5 +1,6 @@
 #!name=iOS Hide VPN Icon
 #!desc=隐藏状态栏上的 VPN 图标
+#!category=体验增强
 #!system=ios
 
 [General]

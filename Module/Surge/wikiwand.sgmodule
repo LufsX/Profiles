@@ -1,5 +1,6 @@
 #!name=Optimize Wikipedia experience
 #!desc=优化维基百科的浏览体验
+#!category=体验增强
 
 [URL Rewrite]
 ^https?:\/\/([a-zA-Z0-9\\-_]+)\.(?:m\.)?wikipedia\.org\/(wiki|zh|zh-tw|zh-hk|zh-mo|zh-sg|zh-cn|zh-hant|zh-hans)\/(.*)$ https://www.wikiwand.com/$1/$3 302

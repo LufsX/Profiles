@@ -1,5 +1,6 @@
 #!name=Unlock Lightroom
 #!desc=解锁 Lightroom 高级功能
+#!category=体验增强
 
 [Script]
 lightroom = type=http-response, pattern=^https:\/\/photos\.adobe\.io\/v2\/accounts, requires-body=1, max-size=0, script-path=https://ruleset.isteed.cc/Script/lightroom.min.js
