@@ -9,8 +9,9 @@ URL-REGEX,^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start,REJECT-TI
 # 0～9
 # > 139 Yunpan - ad.mcloud.139.com
 ^https?:\/\/ad\.mcloud\.139\.com\/advertapi\/adv-filter\/adv-filter\/AdInfoFilter\/getAdInfos$ _ reject
-# > 189 Cloud - api.cloud.189.cn
+# > 189 Cloud - api.cloud.189.cn, cloud.189.cn
 ^https?:\/\/api\.cloud\.189\.cn\/guns\/getOpenscreenBanners _ reject
+^https?:\/\/cloud\.189\.cn\/include\/splash\/ _ reject
 
 
 # A
@@ -90,5 +91,8 @@ https://ios\.sspai\.com/api/v3/recommend/page/get\?ad.*ios_home_modal _ reject
 # > 12306 - ad.12306.cn
 fuck_12306 = type=http-response, requires-body=1, max-size=0, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://cors.isteed.cc/https://github.com/ddgksf2013/Scripts/raw/master/12306.js
 
+# > M
+fuck_meituan = type=http-response, requires-body=1, pattern="^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo?", script-path=https://cors.isteed.cc/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+
 [MITM]
-hostname = %APPEND% ad.12306.cn, ad.mcloud.139.com, api.cloud.189.cn, acs.m.taobao.com, cn-acs.m.cainiao.com, guide-acs.m.taobao.com, m*.amap.com, res.pizzahut.com.cn, m.client.10010.com, client.app.coc.10086.cn, yunbusiness.ccb.com, cube.elemecdn.com, bdsp-x.jd.com, dsp-x.jd.com, ms.jr.jd.com, bbs-api.miyoushe.com, api.yangkeduo.com, api.pinduoduo.com, capi.lkcoffee.com, ios.sspai.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, p*.meituan.net, wmapi.meituan.com, www.meituan.com, peisongapi.meituan.com
+hostname = %APPEND% ad.12306.cn, ad.mcloud.139.com, api.cloud.189.cn, cloud.189.cn, acs.m.taobao.com, cn-acs.m.cainiao.com, guide-acs.m.taobao.com, m*.amap.com, res.pizzahut.com.cn, m.client.10010.com, client.app.coc.10086.cn, yunbusiness.ccb.com, cube.elemecdn.com, bdsp-x.jd.com, dsp-x.jd.com, ms.jr.jd.com, bbs-api.miyoushe.com, api.yangkeduo.com, api.pinduoduo.com, capi.lkcoffee.com, ios.sspai.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, p*.meituan.net, wmapi.meituan.com, www.meituan.com, peisongapi.meituan.com
