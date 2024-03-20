@@ -1,0 +1,7 @@
+#!name = Ali DoQ
+#!desc = 使用 Ali DNS over QUIC
+#!category=体验增强
+
+[General]
+dns-server = 223.6.6.6, 119.29.29.29, system
+encrypted-dns-server = quic://dns.alidns.com

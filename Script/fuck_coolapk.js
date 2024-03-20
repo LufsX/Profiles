@@ -8,25 +8,28 @@ const indexRegex = /^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/;
 const dataListRegex = /^https:\/\/api\.coolapk\.com\/v6\/page\/dataList/;
 const loadConfigRegex = /^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/;
 const initRegex = /^https:\/\/api\.coolapk\.com\/v6\/main\/init/;
-const jdItemRegex = /item\.m\.jd/;
-const startupPageRegex = /启动页/;
 
-try {
-  if (replyListRegex.test(requestUrl)) {
+switch (true) {
+  case replyListRegex.test(requestUrl):
     obj.data = obj.data.filter((item) => item.id);
-  } else if (detailRegex.test(requestUrl)) {
+    break;
+  case detailRegex.test(requestUrl):
     clearDetailFields(obj.data);
-  } else if (indexRegex.test(requestUrl)) {
+    break;
+  case indexRegex.test(requestUrl):
     obj.data = obj.data.filter((item) => filterIndexData(item));
-  } else if (dataListRegex.test(requestUrl)) {
+    break;
+  case dataListRegex.test(requestUrl):
     obj.data.forEach((el) => clearDetailFields(el));
-  } else if (loadConfigRegex.test(requestUrl)) {
+    break;
+  case loadConfigRegex.test(requestUrl):
     obj.data[0].entities = [];
-  } else if (initRegex.test(requestUrl)) {
+    break;
+  case initRegex.test(requestUrl):
     optimizeInitData(obj.data);
-  }
-} catch (e) {
-  console.log(e);
+    break;
+  default:
+    break;
 }
 
 body = JSON.stringify(obj);
