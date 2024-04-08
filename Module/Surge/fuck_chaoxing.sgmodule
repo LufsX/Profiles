@@ -7,6 +7,8 @@
 fuck_学习通开屏广告 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
 # 学习通首页横幅
 fuck_学习通首页横幅 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/home-yd\.chaoxing\.com\/apis\/banner\/getConfigInfoForClient, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
+# 学习通应用牛皮癣（最美图书馆摄影大赛，我摄您马呢）
+fuck_应用牛皮癣 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/apps\.chaoxing\.com\/apis\/recent\/getRecord\.jspx, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
 
 [MITM]
-hostname = %APPEND% learn.chaoxing.com, home-yd.chaoxing.com
+hostname = %APPEND% learn.chaoxing.com, home-yd.chaoxing.com, apps.chaoxing.com
