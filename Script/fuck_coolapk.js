@@ -1,73 +1,32 @@
-var requestUrl = $request.url;
-var body = $response.body;
-var obj = JSON.parse(body);
-
-const replyListRegex = /^https:\/\/api\.coolapk\.com\/v6\/feed\/replyList/;
-const detailRegex = /^https:\/\/api\.coolapk\.com\/v6\/feed\/detail/;
-const indexRegex = /^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/;
-const dataListRegex = /^https:\/\/api\.coolapk\.com\/v6\/page\/dataList/;
-const loadConfigRegex = /^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/;
-const initRegex = /^https:\/\/api\.coolapk\.com\/v6\/main\/init/;
+var obj = JSON.parse($response.body);
+var url = $request.url;
 
 switch (true) {
-  case replyListRegex.test(requestUrl):
-    obj.data = obj.data.filter((item) => item.id);
+  case url.includes("replyList"):
+    obj.data = obj.data.filter((t) => t.id);
     break;
-  case detailRegex.test(requestUrl):
-    clearDetailFields(obj.data);
+  case url.includes("main/init"):
+    obj.data = obj.data.filter((t) => !(945 == t.entityId));
     break;
-  case indexRegex.test(requestUrl):
-    obj.data = obj.data.filter((item) => filterIndexData(item));
+  case url.includes("indexV8"):
+    obj.data = obj.data.filter((t) => !["sponsorCard", 8639, 29349, 33006, 32557].includes(t.entityId) && !t.title.includes("值得买") && !t.title.includes("红包"));
     break;
-  case dataListRegex.test(requestUrl):
-    obj.data.forEach((el) => clearDetailFields(el));
+  case url.includes("dataList"):
+    obj.data = obj.data.filter((t) => !("sponsorCard" == t.entityTemplate || t.title.includes("精选配件")));
     break;
-  case loadConfigRegex.test(requestUrl):
-    obj.data[0].entities = [];
-    break;
-  case initRegex.test(requestUrl):
-    optimizeInitData(obj.data);
+  case url.includes("detail"):
+    if (obj.data?.hotReplyRows) {
+      obj.data.hotReplyRows = obj.data.hotReplyRows.filter((t) => t.id);
+    }
+    if (obj.data?.topReplyRows) {
+      obj.data.topReplyRows = obj.data.topReplyRows.filter((t) => t.id);
+    }
+    obj.data.include_goods_ids = [];
+    obj.data.include_goods = [];
+    obj.data.detailSponsorCard = [];
     break;
   default:
     break;
 }
-
 body = JSON.stringify(obj);
 $done({ body });
-
-function clearDetailFields(data) {
-  data.include_goods = [];
-  data.detailSponsorCard = [];
-  data.extra_title = "";
-  data.extra_pic = "";
-  data.extra_key = "";
-  data.extra_type = "";
-  data.extra_url = "";
-  data.extra_info = "";
-  data.extra_entities = [];
-  data.extra_fromApi = "";
-  delete data.goodsListInfo;
-}
-
-function filterIndexData(item) {
-  if (item.entityTemplate === "imageCarouselCard_1" && item.entities) {
-    item.entities = item.entities.filter((el) => (el.title !== "jd" && el.title.includes("今日酷安")) || el.title.includes("众测"));
-  } else if (item.entityTemplate === "listCard") {
-    return false;
-  } else if (item.extra_title !== "") {
-    clearDetailFields(item);
-  }
-  return true;
-}
-
-function optimizeInitData(data) {
-  const filteredList = data.filter((el) => el.url.indexOf("item.m.jd") === -1 || el.title.indexOf("启动页") === -1);
-  filteredList.forEach((el) => {
-    if (el.entityTemplate === "configCard") {
-      const objTem = { cardId: el.extraDataArr.cardId, cardPageName: el.extraDataArr.cardPageName, selectedHomeTab: el.extraDataArr.selectedHomeTab };
-      el.extraDataArr = objTem;
-      el.extraData = JSON.stringify(objTem);
-    }
-  });
-  data = filteredList;
-}

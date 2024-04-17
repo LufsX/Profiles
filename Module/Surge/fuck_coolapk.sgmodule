@@ -3,18 +3,16 @@
 #!category=日他妈的广告
 
 [Script]
-# 广告初始化
-fuck_coolapk_广告初始化 = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig, requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
 # 酷安帖子评论广告
 fuck_coolapk_帖子评论广告 = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/feed\/(replyList|detail), requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
 # 酷安商品推广
 fuck_coolapk_商品推广 = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/page\/dataList, requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
-# 酷安开屏广告（需要卸载重装）
-fuck_coolapk_开屏广告 = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/main\/(init|indexV8), requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
+# 酷安开屏/首页广告（需要卸载重装）
+fuck_coolapk_广告 = type=http-response, pattern=https:\/\/api\.coolapk\.com\/v6\/main\/(init|indexV8), requires-body=true, script-path=https://ruleset.isteed.cc/Script/fuck_coolapk.js, timeout=60, script-update-interval=0
 
 [Map Local]
 # 屏蔽搜索热词
-^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch data="https://ruleset.isteed.cc/Mock/reject-dict.json"
+^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch data-type=text data="{}" status-code=200
 
 [MITM]
 hostname = %APPEND% api.coolapk.com
