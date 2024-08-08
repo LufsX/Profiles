@@ -106,6 +106,7 @@ until.run_in_threads(
         build_form_dnsmasq_china_list,
         build_smartdns_guard_rule,
         build_china_ip,
+        build_guard,
     ]
 )
 
