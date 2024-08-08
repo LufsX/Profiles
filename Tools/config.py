@@ -24,6 +24,11 @@ china_ip_sources = [
     "https://ispip.clang.cn/all_cn_cidr.txt",
 ]
 
+guard_sources = [
+    "https://github.com/SukkaW/Surge/raw/master/Source/domainset/reject_sukka.conf",
+    "https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/main/Filters/AWAvenue-Ads-Rule-Surge.list",
+]
+
 """
 文件相关
 """
