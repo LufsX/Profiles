@@ -15,6 +15,8 @@ def clear_comment(src_file, dest_file):
     with open(dest_file, "w", encoding="utf-8", newline="\n") as dest:
         dest.writelines(filter(None, cleaned_lines))
 
+    print(f"[Util] Clearing comments for {src_file}")
+
 
 def deduplicate(src_file, dest_file):
     lines_seen = set()
@@ -35,6 +37,8 @@ def deduplicate(src_file, dest_file):
     with open(dest_file, "w", encoding="utf-8", newline="\n") as file:
         file.writelines(output_lines)
 
+    print(f"[Util] Deduplication for {src_file}")
+
 
 def run_in_threads(functions):
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -51,5 +55,4 @@ if __name__ == "__main__":
         for file in files:
             if file.endswith(".conf"):
                 file_path = os.path.join(root, file)
-                print(f"Processing {file_path}")
                 deduplicate(file_path, file_path)

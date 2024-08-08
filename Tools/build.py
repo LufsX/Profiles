@@ -17,14 +17,14 @@ out_ruleset_dir = config.out_ruleset_dir
 
 def init():
     if os.path.exists(out_dir):
-        print("Clear the last generated files…")
+        print("[Build] Clear the last generated files…")
         shutil.rmtree(out_dir)
     for dir_name in init_dir_name:
         os.makedirs(os.path.join(out_dir, dir_name))
 
 
 def copy_files():
-    print("Copy files that do not need to be generated…")
+    print("[Build] Copy files that do not need to be generated…")
     for path in copy_path:
         if os.path.isdir(path):
             shutil.copytree(
@@ -40,7 +40,7 @@ def copy_files():
 
 
 def clear_config_comment():
-    print("Start clearing config comment…")
+    print("[Build] Start clearing config comment…")
 
     clear_functions = [
         lambda src=src, dest=dest: until.clear_comment(src, dest)
@@ -48,7 +48,7 @@ def clear_config_comment():
     ]
     until.run_in_threads(clear_functions)
 
-    print("End clearing config comment")
+    print("[Build] End clearing config comment")
 
 
 def build_form_dnsmasq_china_list():
@@ -58,7 +58,7 @@ def build_form_dnsmasq_china_list():
 
 
 def build_smartdns_guard_rule():
-    print("Start building smartdns guard rule…")
+    print("[Guard] Start building smartdns guard rule…")
     with open(os.path.join(ruleset_dir, "Guard.conf"), "r", encoding="utf-8") as f:
         content = f.readlines()
 
@@ -78,7 +78,7 @@ def build_smartdns_guard_rule():
     ) as f:
         f.write("".join(filtered))
 
-    print("End building smartdns guard rule")
+    print("[Guard] End building smartdns guard rule")
 
 
 def build_china_ip():

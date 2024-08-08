@@ -2,9 +2,18 @@ import requests, re, os, datetime
 from until import run_in_threads
 
 
-def download_and_process(name, link, out_dir, update_info):
-    print(f"Start download and process {name}")
+def download_and_process(name, link, out_dir):
+    print(f"[dnsmasq] Start download and process {name}")
     content = requests.get(link).text
+
+    update_info = f"""#####################
+# {name} List
+# Last Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}
+#
+# Build form:
+#  - {link}
+#####################
+"""
 
     pattern = r"^server=/(.*)/114\.114\.114\.114$$"
     matches = [
@@ -24,21 +33,17 @@ def download_and_process(name, link, out_dir, update_info):
             outfile.write(update_info)
             outfile.write("\n".join(matches))
 
-    print(f"End downloading and processing {name}")
+    print(f"[dnsmasq] End downloading and processing {name}")
 
 
 def build(dnsmasq_china_list, out_dir):
-    print("Start building from dnsmasq china list…")
-
-    update_info = f'# Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}\n'
+    print("[dnsmasq] Start building from dnsmasq china list…")
 
     download_functions = [
-        lambda name=name, link=link: download_and_process(
-            name, link, out_dir, update_info
-        )
+        lambda name=name, link=link: download_and_process(name, link, out_dir)
         for name, link in dnsmasq_china_list.items()
     ]
 
     run_in_threads(download_functions)
 
-    print("End building from dnsmasq china list")
+    print("[dnsmasq] End building from dnsmasq china list")

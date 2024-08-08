@@ -1,9 +1,8 @@
 import requests, os, datetime, ipaddress
 from until import run_in_threads
 
-
 def download_and_process(link, exclude):
-    print(f"Downloading and processing {link} ...")
+    print(f"[ChinaIP] Downloading and processing {link} ...")
     content = requests.get(link).text
     lines = [
         line
@@ -14,9 +13,16 @@ def download_and_process(link, exclude):
 
 
 def build(china_ip_sources, out_dir):
-    print("Start building from china IP sources…")
+    print("[ChinaIP] Start building from China IP sources…")
 
-    update_info = f'# Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}\n'
+    update_info = f'''#####################
+# China IP List
+# Last Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}
+#
+# Build form:
+{'\n'.join([f"#  - {link}" for link in china_ip_sources])}
+#####################
+'''
     exclude = {"223.118.0.0/15", "223.120.0.0/15", ""}
 
     all_lines = set()
@@ -39,7 +45,7 @@ def build(china_ip_sources, out_dir):
             network = ipaddress.ip_network(line.strip(), strict=False)
             all_networks.add(network)
         except ValueError:
-            print(f"Invalid network format: {line}")
+            print(f"[ChinaIP] Invalid network format: {line}")
 
     merged_networks = ipaddress.collapse_addresses(all_networks)
 
@@ -48,7 +54,7 @@ def build(china_ip_sources, out_dir):
         for network in merged_networks:
             f.write(f"IP-CIDR,{network}\n")
 
-    print("End building from china IP sources")
+    print("[ChinaIP] End building from china IP sources")
 
 
 if __name__ == "__main__":
