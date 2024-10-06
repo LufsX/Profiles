@@ -44,9 +44,12 @@ config_file_clear = {
     os.path.join(out_dir, "Config", "surge.conf"): os.path.join(
         out_dir, "Config", "surge-nocomment.conf"
     ),
-    os.path.join(out_dir, "Config", "surge-smart.conf"): os.path.join(
-        out_dir, "Config", "surge-smart-nocomment.conf"
+    os.path.join(out_dir, "Config", "surge-autotest.conf"): os.path.join(
+        out_dir, "Config", "surge-autotest-nocomment.conf"
     ),
+    # os.path.join(out_dir, "Config", "mihomo.yaml"): os.path.join(
+    #     out_dir, "Config", "mihomo-nocomment.yaml"
+    # ),
 }
 
 """
