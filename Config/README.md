@@ -16,11 +16,11 @@
 
 ## Surge
 
-Surge 于 2024-04-03 的 5.21.0 (**3088**) 新增了智能策略组，本配置提供一个以智能策略组替代原有的测速策略组的[配置](https://ruleset.isteed.cc/Config/surge-smart.conf)
+Surge 于 2024-04-03 的 5.21.0 (**3088**) 新增了智能策略组，若 Surge 低于此版本，请使用 [Autotest 兼容配置](https://ruleset.isteed.cc/Config/surge-autotest.conf)
 
 ---
 
-[Surge 配置](https://ruleset.isteed.cc/Config/surge.conf)兼容较新版本的 Surge（iOS **4.13.0** 或 Mac **4.5.2** 以上）
+[Surge 配置](https://ruleset.isteed.cc/Config/surge.conf)要求较新版本的 Surge（iOS **4.13.0** 或 Mac **4.5.2** 以上）
 
 这个版本更新了以下功能，本配置中用于处理订阅链接
 
