@@ -24,7 +24,7 @@ def build(guard_sources, out_dir):
 {'\n'.join([f"#  - {link}" for link in guard_sources])}
 #####################
 '''
-    exclude = {"", "switch.cup.com.cn"}
+    exclude = {"", "switch.cup.com.cn", ".amazonaws.com"}
     all_lines = set()
 
     def download_and_process_wrapper(link, exclude):
