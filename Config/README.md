@@ -12,6 +12,14 @@
 1. 订阅远程代理：`https://api.isteed.cc/sub?target=clash&url=` + `你的 Clash 订阅地址`
 2. Enjoy ～
 
+# 进阶使用说明
+
+带 `target` 参数既生成对应的配置文件，不带则只生成 NodeList
+
+```
+https://api.isteed.cc/sub?url=[你的第一个订阅链接]|[你的第二个订阅链接]&name=[第一个订阅链接的显示名]|[第二个订阅链接的显示名]&target=[目标配置]
+```
+
 # 手动版食用说明
 
 ## Surge
