@@ -444,6 +444,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - 𝐏𝐫𝐨𝐱𝐲
+  # 去广告
   - name: "𝐆𝐮𝐚𝐫𝐝"
     type: select
     proxies:
@@ -530,10 +531,10 @@ rule-providers:
     <<: *domain
     url: https://ruleset.isteed.cc/List/Guard.conf
     path: ./RuleSet/Guard.conf
-  ChatAI:
+  AI:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/ChatAI.conf
-    path: ./RuleSet/ChatAI.conf
+    url: https://ruleset.isteed.cc/List/AI.conf
+    path: ./RuleSet/AI.conf
   China:
     <<: *classical
     url: https://ruleset.isteed.cc/List/China.conf
