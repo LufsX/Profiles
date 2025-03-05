@@ -15,6 +15,10 @@
     {
       "src": "/List/AppleCDN.conf",
       "dest": "/List/ChinaApple.conf"
+    },
+    {
+      "src": "/List/ChatAI.conf",
+      "dest": "/List/AI.conf"
     }
   ],
   "github": {
