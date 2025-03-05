@@ -59,7 +59,7 @@ def build_form_dnsmasq_china_list():
 
 def build_smartdns_guard_rule():
     print("[Guard] Start building smartdns guard rule…")
-    with open(os.path.join(ruleset_dir, "Guard.conf"), "r", encoding="utf-8") as f:
+    with open(os.path.join(out_ruleset_dir, "Guard.conf"), "r", encoding="utf-8") as f:
         content = f.readlines()
 
     filtered = []
@@ -97,8 +97,9 @@ init()
 copy_files()
 # clear_config_comment()
 # build_form_dnsmasq_china_list()
-# build_smartdns_guard_rule()
 # build_china_ip()
+# build_guard()
+# build_smartdns_guard_rule()
 
 until.run_in_threads(
     [
