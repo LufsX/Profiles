@@ -46,7 +46,7 @@ mode: rule
 log-level: info
 
 # When set to false, resolver won't translate hostnames to IPv6 addresses
-ipv6: false
+ipv6: true
 
 # RESTful web API listening address
 external-controller: 127.0.0.1:9090
@@ -349,9 +349,9 @@ proxy-providers:
   ProxyList-Telegram:
     <<: *ProxyList
     filter: "(?i)(sg|us|nl|singapore|united|netherland)|新加坡|荷兰|美国|狮城|🇸🇬|🇳🇱|🇺🇸"
-  ProxyList-ChatAI:
+  ProxyList-AI:
     <<: *ProxyList
-    filter: "(?i)(jp|japan)|(u[sk]|america|united)|[美英]国|日本|🇺🇸|🇬🇧|🇯🇵"
+    filter: "(?i)(jp|japan|u[sk]|america|united|ta?i?w)|[美英]国|日本|台|🇺🇸|🇬🇧|🇯🇵|🇹🇼"
 
 proxy-groups:
   # 策略组示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
@@ -426,7 +426,7 @@ proxy-groups:
       # - 2
     use:
       - ProxyList-Telegram
-  - name: "𝐂𝐡𝐚𝐭𝐀𝐈"
+  - name: "𝐀𝐈"
     type: select
     proxies:
       - 𝐏𝐫𝐨𝐱𝐲
@@ -573,7 +573,7 @@ rules:
   # Apple CDN
   - RULE-SET,AppleCDN,DIRECT
   # Chat AI
-  - RULE-SET,ChatAI,𝐂𝐡𝐚𝐭𝐀𝐈
+  - RULE-SET,AI,𝐀𝐈
   # Telegram
   - RULE-SET,Telegram,𝐓𝐞𝐥𝐞𝐠𝐫𝐚𝐦
   # OneDrive
