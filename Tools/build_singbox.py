@@ -34,7 +34,6 @@ def is_domainset(file_path):
                     return False
             except UnicodeDecodeError:
                 continue
-
     return False
 
 
@@ -54,7 +53,6 @@ def parse_conf_to_singbox(conf_path, output_path):
     }
 
     try:
-
         if is_domainset(conf_path):
             print(
                 f"[sing-box] {conf_path} is domainset format, processing as domain_suffix"
@@ -68,7 +66,6 @@ def parse_conf_to_singbox(conf_path, output_path):
 
                     rules_container["domain_suffix"].append(line)
         else:
-
             with open(conf_path, "r", encoding="utf-8", errors="ignore") as f:
                 for line in f:
                     line = line.strip()
@@ -77,10 +74,10 @@ def parse_conf_to_singbox(conf_path, output_path):
                         continue
 
                     parts = line.split(",")
-                    if len(parts) != 2:
+                    if len(parts) < 2:
                         continue
 
-                    rule_type, value = parts
+                    rule_type, value = parts[0], parts[1]
                     value = value.strip()
 
                     if rule_type in RULE_TYPE_MAPPING:
@@ -155,4 +152,5 @@ def build(ruleset_dir, singbox_dir):
 
 if __name__ == "__main__":
     import config
+
     build(config.out_ruleset_dir, config.out_singbox_ruleset_dir)
