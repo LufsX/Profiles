@@ -11,6 +11,7 @@ process_dir = os.path.abspath(os.path.dirname(sys.path[0]))
 ruleset_dir = os.path.join(process_dir, "List")
 out_dir = os.path.join(process_dir, "Public")
 out_ruleset_dir = os.path.join(process_dir, "Public", "List")
+out_singbox_ruleset_dir = os.path.join(out_ruleset_dir, "singbox")
 
 dnsmasq_china_list = {
     "ChinaDomain": "https://github.com/felixonmars/dnsmasq-china-list/raw/master/accelerated-domains.china.conf",

@@ -92,6 +92,11 @@ def build_guard():
 
     build_guard.build(config.guard_sources, out_ruleset_dir)
 
+def build_singbox():
+    import build_singbox
+
+    build_singbox.build(out_ruleset_dir, config.out_singbox_ruleset_dir)
+
 
 init()
 copy_files()
@@ -110,6 +115,8 @@ until.run_in_threads(
         build_guard,
     ]
 )
+
+build_singbox()
 
 end_time = datetime.datetime.now()
 
