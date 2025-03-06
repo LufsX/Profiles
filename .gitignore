@@ -3,3 +3,4 @@
 .env
 Public
 __pycache__
+cache*
