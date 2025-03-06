@@ -4,7 +4,7 @@ mixed-port: 7767 # HTTP(S) 和 SOCKS 代理混合端口
 # redir-port: 7892 # 透明代理端口，用于 Linux 和 MacOS
 
 # Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
-# tproxy-port: 7893
+tproxy-port: 1536
 
 allow-lan: true # 允许局域网连接
 bind-address: "*" # 绑定 IP 地址，仅作用于 allow-lan 为 true，'*'表示所有地址
@@ -76,13 +76,13 @@ external-controller: 127.0.0.1:9090 # RESTful API 监听地址
 # ！！！注意： 从Windows namedpipe访问api接口不会验证secret， 如果开启请自行保证安全问题 ！！！
 # external-controller-pipe: \\.\pipe\mihomo
 
-# tcp-concurrent: true # TCP 并发连接所有 IP, 将使用最快握手的 TCP
+tcp-concurrent: true # TCP 并发连接所有 IP, 将使用最快握手的 TCP
 
 # 配置 WEB UI 目录，使用 http://{{external-controller}}/ui 访问
-# external-ui: /path/to/ui/folder/
-external-ui-name: xd
+external-ui: ui
+# external-ui-name: xd
 # 目前支持下载zip,tgz格式的压缩包
-external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+external-ui-url: "https://cors.isteed.cc/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 # 在RESTful API端口上开启DOH服务器
 # ！！！该URL不会验证secret， 如果开启请自行保证安全问题 ！！！
