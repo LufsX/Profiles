@@ -431,7 +431,7 @@ proxy-groups:
     proxies:
       - 𝐏𝐫𝐨𝐱𝐲
     use:
-      - ProxyList-ChatAI
+      - ProxyList-AI
   # Apple 服务
   - name: "𝐀𝐩𝐩𝐥𝐞"
     type: select
