@@ -6,9 +6,15 @@
 # 学习通开屏广告
 fuck_学习通开屏广告 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
 # 学习通首页横幅
-fuck_学习通首页横幅 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/home-yd\.chaoxing\.com\/apis\/banner\/getConfigInfoForClient, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
+# 这个移动到 URL Rewrite 区域了
+# fuck_学习通首页横幅 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/home-yd\.chaoxing\.com\/apis\/banner\/getConfigInfoForClient, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
 # 学习通应用牛皮癣（最美图书馆摄影大赛，我摄您马呢）
-fuck_应用牛皮癣 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/apps\.chaoxing\.com\/apis\/recent\/getRecord\.jspx, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
+# 他马摄没了，这个就用不到了
+# fuck_应用牛皮癣 = type=http-response, requires-body=1, max-size=0, pattern=^https:\/\/apps\.chaoxing\.com\/apis\/recent\/getRecord\.jspx, script-path=https://ruleset.isteed.cc/Script/fuck_chaoxing.js
+
+[URL Rewrite]
+# 首页顶部脑瘫横幅
+^https:\/\/home-yd\.chaoxing\.com\/apis\/data\/getAdsRecommend _ reject
 
 [MITM]
 hostname = %APPEND% learn.chaoxing.com, home-yd.chaoxing.com, apps.chaoxing.com
