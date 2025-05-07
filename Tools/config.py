@@ -30,6 +30,8 @@ guard_sources = [
     "https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/main/Filters/AWAvenue-Ads-Rule-Surge.list",
 ]
 
+bankhk_sources = ["BOCHK.conf", "HSBCHK.conf", "ZABank.conf"]
+
 """
 文件相关
 """

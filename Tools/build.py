@@ -98,6 +98,12 @@ def build_singbox():
     build_singbox.build(out_ruleset_dir, config.out_singbox_ruleset_dir)
 
 
+def build_bankhk():
+    import build_bankhk
+
+    build_bankhk.build(config.bankhk_sources, ruleset_dir, out_ruleset_dir)
+
+
 init()
 copy_files()
 # clear_config_comment()
@@ -113,6 +119,7 @@ until.run_in_threads(
         build_smartdns_guard_rule,
         build_china_ip,
         build_guard,
+        build_bankhk,
     ]
 )
 
