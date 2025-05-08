@@ -1,6 +1,6 @@
-import os
-import json
 import glob
+import json
+import os
 
 RULE_TYPE_MAPPING = {
     "DOMAIN": "domain",

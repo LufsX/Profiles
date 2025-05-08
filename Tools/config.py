@@ -5,13 +5,15 @@ import sys
 配置相关
 """
 
-proxy_setting = os.getenv("PROXY_SETTING", "False").lower() == "true"
+proxy_setting = os.getenv("PROXY_SETTING", "False").lower() in ("true", "1")
 
 process_dir = os.path.abspath(os.path.dirname(sys.path[0]))
 ruleset_dir = os.path.join(process_dir, "List")
 out_dir = os.path.join(process_dir, "Public")
 out_ruleset_dir = os.path.join(process_dir, "Public", "List")
 out_singbox_ruleset_dir = os.path.join(out_ruleset_dir, "sing-box")
+out_clash_ruleset_dir = os.path.join(out_ruleset_dir, "Clash")
+out_surge_ruleset_dir = os.path.join(out_ruleset_dir, "Surge")
 
 dnsmasq_china_list = {
     "ChinaDomain": "https://github.com/felixonmars/dnsmasq-china-list/raw/master/accelerated-domains.china.conf",
@@ -64,3 +66,5 @@ if proxy_setting:
         dnsmasq_china_list[name] = "https://cors.isteed.cc/" + dnsmasq_china_list[name]
     for i in range(len(china_ip_sources)):
         china_ip_sources[i] = "https://cors.isteed.cc/" + china_ip_sources[i]
+    for j in range(len(guard_sources)):
+        guard_sources[j] = "https://cors.isteed.cc/" + guard_sources[j]

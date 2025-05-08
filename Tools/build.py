@@ -6,7 +6,6 @@ import until
 
 start_time = datetime.datetime.now()
 
-
 out_dir = config.out_dir
 init_dir_name = config.init_dir_name
 copy_path = config.copy_path
@@ -92,10 +91,23 @@ def build_guard():
 
     build_guard.build(config.guard_sources, out_ruleset_dir)
 
+
 def build_singbox():
     import build_singbox
 
     build_singbox.build(out_ruleset_dir, config.out_singbox_ruleset_dir)
+
+
+def build_surge():
+    import build_surge
+
+    build_surge.build(out_ruleset_dir, config.out_surge_ruleset_dir)
+
+
+def build_clash():
+    import build_clash
+
+    build_clash.build(out_ruleset_dir, config.out_clash_ruleset_dir)
 
 
 def build_bankhk():
@@ -116,14 +128,21 @@ until.run_in_threads(
     [
         clear_config_comment,
         build_form_dnsmasq_china_list,
-        build_smartdns_guard_rule,
         build_china_ip,
         build_guard,
         build_bankhk,
     ]
 )
 
-build_singbox()
+until.run_in_threads(
+    [
+        build_singbox,
+        build_smartdns_guard_rule,
+        build_surge,
+        build_clash,
+    ]
+)
+
 
 end_time = datetime.datetime.now()
 

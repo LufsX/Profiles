@@ -1,5 +1,5 @@
-import os
 import datetime
+import os
 
 def build(bankhk_sources, ruleset_dir, out_ruleset_dir):
     print("[BankHK] Start building BankHK rules...")
