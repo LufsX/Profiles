@@ -38,7 +38,11 @@ bankhk_sources = ["BOCHK.conf", "HSBCHK.conf", "ZABank.conf"]
 文件相关
 """
 
-init_dir_name = (os.path.join("List", "smartdns"),)
+init_dir_name = (
+    os.path.join("List", "Clash"),
+    os.path.join("List", "Surge"),
+    os.path.join("List", "smartdns"),
+)
 
 copy_path = ("List", "Config", "Mock", "Script", "Module", "vercel.json")
 
@@ -54,6 +58,21 @@ config_file_clear = {
     ),
     os.path.join(out_dir, "Config", "mihomo.yaml"): os.path.join(
         out_dir, "Config", "mihomo-nocomment.yaml"
+    ),
+}
+
+smartdns_file = {
+    os.path.join(out_dir, "List", "Guard.conf"): os.path.join(
+        out_dir, "List", "smartdns", "Guard.txt"
+    ),
+    os.path.join(out_dir, "List", "ChinaApple.conf"): os.path.join(
+        out_dir, "List", "smartdns", "ChinaApple.txt"
+    ),
+    os.path.join(out_dir, "List", "ChinaDomain.conf"): os.path.join(
+        out_dir, "List", "smartdns", "ChinaDomain.txt"
+    ),
+    os.path.join(out_dir, "List", "ChinaGoogle.conf"): os.path.join(
+        out_dir, "List", "smartdns", "ChinaGoogle.txt"
     ),
 }
 

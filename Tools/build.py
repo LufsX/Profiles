@@ -56,28 +56,10 @@ def build_form_dnsmasq_china_list():
     build_form_dnsmasq_china_list.build(config.dnsmasq_china_list, out_ruleset_dir)
 
 
-def build_smartdns_guard_rule():
-    print("[Guard] Start building smartdns guard rule…")
-    with open(os.path.join(out_ruleset_dir, "Guard.conf"), "r", encoding="utf-8") as f:
-        content = f.readlines()
+def build_smartdns():
+    import build_smartdns
 
-    filtered = []
-
-    filtered = [
-        line.replace(".", "", 1) if line.startswith(".") else line
-        for line in content
-        if not line.startswith("#") and line.strip()
-    ]
-
-    with open(
-        os.path.join(out_ruleset_dir, "smartdns", "Guard.txt"),
-        "w",
-        encoding="utf-8",
-        newline="\n",
-    ) as f:
-        f.write("".join(filtered))
-
-    print("[Guard] End building smartdns guard rule")
+    build_smartdns.build(config.smartdns_file, out_ruleset_dir)
 
 
 def build_china_ip():
@@ -122,7 +104,6 @@ copy_files()
 # build_form_dnsmasq_china_list()
 # build_china_ip()
 # build_guard()
-# build_smartdns_guard_rule()
 
 until.run_in_threads(
     [
@@ -137,7 +118,7 @@ until.run_in_threads(
 until.run_in_threads(
     [
         build_singbox,
-        build_smartdns_guard_rule,
+        build_smartdns,
         build_surge,
         build_clash,
     ]

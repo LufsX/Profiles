@@ -1,5 +1,5 @@
 import os
-import shutil
+import datetime
 
 
 def is_domainset(content):
@@ -20,16 +20,27 @@ def process_domainset(content):
 
     for line in lines:
         if line.startswith("#") or not line.strip():
-            result.append(line)
+            continue
+        # 如果以 . 开头，添加 + 前缀
+        if line.startswith("."):
+            result.append(f"+{line}")
+        # 其他域名格式不变
         else:
-            # 如果以 . 开头，添加 + 前缀
-            if line.startswith("."):
-                result.append(f"+{line}")
-            # 其他域名格式不变
-            else:
-                result.append(line)
+            result.append(line)
 
-    return "\n".join(result)
+    return result
+
+
+def process_non_domainset(content):
+    lines = content.split("\n")
+    result = []
+
+    for line in lines:
+        if not line.strip() or line.startswith("#"):
+            continue
+        result.append(line)
+
+    return result
 
 
 def build(out_ruleset_dir, out_clash_ruleset_dir):
@@ -42,7 +53,6 @@ def build(out_ruleset_dir, out_clash_ruleset_dir):
     # 获取所有 .conf 文件
     conf_files = [f for f in os.listdir(out_ruleset_dir) if f.endswith(".conf")]
     processed_count = 0
-    copied_count = 0
 
     for filename in conf_files:
         source_path = os.path.join(out_ruleset_dir, filename)
@@ -52,26 +62,36 @@ def build(out_ruleset_dir, out_clash_ruleset_dir):
         with open(source_path, "r", encoding="utf-8") as f:
             content = f.read()
 
+        # 创建文件头
+        rule_name = filename.replace(".conf", "")
+        update_info = f"""#####################
+# {rule_name}
+# Last Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}
+#
+# Form:
+#  - https://ruleset.isteed.cc/List/{rule_name}.conf
+#####################
+"""
+
         # 判断是否为 domainset 格式
         if is_domainset(content):
             # 处理 domainset 格式
-            processed_content = process_domainset(content)
-
-            # 写入处理后的内容
-            with open(dest_path, "w", encoding="utf-8", newline="\n") as f:
-                f.write(processed_content)
-
-            print(f"[Clash] Processed domainset file: {filename}")
-            processed_count += 1
+            processed_rules = process_domainset(content)
         else:
-            # 不是 domainset 格式，直接复制
-            shutil.copyfile(source_path, dest_path)
-            print(f"[Clash] Copied non-domainset file: {filename}")
-            copied_count += 1
+            # 处理非 domainset 格式
+            processed_rules = process_non_domainset(content)
 
-    print(
-        f"[Clash] Completed processing: {processed_count} domainset files processed, {copied_count} other files copied"
-    )
+        # 写入处理后的内容
+        with open(dest_path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(update_info)
+            processed_rules.sort()
+            f.write("\n".join(processed_rules))
+            f.write("\n")
+
+        print(f"[Clash] Processed file: {filename}")
+        processed_count += 1
+
+    print(f"[Clash] Completed processing: {processed_count} files processed")
     print("[Clash] End processing ruleset files for Clash")
 
 

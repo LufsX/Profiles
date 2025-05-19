@@ -43,8 +43,11 @@ def build(guard_sources, out_dir):
 
     with open(os.path.join(out_dir, "Guard.conf"), "w", newline="\n") as f:
         f.write(update_info)
-        for network in all_lines:
-            f.write(f"{network}\n")
+        all_lines.sort()
+        f.write("\n".join(all_lines))
+        f.write("\n")
+
+    print(f"[Guard] End building from Guard sources, {len(all_lines)} lines")
 
     print("[Guard] Start building smartdns guard rule…")
 

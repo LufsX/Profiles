@@ -86,7 +86,7 @@ def parse_conf_to_singbox(conf_path, output_path):
                     else:
                         print(f"[sing-box] Unknown rule type: {rule_type}")
 
-        rules_dict = {k: v for k, v in rules_container.items() if v}
+        rules_dict = {k: sorted(v) for k, v in sorted(rules_container.items()) if v}
 
         if not rules_dict:
             print(
