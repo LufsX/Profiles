@@ -470,59 +470,59 @@ domain: &domain
 rule-providers:
   Unbreak:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/Unbreak.conf
+    url: https://ruleset.isteed.cc/List/Clash/Unbreak.conf
     path: ./RuleSet/Unbreak.conf
   Apple:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/Apple.conf
+    url: https://ruleset.isteed.cc/List/Clash/Apple.conf
     path: ./RuleSet/Apple.conf
   AppleCDN:
     <<: *domain
-    url: https://ruleset.isteed.cc/List/ChinaApple.conf
+    url: https://ruleset.isteed.cc/List/Clash/ChinaApple.conf
     path: ./RuleSet/AppleCDN.conf
   Streaming:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/Streaming.conf
+    url: https://ruleset.isteed.cc/List/Clash/Streaming.conf
     path: ./RuleSet/Streaming.conf
   StreamingSE:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/StreamingSE.conf
+    url: https://ruleset.isteed.cc/List/Clash/StreamingSE.conf
     path: ./RuleSet/StreamingSE.conf
   Global:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/Global.conf
+    url: https://ruleset.isteed.cc/List/Clash/Global.conf
     path: ./RuleSet/Global.conf
   Guard:
     <<: *domain
-    url: https://ruleset.isteed.cc/List/Guard.conf
+    url: https://ruleset.isteed.cc/List/Clash/Guard.conf
     path: ./RuleSet/Guard.conf
   AI:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/AI.conf
+    url: https://ruleset.isteed.cc/List/Clash/AI.conf
     path: ./RuleSet/AI.conf
   China:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/China.conf
+    url: https://ruleset.isteed.cc/List/Clash/China.conf
     path: ./RuleSet/China.conf
   # ChinaIP:
   #   <<: *classical
-  #   url: https://ruleset.isteed.cc/List/ChinaIP.conf
+  #   url: https://ruleset.isteed.cc/List/Clash/ChinaIP.conf
   #   path: ./RuleSet/ChinaIP.conf
   Telegram:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/Telegram.conf
+    url: https://ruleset.isteed.cc/List/Clash/Telegram.conf
     path: ./RuleSet/Telegram.conf
   OneDrive:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/OneDrive.conf
+    url: https://ruleset.isteed.cc/List/Clash/OneDrive.conf
     path: ./RuleSet/OneDrive.conf
   DirectCustom:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/DirectCustom.conf
+    url: https://ruleset.isteed.cc/List/Clash/DirectCustom.conf
     path: ./RuleSet/DirectCustom.conf
   ProxyCustom:
     <<: *classical
-    url: https://ruleset.isteed.cc/List/ProxyCustom.conf
+    url: https://ruleset.isteed.cc/List/Clash/ProxyCustom.conf
     path: ./RuleSet/ProxyCustom.conf
 
 rules:
