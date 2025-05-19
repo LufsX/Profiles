@@ -43,7 +43,7 @@ def build(guard_sources, out_dir):
 
     with open(os.path.join(out_dir, "Guard.conf"), "w", newline="\n") as f:
         f.write(update_info)
-        all_lines.sort()
+        all_lines = sorted(all_lines)
         f.write("\n".join(all_lines))
         f.write("\n")
 

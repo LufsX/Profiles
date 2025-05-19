@@ -44,3 +44,9 @@ def build(dnsmasq_china_list, out_dir):
     run_in_threads(download_functions)
 
     print("[dnsmasq] End building from dnsmasq china list")
+
+
+if __name__ == "__main__":
+    import config
+
+    build(config.dnsmasq_china_list, config.out_ruleset_dir)
