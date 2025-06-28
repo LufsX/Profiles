@@ -27,6 +27,8 @@ china_ip_sources = [
     "https://ispip.clang.cn/all_cn_cidr.txt",
 ]
 
+china_ipv6_sources = ["https://gaoyifan.github.io/china-operator-ip/china6.txt"]
+
 guard_sources = [
     "https://github.com/SukkaW/Surge/raw/master/Source/domainset/reject.conf",
     "https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/main/Filters/AWAvenue-Ads-Rule-Surge.list",

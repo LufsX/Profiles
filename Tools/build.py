@@ -68,6 +68,12 @@ def build_china_ip():
     build_china_ip.build(config.china_ip_sources, out_ruleset_dir)
 
 
+def build_china_ipv6():
+    import build_china_ipv6
+
+    build_china_ipv6.build(config.china_ipv6_sources, out_ruleset_dir)
+
+
 def build_guard():
     import build_guard
 
@@ -110,6 +116,7 @@ until.run_in_threads(
         clear_config_comment,
         build_form_dnsmasq_china_list,
         build_china_ip,
+        build_china_ipv6,
         build_guard,
         build_bankhk,
     ]
