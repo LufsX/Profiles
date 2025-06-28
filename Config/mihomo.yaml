@@ -23,39 +23,15 @@ bind-address: "*" # 绑定 IP 地址，仅作用于 allow-lan 为 true，'*'表�
 #  - always, 开启，强制匹配所有进程
 #  - strict, 默认，由 mihomo 判断是否开启
 #  - off, 不匹配进程，推荐在路由器上使用此模式
-find-process-mode: always
+find-process-mode: strict
 
 mode: rule
-
-#自定义 geodata url
-geox-url:
-  geoip: "https://cors.isteed.cc/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
-  geosite: "https://cors.isteed.cc/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://cors.isteed.cc/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb"
-  asn: "https://cors.isteed.cc/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
-
-geo-auto-update: false # 是否自动更新 geodata
-geo-update-interval: 72 # 更新间隔，单位：小时
-
-# Matcher implementation used by GeoSite, available implementations:
-# - succinct (default, same as rule-set)
-# - mph (from V2Ray, also `hybrid` in Xray)
-# geosite-matcher: succinct
 
 log-level: info # 日志等级 silent/error/warning/info/debug
 
 ipv6: true # 开启 IPv6 总开关，关闭阻断所有 IPv6 链接和屏蔽 DNS 请求 AAAA 记录
 # UDP 支持
 udp: true
-
-# tls:
-#   certificate: string # 证书 PEM 格式，或者 证书的路径
-#   private-key: string # 证书对应的私钥 PEM 格式，或者私钥路径
-#   custom-certifactes:
-#     - |
-#       -----BEGIN CERTIFICATE-----
-#       format/pem...
-#       -----END CERTIFICATE-----
 
 external-controller: 127.0.0.1:9090 # RESTful API 监听地址
 # external-controller-tls: 0.0.0.0:9443 # RESTful API HTTPS 监听地址，需要配置 tls 部分配置文件
@@ -67,26 +43,11 @@ external-controller: 127.0.0.1:9090 # RESTful API 监听地址
 #     - "*"
 #   allow-private-network: true
 
-# RESTful API Unix socket 监听地址（ windows版本大于17063也可以使用，即大于等于1803/RS4版本即可使用 ）
-# ！！！注意： 从Unix socket访问api接口不会验证secret， 如果开启请自行保证安全问题 ！！！
-# 测试方法： curl -v --unix-socket "mihomo.sock" http://localhost/
-# external-controller-unix: mihomo.sock
-
-# RESTful API Windows namedpipe 监听地址
-# ！！！注意： 从Windows namedpipe访问api接口不会验证secret， 如果开启请自行保证安全问题 ！！！
-# external-controller-pipe: \\.\pipe\mihomo
-
 # 配置 WEB UI 目录，使用 http://{{external-controller}}/ui 访问
 external-ui: ui
 # external-ui-name: xd
 # 目前支持下载zip,tgz格式的压缩包
 external-ui-url: "https://cors.isteed.cc/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
-
-# 在RESTful API端口上开启DOH服务器
-# ！！！该URL不会验证secret， 如果开启请自行保证安全问题 ！！！
-# external-doh-server: /dns-query
-
-# interface-name: en0 # 设置出口网卡
 
 # 全局 TLS 指纹，优先低于 proxy 内的 client-fingerprint
 # 可选： "chrome","firefox","safari","ios","random","none" options.
@@ -96,7 +57,6 @@ global-client-fingerprint: edge
 unified-delay: true
 # TCP 并发连接
 tcp-concurrent: true
-
 
 profile: # 存储 select 选择记录
   store-selected: true
@@ -192,7 +152,6 @@ sniffer:
 
 # DNS 配置
 dns:
-  cache-algorithm: arc
   enable: true # 关闭将使用系统 DNS
   prefer-h3: false # 是否开启 DoH 支持 HTTP/3，将并发尝试
   listen: 0.0.0.0:1053 # 开启 DNS 服务器监听
@@ -313,51 +272,6 @@ dns:
     - quic://223.6.6.6 # DNS over QUIC
     # - '8.8.8.8#RULES' # 效果同respect-rules，但仅对该服务器生效
     # - '8.8.8.8#en0' # 兼容指定 DNS 出口网卡
-
-  # 当配置 fallback 时，会查询 nameserver 中返回的 IP 是否为 CN，非必要配置
-  # 当不是 CN，则使用 fallback 中的 DNS 查询结果
-  # 确保配置 fallback 时能够正常查询
-  # fallback:
-  #   - tcp://1.1.1.1
-  #   - 'tcp://1.1.1.1#ProxyGroupName' # 指定 DNS 过代理查询，ProxyGroupName 为策略组名或节点名，过代理配置优先于配置出口网卡，当找不到策略组或节点名则设置为出口网卡
-
-  # 专用于节点域名解析的 DNS 服务器，非必要配置项，如果不填则遵循nameserver-policy、nameserver和fallback的配置
-  # proxy-server-nameserver:
-  #   - https://dns.google/dns-query
-  #   - tls://one.one.one.one
-
-  # 专用于direct出口域名解析的 DNS 服务器，非必要配置项，如果不填则遵循nameserver-policy、nameserver和fallback的配置
-  # direct-nameserver:
-  #   - system://
-  # direct-nameserver-follow-policy: false # 是否遵循nameserver-policy，默认为不遵守，仅当direct-nameserver不为空时生效
-
-  # 配置 fallback 使用条件
-  # fallback-filter:
-  #   geoip: true # 配置是否使用 geoip
-  #   geoip-code: CN # 当 nameserver 域名的 IP 查询 geoip 库为 CN 时，不使用 fallback 中的 DNS 查询结果
-  #   配置强制 fallback，优先于 IP 判断，具体分类自行查看 geosite 库
-  #   geosite:
-  #     - gfw
-  #   如果不匹配 ipcidr 则使用 nameservers 中的结果
-  #   ipcidr:
-  #     - 240.0.0.0/4
-  #   domain:
-  #     - '+.google.com'
-  #     - '+.facebook.com'
-  #     - '+.youtube.com'
-
-  # 配置查询域名使用的 DNS 服务器
-  # nameserver-policy:
-  #   #   'www.baidu.com': '114.114.114.114'
-  #   #   '+.internal.crop.com': '10.0.0.1'
-  #   "geosite:cn,private,apple":
-  #     - https://doh.pub/dns-query
-  #     - https://dns.alidns.com/dns-query
-  #   "geosite:category-ads-all": rcode://success
-  #   "www.baidu.com,+.google.cn": [223.5.5.5, https://dns.alidns.com/dns-query]
-  #   ## global，dns 为 rule-providers 中的名为 global 和 dns 规则订阅，
-  #   ## 且 behavior 必须为 domain/classical，当为 classical 时仅会生效域名类规则
-  #   # "rule-set:global,dns": 8.8.8.8
 
 proxies: null
 
@@ -504,10 +418,14 @@ rule-providers:
     <<: *classical
     url: https://ruleset.isteed.cc/List/Clash/China.conf
     path: ./RuleSet/China.conf
-  # ChinaIP:
-  #   <<: *classical
-  #   url: https://ruleset.isteed.cc/List/Clash/ChinaIP.conf
-  #   path: ./RuleSet/ChinaIP.conf
+  ChinaIP:
+    <<: *classical
+    url: https://ruleset.isteed.cc/List/Clash/ChinaIP.conf
+    path: ./RuleSet/ChinaIP.conf
+  ChinaIPv6:
+    <<: *classical
+    url: https://ruleset.isteed.cc/List/Clash/ChinaIPv6.conf
+    path: ./RuleSet/ChinaIPv6.conf
   Telegram:
     <<: *classical
     url: https://ruleset.isteed.cc/List/Clash/Telegram.conf
@@ -559,8 +477,8 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,224.0.0.0/4,DIRECT
   - IP-CIDR,fe80::/10,DIRECT
-  # （可选）使用来自 ipipdotnet 的 ChinaIP 以解决数据不准确的问题，使用 ChinaIP.yaml 时可禁用下列直至（包括）「GEOIP,CN」规则
-  # - RULE-SET,ChinaIP,DIRECT
+  - RULE-SET,ChinaIP,DIRECT
+  - RULE-SET,ChinaIPv6,DIRECT
   # GeoIP China
-  - GEOIP,CN,DIRECT
+  # - GEOIP,CN,DIRECT
   - MATCH,𝐹𝑖𝑛𝑎𝑙

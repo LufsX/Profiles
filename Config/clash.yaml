@@ -539,10 +539,14 @@ rule-providers:
     <<: *classical
     url: https://ruleset.isteed.cc/List/Clash/China.conf
     path: ./RuleSet/China.conf
-  # ChinaIP:
-  #   <<: *classical
-  #   url: https://ruleset.isteed.cc/List/Clash/ChinaIP.conf
-  #   path: ./RuleSet/ChinaIP.conf
+  ChinaIP:
+    <<: *classical
+    url: https://ruleset.isteed.cc/List/Clash/ChinaIP.conf
+    path: ./RuleSet/ChinaIP.conf
+  ChinaIPv6:
+    <<: *classical
+    url: https://ruleset.isteed.cc/List/Clash/ChinaIPv6.conf
+    path: ./RuleSet/ChinaIP.conf
   Telegram:
     <<: *classical
     url: https://ruleset.isteed.cc/List/Clash/Telegram.conf
@@ -595,8 +599,8 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,224.0.0.0/4,DIRECT
   - IP-CIDR,fe80::/10,DIRECT
-  # （可选）使用来自 ipipdotnet 的 ChinaIP 以解决数据不准确的问题，使用 ChinaIP.yaml 时可禁用下列直至（包括）「GEOIP,CN」规则
-  # - RULE-SET,ChinaIP,DIRECT
+  - RULE-SET,ChinaIP,DIRECT
+  - RULE-SET,ChinaIPv6,DIRECT
   # GeoIP China
-  - GEOIP,CN,DIRECT
+  # - GEOIP,CN,DIRECT
   - MATCH,𝐹𝑖𝑛𝑎𝑙
