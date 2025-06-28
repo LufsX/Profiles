@@ -28,7 +28,29 @@ def build(china_ip_sources, out_dir):
 {'\n'.join([f"#  - {link}" for link in china_ip_sources])}
 #####################
 '''
-    exclude = {"223.118.0.0/15", "223.120.0.0/15", ""}
+    exclude = {
+        # From https://github.com/SukkaW/chnroutes2-optimized/blob/e0f10e1f243208f2eba4b4fb20d5050dbceed17f/index.ts#L52-L73
+        # China Mobile International HK
+        # https://github.com/misakaio/chnroutes2/issues/25
+        "223.118.0.0/15",
+        "223.120.0.0/15",
+        # Cloudie.hk
+        # https://github.com/misakaio/chnroutes2/issues/50
+        "123.254.104.0/21",
+        # xTom
+        # https://github.com/misakaio/chnroutes2/issues/49
+        "45.147.48.0/23",
+        "45.80.188.0/24",
+        "45.80.190.0/24",
+        # https://github.com/misakaio/chnroutes2/issues/52
+        "137.220.128.0/17",
+        # Cloudie.hk
+        "103.246.246.0/23",
+        "45.199.166.0/24",
+        "45.199.167.0/24",
+        # Space
+        "",
+    }
 
     all_lines = set()
 
