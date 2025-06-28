@@ -6,9 +6,13 @@ def clear_comment(src_file, dest_file):
     with open(src_file, "r", encoding="utf-8") as src:
         lines = src.readlines()
 
-    cleaned_lines = [
-        re.match(r"^[^#]*", line).group(0).rstrip() + "\n" for line in lines
-    ]
+    cleaned_lines = []
+    for line in lines:
+        match = re.match(r"^[^#]*", line)
+        if match:
+            cleaned_lines.append(match.group(0).rstrip() + "\n")
+        else:
+            cleaned_lines.append("\n")
 
     cleaned_lines = [line for line in cleaned_lines if line.strip()]
 

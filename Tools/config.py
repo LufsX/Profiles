@@ -89,3 +89,5 @@ if proxy_setting:
         china_ip_sources[i] = "https://cors.isteed.cc/" + china_ip_sources[i]
     for j in range(len(guard_sources)):
         guard_sources[j] = "https://cors.isteed.cc/" + guard_sources[j]
+    for k in range(len(china_ipv6_sources)):
+        china_ipv6_sources[k] = "https://cors.isteed.cc/" + china_ipv6_sources[k]

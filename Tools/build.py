@@ -6,12 +6,12 @@ import until
 
 start_time = datetime.datetime.now()
 
-out_dir = config.out_dir
-init_dir_name = config.init_dir_name
-copy_path = config.copy_path
-process_dir = config.process_dir
-ruleset_dir = config.ruleset_dir
-out_ruleset_dir = config.out_ruleset_dir
+out_dir: str = config.out_dir
+init_dir_name: tuple = config.init_dir_name
+copy_path: tuple = config.copy_path
+process_dir: str = config.process_dir
+ruleset_dir: str = config.ruleset_dir
+out_ruleset_dir: str = config.out_ruleset_dir
 
 
 def init():

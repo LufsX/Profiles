@@ -28,7 +28,7 @@ def build(guard_sources, out_dir):
 #####################
 '''
     exclude = {"", "switch.cup.com.cn", ".amazonaws.com"}
-    all_lines = set()
+    all_lines: set[str] = set()
 
     def download_and_process_wrapper(link, exclude):
         lines = download_and_process(link, exclude)
@@ -43,8 +43,8 @@ def build(guard_sources, out_dir):
 
     with open(os.path.join(out_dir, "Guard.conf"), "w", newline="\n") as f:
         f.write(update_info)
-        all_lines = sorted(all_lines)
-        f.write("\n".join(all_lines))
+        sorted_lines = sorted(all_lines)
+        f.write("\n".join(sorted_lines))
         f.write("\n")
 
     print(f"[Guard] End building from Guard sources, {len(all_lines)} lines")
