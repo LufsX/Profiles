@@ -15,14 +15,14 @@
 
 ---
 
-目前所有规则均为在以下之列
+目前所有规则及其比例如下
 
-- DOMAIN-SUFFIX: 11244 (61.13%)
-- IP-CIDR: 6547 (35.60%)
-- DOMAIN: 460 (2.50%)
-- DOMAIN-KEYWORD: 80 (0.43%)
-- PROCESS-NAME: 50 (0.27%)
-- IP-CIDR6: 12 (0.07%)
+- DOMAIN-SUFFIX: 127918 (93.68%)
+- IP-CIDR: 6584 (4.82%)
+- IP-CIDR6: 1449 (1.06%)
+- DOMAIN: 464 (0.34%)
+- DOMAIN-KEYWORD: 80 (0.06%)
+- PROCESS-NAME: 50 (0.04%)
 
 ---
 
@@ -39,7 +39,8 @@
 | AppleCDN.conf | Apple 相关 CDN |
 | ChatAI.conf | 部分 AI 聊天服务 |
 | China.conf | 大陆正常访问的服务 |
-| ChinaIP.conf | 大陆 IP 集 |
+| ChinaIP.conf | 大陆 IPv4 集 |
+| ChinaIPv6.conf | 大陆 IPv6 集 |
 | DirectCustom.conf | 自用直连/补充集 |
 | Global.conf | 代理集 |
 | Guard.conf | 去广告/隐私保护 |
