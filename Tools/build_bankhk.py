@@ -23,11 +23,11 @@ def build(bankhk_sources, ruleset_dir, out_ruleset_dir):
         if os.path.exists(source_path):
             with open(source_path, "r", encoding="utf-8") as f:
                 content = f.read()
-                # 去除每个文件中的注释和空行
+                # 去除每个文件中的空行(注释还是不删掉吧)
                 lines = [
                     line
                     for line in content.split("\n")
-                    if line and not line.startswith("#")
+                    if line # and not line.startswith("#")
                 ]
                 all_rules.extend(lines)
                 print(f"[BankHK] Processed {source}")
