@@ -34,7 +34,18 @@ guard_sources = [
     "https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/main/Filters/AWAvenue-Ads-Rule-Surge.list",
 ]
 
-bankhk_sources = ["BOCHK.conf", "HSBCHK.conf", "ZABank.conf"]
+bankhk_sources = [
+    "BankHK_AirStar.conf",
+    "BankHK_AntBank.conf",
+    "BankHK_BOCHK.conf",
+    "BankHK_CNCBI.conf",
+    "BankHK_Fusion.conf",
+    "BankHK_HSBCHK.conf",
+    "BankHK_ICBCA.conf",
+    "BankHK_PAOBank.conf",
+    "BankHK_WeLab.conf",
+    "BankHK_ZABank.conf",
+]
 
 """
 文件相关
