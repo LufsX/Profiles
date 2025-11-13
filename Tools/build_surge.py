@@ -35,14 +35,14 @@ def build(out_ruleset_dir, out_surge_ruleset_dir):
 # Last Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}
 #
 # Form:
-#  - https://ruleset.isteed.cc/List/{rule_name}.conf
+#  - https://ruleset.isteed.cc/List/Source/{rule_name}.conf
 #####################
 """
 
-        # 排序内容并写入目标文件
+        # 写入目标文件
         with open(dest_file, "w", encoding="utf-8", newline="\n") as f:
             f.write(update_info)
-            content_lines.sort()
+            # content_lines.sort()
             f.write("\n".join(content_lines))
             f.write("\n")
 

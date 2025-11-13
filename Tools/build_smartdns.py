@@ -41,7 +41,7 @@ def build(smartdns_files, ruleset_dir):
 # Last Updated: {(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S") + "+08:00"}
 #
 # Form:
-#  - https://ruleset.isteed.cc/List/{rule_name}.conf
+#  - https://ruleset.isteed.cc/List/Source/{rule_name}.conf
 #####################
 """
 
