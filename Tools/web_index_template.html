@@ -107,6 +107,26 @@
       .file a:hover {
         text-decoration: underline;
       }
+
+      /* Dark mode styles */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #0d1117;
+        }
+        .folder-name:hover {
+          background-color: #21262d;
+        }
+        .folder-name:active {
+          background-color: #30363d;
+        }
+        .file-size {
+          color: #8b949e;
+          background-color: #161b22;
+        }
+        .file a {
+          color: #58a6ff;
+        }
+      }
     </style>
     <script>
       function toggleFolder(folderId) {
