@@ -531,6 +531,10 @@ rule-providers:
     <<: *domain
     url: https://ruleset.isteed.cc/List/Clash/Guard.conf
     path: ./RuleSet/Guard.conf
+  GuardPlus:
+    <<: *classical
+    url: https://ruleset.isteed.cc/List/Clash/GuardPlus.conf
+    path: ./RuleSet/GuardPlus.conf
   AI:
     <<: *classical
     url: https://ruleset.isteed.cc/List/Clash/AI.conf
@@ -571,6 +575,7 @@ rules:
   - RULE-SET,ProxyCustom,𝑃𝑟𝑜𝑥𝑦
   # Guard
   - RULE-SET,Guard,𝐺𝑢𝑎𝑟𝑑
+  - RULE-SET,GuardPlus,𝐺𝑢𝑎𝑟𝑑
   # Unbreak
   - RULE-SET,Unbreak,DIRECT
   # Apple

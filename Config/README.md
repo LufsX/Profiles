@@ -40,7 +40,7 @@ Surge 于 2024-04-03 的 5.21.0 (**3088**) 新增了智能策略组，若 Surge 
 
 ## Clash
 
-Clash 仅兼容 **Premium 内核** 和 **Mihomo 内核**
+Clash 仅兼容 **Premium 内核** 和 **Mihomo 内核**，目前由于 Premium 内核年久失修，建议使用 Mihomo 内核
 
 仅 Premium 内核和 Mihomo 内核才可使用 `proxy-providers` 与 `rule-providers`，本配置可搭配个人自建 API 来提取订阅中的 NodeList
 
@@ -49,17 +49,6 @@ Clash 仅兼容 **Premium 内核** 和 **Mihomo 内核**
 例如你的订阅地址为 `https://example.com/api/v1/client/subscribe?token=1145141919810`
 
 那就将配置文件中的 `https://example.com/nodelist` 替换为 `https://api.isteed.cc/sub?url=https://example.com/api/v1/client/subscribe?token=1145141919810` 即可
-
-<!-- prettier-ignore -->
-| 软件 | 内核 |
-| :- | :- |
-| Clash For Windows | Premium 内核 |
-| ClashX | 普通内核 |
-| ClashX Pro | Premium 内核 |
-| ClashForAndroid 的 foss | 普通内核 |
-| ClashForAndroid 的 premium | Premium 内核 |
-| Clash Verge Rev | mihomo 内核 |
-| ClashMetaForAndroid | mihomo 内核 |
 
 # 策略组说明
 
