@@ -10,10 +10,12 @@ proxy_setting = os.getenv("PROXY_SETTING", "False").lower() in ("true", "1")
 process_dir = os.path.abspath(os.path.dirname(sys.path[0]))
 ruleset_dir = os.path.join(process_dir, "List")
 out_dir = os.path.join(process_dir, "Public")
-out_ruleset_dir = os.path.join(process_dir, "Public", "List")
+out_ruleset_dir = os.path.join(out_dir, "List")
+out_source_ruleset_dir = os.path.join(out_dir, "List", "Source")
 out_singbox_ruleset_dir = os.path.join(out_ruleset_dir, "sing-box")
 out_clash_ruleset_dir = os.path.join(out_ruleset_dir, "Clash")
 out_surge_ruleset_dir = os.path.join(out_ruleset_dir, "Surge")
+out_smartdns_ruleset_dir = os.path.join(out_ruleset_dir, "smartdns")
 
 dnsmasq_china_list = {
     "ChinaDomain": "https://github.com/felixonmars/dnsmasq-china-list/raw/master/accelerated-domains.china.conf",
@@ -53,11 +55,13 @@ bankhk_sources = [
 
 init_dir_name = (
     os.path.join("List", "Clash"),
+    os.path.join("List", "Source"),
     os.path.join("List", "Surge"),
     os.path.join("List", "smartdns"),
 )
 
-copy_path = ("List", "Config", "Mock", "Script", "Module", "vercel.json")
+copy_path = ("Config", "Mock", "Script", "Module", "vercel.json")
+copy_source_path = {ruleset_dir: out_source_ruleset_dir}
 
 config_file_clear = {
     os.path.join(out_dir, "Config", "clash.yaml"): os.path.join(
@@ -75,17 +79,17 @@ config_file_clear = {
 }
 
 smartdns_file = {
-    os.path.join(out_dir, "List", "Guard.conf"): os.path.join(
-        out_dir, "List", "smartdns", "Guard.txt"
+    os.path.join(out_source_ruleset_dir, "Guard.conf"): os.path.join(
+        out_smartdns_ruleset_dir, "Guard.txt"
     ),
-    os.path.join(out_dir, "List", "ChinaApple.conf"): os.path.join(
-        out_dir, "List", "smartdns", "ChinaApple.txt"
+    os.path.join(out_source_ruleset_dir, "ChinaApple.conf"): os.path.join(
+        out_smartdns_ruleset_dir, "ChinaApple.txt"
     ),
-    os.path.join(out_dir, "List", "ChinaDomain.conf"): os.path.join(
-        out_dir, "List", "smartdns", "ChinaDomain.txt"
+    os.path.join(out_source_ruleset_dir, "ChinaDomain.conf"): os.path.join(
+        out_smartdns_ruleset_dir, "ChinaDomain.txt"
     ),
-    os.path.join(out_dir, "List", "ChinaGoogle.conf"): os.path.join(
-        out_dir, "List", "smartdns", "ChinaGoogle.txt"
+    os.path.join(out_source_ruleset_dir, "ChinaGoogle.conf"): os.path.join(
+        out_smartdns_ruleset_dir, "ChinaGoogle.txt"
     ),
 }
 

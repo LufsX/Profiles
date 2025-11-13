@@ -6,7 +6,7 @@ def build(smartdns_files, ruleset_dir):
     print("[SmartDNS] Start building smartdns rules...")
 
     # 确保目标目录存在
-    smartdns_dir = os.path.join(ruleset_dir, "smartdns")
+    smartdns_dir = os.path.join(ruleset_dir)
     if not os.path.exists(smartdns_dir):
         os.makedirs(smartdns_dir)
 
@@ -72,4 +72,4 @@ def build(smartdns_files, ruleset_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.smartdns_file, config.out_ruleset_dir)
+    build(config.dnsmasq_china_list, config.out_source_ruleset_dir)

@@ -10,11 +10,15 @@
     },
     {
       "src": "/List/AppleCDN.conf",
-      "dest": "/List/ChinaApple.conf"
+      "dest": "/List/Source/ChinaApple.conf"
     },
     {
       "src": "/List/ChatAI.conf",
-      "dest": "/List/AI.conf"
+      "dest": "/List/Source/AI.conf"
+    },
+    {
+      "src": "/List/(.*).conf",
+      "dest": "/List/Source/$1.conf"
     }
   ],
   "github": {

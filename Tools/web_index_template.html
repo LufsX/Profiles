@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruleset</title>
+    <meta name="description" content="Profiles 规则文件列表，包含 Surge、Clash、sing-box 等格式的规则文件" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css"
+      integrity="sha512-BrOPA520KmDMqieeM7XFe6a3u3Sb3F1JBaQnrIAmWg3EYrciJ+Qqe6ZcKCdfPv26rGcgTrJnZ/IdQEct8h3Zhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #f6f8fa;
+      }
+      .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 45px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+          margin: 10px;
+        }
+      }
+
+      .file-tree {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+      .file-tree ul {
+        list-style: none;
+        padding-left: 24px;
+        margin: 4px 0;
+      }
+      .file-tree li {
+        margin: 4px 0;
+        line-height: 1.8;
+      }
+      .file-tree .folder {
+        margin: 6px 0;
+      }
+      .folder-name {
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+      .folder-name:hover {
+        background-color: #f0f0f0;
+      }
+      .folder-icon {
+        transition: transform 0.2s;
+        display: inline-block;
+      }
+      .folder.expanded > .folder-name > .folder-icon {
+        transform: rotate(0deg);
+      }
+      .folder:not(.expanded) > .folder-name > .folder-icon {
+        transform: rotate(-90deg);
+      }
+      .folder-content {
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .file-icon {
+        margin-right: 4px;
+      }
+      .file-size {
+        font-size: 0.85em;
+        color: #666;
+        background-color: #f6f8fa;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+      .file a {
+        text-decoration: none;
+        color: #0969da;
+      }
+      .file a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      function toggleFolder(folderId) {
+        const folder = document.getElementById(folderId);
+        const folderLi = folder.closest(".folder");
+
+        if (folder.style.display === "none") {
+          folder.style.display = "";
+          folderLi.classList.add("expanded");
+        } else {
+          folder.style.display = "none";
+          folderLi.classList.remove("expanded");
+        }
+      }
+    </script>
+  </head>
+  <body class="markdown-body">
+    {{CONTENT}}
+  </body>
+</html>

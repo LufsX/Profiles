@@ -50,4 +50,4 @@ def build(bankhk_sources, ruleset_dir, out_ruleset_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.bankhk_sources, config.ruleset_dir, config.out_ruleset_dir)
+    build(config.bankhk_sources, config.ruleset_dir, config.out_source_ruleset_dir)

@@ -153,4 +153,4 @@ def build(ruleset_dir, singbox_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.out_ruleset_dir, config.out_singbox_ruleset_dir)
+    build(config.out_source_ruleset_dir, config.out_singbox_ruleset_dir)

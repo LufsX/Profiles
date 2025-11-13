@@ -71,4 +71,4 @@ def build(guard_sources, out_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.guard_sources, config.out_ruleset_dir)
+    build(config.guard_sources, config.out_source_ruleset_dir)

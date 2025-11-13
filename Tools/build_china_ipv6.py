@@ -68,4 +68,4 @@ def build(china_ipv6_sources, out_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.china_ipv6_sources, config.out_ruleset_dir)
+    build(config.china_ipv6_sources, config.out_source_ruleset_dir)

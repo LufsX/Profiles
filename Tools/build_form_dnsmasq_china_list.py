@@ -49,4 +49,4 @@ def build(dnsmasq_china_list, out_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.dnsmasq_china_list, config.out_ruleset_dir)
+    build(config.dnsmasq_china_list, config.out_source_ruleset_dir)

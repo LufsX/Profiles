@@ -98,4 +98,4 @@ def build(out_ruleset_dir, out_clash_ruleset_dir):
 if __name__ == "__main__":
     import config
 
-    build(config.out_ruleset_dir, config.out_clash_ruleset_dir)
+    build(config.out_source_ruleset_dir, config.out_clash_ruleset_dir)
