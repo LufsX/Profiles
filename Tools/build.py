@@ -1,10 +1,11 @@
-import config
 import datetime
+
+start_time = datetime.datetime.now()
+
+import config
 import os
 import shutil
 import until
-
-start_time = datetime.datetime.now()
 
 out_dir: str = config.out_dir
 init_dir_name: tuple = config.init_dir_name
@@ -45,11 +46,8 @@ def copy_files():
 def clear_config_comment():
     print("[Build] Start clearing config comment…")
 
-    clear_functions = [
-        lambda src=src, dest=dest: until.clear_comment(src, dest)
-        for src, dest in config.config_file_clear.items()
-    ]
-    until.run_in_threads(clear_functions)
+    for src, dest in config.config_file_clear.items():
+        until.clear_comment(src, dest)
 
     print("[Build] End clearing config comment")
 
@@ -110,6 +108,14 @@ def build_bankhk():
     build_bankhk.build(config.bankhk_sources, ruleset_dir, out_source_ruleset_dir)
 
 
+def convert_markdown():
+    import build_web
+
+    build_web.convert_all_markdown_files(
+        config.out_dir, github_token=config.github_token
+    )
+
+
 def build_web():
     import build_web
 
@@ -122,6 +128,8 @@ def build_web():
 
 init()
 copy_files()
+for src, dest in config.readme_file.items():
+    shutil.move(src, dest)
 # clear_config_comment()
 # build_form_dnsmasq_china_list()
 # build_china_ip()
@@ -147,8 +155,8 @@ until.run_in_threads(
     ]
 )
 
+convert_markdown()
 build_web()
-
 
 end_time = datetime.datetime.now()
 

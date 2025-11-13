@@ -49,24 +49,6 @@ def build(guard_sources, out_dir):
 
     print(f"[Guard] End building from Guard sources, {len(all_lines)} lines")
 
-    print("[Guard] Start building smartdns guard rule…")
-
-    filtered = [
-        line.replace(".", "", 1) if line.startswith(".") else line for line in all_lines
-    ]
-    with open(
-        os.path.join(out_dir, "smartdns", "Guard.txt"),
-        "w",
-        encoding="utf-8",
-        newline="\n",
-    ) as f:
-        f.write(update_info)
-        f.write("\n".join(filtered))
-
-    print("[Guard] End building smartdns guard rule")
-
-    print("[Guard] End building from Guard sources")
-
 
 if __name__ == "__main__":
     import config

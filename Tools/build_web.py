@@ -3,6 +3,77 @@ import requests
 import datetime
 
 
+def render_markdown_to_html(md_content, github_token=None):
+    github_api_url = "https://api.github.com/markdown"
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+
+    if github_token:
+        headers["Authorization"] = f"Bearer {github_token}"
+
+    payload = {"text": md_content}
+
+    response = requests.post(github_api_url, headers=headers, json=payload)
+
+    if response.status_code == 200:
+        return response.text
+    else:
+        print(f"[Web] GitHub API request failed, status code: {response.status_code}")
+        print(f"[Web] Error message: {response.text}")
+        return None
+
+
+def convert_markdown_to_html(md_file_path, output_html_path, github_token=None):
+    with open(md_file_path, "r", encoding="utf-8") as f:
+        md_content = f.read()
+
+    html_content = render_markdown_to_html(md_content, github_token)
+
+    if html_content is None:
+        print(f"[Web] Failed to convert: {md_file_path}")
+        return False
+
+    template_path = os.path.join(os.path.dirname(__file__), "web_template.html")
+    with open(template_path, "r", encoding="utf-8") as f:
+        template = f.read()
+
+    full_html = template.replace("{{CONTENT}}", html_content)
+
+    with open(output_html_path, "w", encoding="utf-8") as f:
+        f.write(full_html)
+
+    return True
+
+
+def convert_all_markdown_files(directory, github_token=None):
+    """Recursively convert all Markdown files to HTML in a directory and delete original MD files."""
+    print("[Web] Start converting Markdown files to HTML...")
+    converted_count = 0
+    failed_count = 0
+
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith(".md") and not file.startswith("."):
+                md_path = os.path.join(root, file)
+                html_path = md_path[:-3] + ".html"
+
+                print(f"[Web] Converting: {md_path}")
+                if convert_markdown_to_html(md_path, html_path, github_token):
+                    converted_count += 1
+                    os.remove(md_path)
+                    print(f"[Web] Generated: {html_path}, deleted: {md_path}")
+                else:
+                    failed_count += 1
+                    print(f"[Web] Failed: {md_path}")
+
+    print(
+        f"[Web] Conversion complete: {converted_count} succeeded, {failed_count} failed"
+    )
+    print("[Web] End converting Markdown files to HTML")
+
+
 def generate_file_tree_html(public_dir, base_url="."):
     def get_file_size(filepath):
         size = os.path.getsize(filepath)
@@ -45,6 +116,9 @@ def generate_file_tree_html(public_dir, base_url="."):
                     )
         except Exception as e:
             print(f"Error scanning {dir_path}: {e}")
+
+        # Sort items: directories first, then files
+        items.sort(key=lambda x: (x["type"] != "dir", x["name"]))
         return items
 
     def get_default_expand_state(path_parts, level):
@@ -131,30 +205,16 @@ def build_file_list_page(public_dir, output_path, base_url=".", github_token=Non
 
     md_content = template_content.replace("{{UPDATE_TIME}}", update_time)
 
-    github_api_url = "https://api.github.com/markdown"
-    headers = {
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
+    html_content = render_markdown_to_html(md_content, github_token)
 
-    if github_token:
-        headers["Authorization"] = f"Bearer {github_token}"
-
-    payload = {"text": md_content}
-
-    response = requests.post(github_api_url, headers=headers, json=payload)
-
-    if response.status_code == 200:
-        html_content = response.text
-    else:
-        print(f"[Web] GitHub API request failed, status code: {response.status_code}")
-        print(f"[Web] Error message: {response.text}")
+    if html_content is None:
+        print("[Web] Failed to build file list page")
         return
 
     file_tree_html = generate_file_tree_html(public_dir, base_url)
-
     html_content = html_content.replace("{{FILE_TREE}}", file_tree_html)
 
+    # Use web_index_template.html (special template for index page)
     html_template_path = os.path.join(
         os.path.dirname(__file__), "web_index_template.html"
     )

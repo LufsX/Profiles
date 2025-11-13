@@ -10,8 +10,10 @@ github_token = os.getenv("GITHUB_TOKEN", None)
 
 process_dir = os.path.abspath(os.path.dirname(sys.path[0]))
 ruleset_dir = os.path.join(process_dir, "List")
+
 out_dir = os.path.join(process_dir, "Public")
 out_ruleset_dir = os.path.join(out_dir, "List")
+
 out_source_ruleset_dir = os.path.join(out_dir, "List", "Source")
 out_singbox_ruleset_dir = os.path.join(out_ruleset_dir, "sing-box")
 out_clash_ruleset_dir = os.path.join(out_ruleset_dir, "Clash")
@@ -91,6 +93,12 @@ smartdns_file = {
     ),
     os.path.join(out_source_ruleset_dir, "ChinaGoogle.conf"): os.path.join(
         out_smartdns_ruleset_dir, "ChinaGoogle.txt"
+    ),
+}
+
+readme_file = {
+    os.path.join(out_source_ruleset_dir, "README.md"): os.path.join(
+        out_ruleset_dir, "README.md"
     ),
 }
 

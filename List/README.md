@@ -2,7 +2,7 @@
 
 有这几个地方的文件
 
-- `List/*.conf`
+- `List/Source/*.conf`
   - 原始规则
 - `List/Clash/*.conf`
   - 基于原始规则添加了对 domainset 的 Clash 格式适配
@@ -15,14 +15,14 @@
 
 ---
 
-目前所有规则及其比例如下
+目前（2025-11-13）所有规则及其比例如下
 
-- DOMAIN-SUFFIX: 127918 (93.68%)
-- IP-CIDR: 6584 (4.82%)
-- IP-CIDR6: 1449 (1.06%)
-- DOMAIN: 464 (0.34%)
-- DOMAIN-KEYWORD: 80 (0.06%)
-- PROCESS-NAME: 50 (0.04%)
+- DOMAIN-SUFFIX: 122140 (93.10%)
+- IP-CIDR: 7303 (5.57%)
+- IP-CIDR6: 1435 (1.09%)
+- DOMAIN: 253 (0.19%)
+- DOMAIN-KEYWORD: 42 (0.03%)
+- PROCESS-NAME: 25 (0.02%)
 
 ---
 
@@ -58,13 +58,24 @@
 <!-- prettier-ignore -->
 | 名称 | 用途 |
 | :- | :- |
-| BOCHK.conf | BOCHK 相关 |
-| HSBCHK.conf | HSBC HK 相关 |
-| ZABank.conf | ZA Bank 相关 |
-| BankHK.conf | BOCHK、HSBC HK、ZA Bank 这三个配置的合集（为啥只有这三个呢？因为我就只有这三家… |
 | Gamer.conf | 游戏平台 |
 | MyFin.conf | MyFin 相关 |
-| N26.conf   | N26 相关   |
+| N26.conf | N26 相关 |
 | StreamingSE.conf | 流媒体服务集（含 B 站的 CDN） |
 | WARP.conf | Cloudflare WARP 相关 |
-| Wise.conf  | Wise 相关  |
+| Wise.conf | Wise 相关 |
+
+<!-- prettier-ignore -->
+| 名称 | 用途 |
+| :- | :- |
+| BankHK.conf | 包括常见的香港银行 |
+| BankHK_AirStar.conf | 天星银行 相关 |
+| BankHK_AntBank.conf | 螞蟻銀行 相关 |
+| BankHK_BOCHK.conf | BOCHK 中銀香港 相关 |
+| BankHK_CNCBI.conf | 中信银行国际 相关 |
+| BankHK_Fusion.conf | Fusion Bank 相关 |
+| BankHK_HSBCHK.conf | HSBC HK 相关 |
+| BankHK_ICBCA.conf | 工银亚洲 相关 |
+| BankHK_PAOBank.conf | PAOBank 相关 |
+| BankHK_WeLab.conf | Welab Bank 相关 |
+| BankHK_ZABank.conf | ZA Bank 相关 |
