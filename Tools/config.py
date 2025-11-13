@@ -94,11 +94,11 @@ smartdns_file = {
 """
 
 if proxy_setting:
-    for name, link in dnsmasq_china_list.items():
-        dnsmasq_china_list[name] = "https://cors.isteed.cc/" + dnsmasq_china_list[name]
-    for i in range(len(china_ip_sources)):
-        china_ip_sources[i] = "https://cors.isteed.cc/" + china_ip_sources[i]
-    for j in range(len(guard_sources)):
-        guard_sources[j] = "https://cors.isteed.cc/" + guard_sources[j]
-    for k in range(len(china_ipv6_sources)):
-        china_ipv6_sources[k] = "https://cors.isteed.cc/" + china_ipv6_sources[k]
+    proxy_prefix = "https://cors.isteed.cc/"
+
+    dnsmasq_china_list = {
+        name: proxy_prefix + link for name, link in dnsmasq_china_list.items()
+    }
+    china_ip_sources = [proxy_prefix + source for source in china_ip_sources]
+    china_ipv6_sources = [proxy_prefix + source for source in china_ipv6_sources]
+    guard_sources = [proxy_prefix + source for source in guard_sources]
