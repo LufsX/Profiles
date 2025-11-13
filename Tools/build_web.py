@@ -6,11 +6,11 @@ import datetime
 def generate_file_tree_html(public_dir, base_url="."):
     def get_file_size(filepath):
         size = os.path.getsize(filepath)
-        for unit in ["B", "KB", "MB", "GB"]:
+        for unit in ["B", "KiB", "MiB", "GiB"]:
             if size < 1024.0:
                 return f"{size:.2f} {unit}"
             size /= 1024.0
-        return f"{size:.2f} TB"
+        return f"{size:.2f} TiB"
 
     def scan_directory(dir_path, relative_path=""):
         items = []
@@ -85,7 +85,6 @@ def generate_file_tree_html(public_dir, base_url="."):
                 is_expanded = get_default_expand_state(current_path_parts, level)
 
                 expand_class = "expanded" if is_expanded else ""
-                display_style = "" if is_expanded else "display: none;"
 
                 html_lines.append(f'<li class="folder {expand_class}">')
                 html_lines.append(
@@ -95,9 +94,7 @@ def generate_file_tree_html(public_dir, base_url="."):
                     f'<span class="folder-icon">📁</span> <strong>{item["name"]}/</strong>'
                 )
                 html_lines.append("</span>")
-                html_lines.append(
-                    f'<div id="{dir_id}" class="folder-content" style="{display_style}">'
-                )
+                html_lines.append(f'<div id="{dir_id}" class="folder-content">')
                 html_lines.extend(
                     generate_html_tree(item["items"], level + 1, current_path_parts)
                 )
@@ -107,9 +104,7 @@ def generate_file_tree_html(public_dir, base_url="."):
                 file_url = f"{base_url}/{item['path'].replace(os.sep, '/')}"
                 html_lines.append('<li class="file">')
                 html_lines.append(f'<span class="file-icon">📄</span> ')
-                html_lines.append(
-                    f'<a href="{file_url}" target="_blank">{item["name"]}</a> '
-                )
+                html_lines.append(f'<a href="{file_url}">{item["name"]}</a> ')
                 html_lines.append(f'<code class="file-size">{item["size"]}</code>')
                 html_lines.append("</li>")
 
@@ -180,7 +175,8 @@ def build_file_list_page(public_dir, output_path, base_url=".", github_token=Non
 if __name__ == "__main__":
     import config
 
-    public_dir = config.out_dir
-    output_path = os.path.join(public_dir, "index.html")
-
-    build_file_list_page(public_dir, output_path)
+    build_file_list_page(
+        config.out_dir,
+        os.path.join(config.out_dir, "index.html"),
+        github_token=config.github_token,
+    )

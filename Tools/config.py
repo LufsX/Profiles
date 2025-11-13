@@ -6,6 +6,7 @@ import sys
 """
 
 proxy_setting = os.getenv("PROXY_SETTING", "False").lower() in ("true", "1")
+github_token = os.getenv("GITHUB_TOKEN", None)
 
 process_dir = os.path.abspath(os.path.dirname(sys.path[0]))
 ruleset_dir = os.path.join(process_dir, "List")

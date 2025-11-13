@@ -114,7 +114,9 @@ def build_web():
     import build_web
 
     build_web.build_file_list_page(
-        config.out_dir, os.path.join(config.out_dir, "index.html")
+        config.out_dir,
+        os.path.join(config.out_dir, "index.html"),
+        github_token=config.github_token,
     )
 
 

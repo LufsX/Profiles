@@ -1,5 +1,5 @@
 # [Ruleset](https://github.com/LufsX/Profiles)
 
-> Last update time: {{UPDATE_TIME}}
+> Last Updated: {{UPDATE_TIME}}
 
 {{FILE_TREE}}
