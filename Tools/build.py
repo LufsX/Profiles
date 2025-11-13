@@ -128,12 +128,10 @@ def build_web():
 
 init()
 copy_files()
+for src, dest in config.copy_file.items():
+    shutil.copy2(src, dest)
 for src, dest in config.readme_file.items():
     shutil.move(src, dest)
-# clear_config_comment()
-# build_form_dnsmasq_china_list()
-# build_china_ip()
-# build_guard()
 
 until.run_in_threads(
     [

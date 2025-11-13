@@ -15,6 +15,10 @@
 
 ---
 
+注意 ⚠️: 已剔除了 YAML 格式的 Clash 规则支持，最后的版本可见[该 commit](https://github.com/LufsX/Profiles/tree/4b5a19c07e4de5872db18064c281ee9c34c747cc/List/Clash)
+
+---
+
 目前（2025-11-13）所有规则及其比例如下
 
 - DOMAIN-SUFFIX: 122140 (93.10%)
@@ -23,10 +27,6 @@
 - DOMAIN: 253 (0.19%)
 - DOMAIN-KEYWORD: 42 (0.03%)
 - PROCESS-NAME: 25 (0.02%)
-
----
-
-注意 ⚠️: 已剔除了 YAML 格式的 Clash 规则支持，最后版本可见[该 commit](https://github.com/LufsX/Profiles/tree/4b5a19c07e4de5872db18064c281ee9c34c747cc/List/Clash)
 
 ## 默认配置
 

@@ -102,6 +102,10 @@ readme_file = {
     ),
 }
 
+copy_file = {
+    os.path.join(process_dir, "LICENSE"): os.path.join(out_dir, "LICENSE"),
+}
+
 """
 处理相关
 """
