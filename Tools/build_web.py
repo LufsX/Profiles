@@ -83,6 +83,21 @@ def generate_file_tree_html(public_dir, base_url="."):
             size /= 1024.0
         return f"{size:.2f} TiB"
 
+    def count_rules(filepath):
+        """Count non-comment, non-empty lines in a file."""
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                count = 0
+                for line in f:
+                    line = line.strip()
+                    # Skip empty lines and comment lines
+                    if line and not line.startswith("#"):
+                        count += 1
+                return count
+        except Exception as e:
+            print(f"Error counting rules in {filepath}: {e}")
+            return 0
+
     def scan_directory(dir_path, relative_path=""):
         items = []
         try:
@@ -106,14 +121,16 @@ def generate_file_tree_html(public_dir, base_url="."):
                         }
                     )
                 else:
-                    items.append(
-                        {
-                            "type": "file",
-                            "name": entry,
-                            "path": rel_path,
-                            "size": get_file_size(full_path),
-                        }
-                    )
+                    file_info = {
+                        "type": "file",
+                        "name": entry,
+                        "path": rel_path,
+                        "size": get_file_size(full_path),
+                    }
+                    # Add rule count for files in List directory
+                    if rel_path.startswith("List" + os.sep) or rel_path.startswith("List/"):
+                        file_info["rules"] = count_rules(full_path)
+                    items.append(file_info)
         except Exception as e:
             print(f"Error scanning {dir_path}: {e}")
 
@@ -179,7 +196,12 @@ def generate_file_tree_html(public_dir, base_url="."):
                 html_lines.append('<li class="file">')
                 html_lines.append(f'<span class="file-icon">📄</span> ')
                 html_lines.append(f'<a href="{file_url}">{item["name"]}</a> ')
+                html_lines.append(f'<span class="file-info">')
                 html_lines.append(f'<code class="file-size">{item["size"]}</code>')
+                # Add rule count badge if present
+                if "rules" in item:
+                    html_lines.append(f'<code class="rule-count">{item["rules"]} rules</code>')
+                html_lines.append(f'</span>')
                 html_lines.append("</li>")
 
         html_lines.append("</ul>")
