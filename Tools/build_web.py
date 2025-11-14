@@ -74,7 +74,17 @@ def convert_all_markdown_files(directory, github_token=None):
     print("[Web] End converting Markdown files to HTML")
 
 
-def generate_file_tree_html(public_dir, base_url="."):
+def generate_file_tree_html(public_dir, base_url=".", rule_extensions=None):
+    """Generate HTML file tree.
+    
+    Args:
+        public_dir: Directory to scan
+        base_url: Base URL for file links
+        rule_extensions: List of file extensions to count rules for (e.g., ['.conf', '.json'])
+    """
+    if rule_extensions is None:
+        rule_extensions = [".conf", ".json"]
+    
     def get_file_size(filepath):
         size = os.path.getsize(filepath)
         for unit in ["B", "KiB", "MiB", "GiB"]:
@@ -84,16 +94,39 @@ def generate_file_tree_html(public_dir, base_url="."):
         return f"{size:.2f} TiB"
 
     def count_rules(filepath):
-        """Count non-comment, non-empty lines in a file."""
+        """Count non-comment, non-empty lines in a file.
+        
+        For .conf files: counts non-comment, non-empty lines
+        For .json files (sing-box format): counts total rule entries across all rule types
+        """
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                count = 0
-                for line in f:
-                    line = line.strip()
-                    # Skip empty lines and comment lines
-                    if line and not line.startswith("#"):
-                        count += 1
-                return count
+            file_ext = os.path.splitext(filepath)[1].lower()
+            
+            if file_ext == ".json":
+                # Handle sing-box JSON format
+                import json
+                with open(filepath, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    count = 0
+                    # sing-box format: {"version": 2, "rules": [{"domain": [...], "domain_suffix": [...], ...}]}
+                    if "rules" in data and isinstance(data["rules"], list):
+                        for rule_set in data["rules"]:
+                            if isinstance(rule_set, dict):
+                                # Count all entries in all rule type arrays
+                                for rule_type, values in rule_set.items():
+                                    if isinstance(values, list):
+                                        count += len(values)
+                    return count
+            else:
+                # Handle .conf and other text-based formats
+                with open(filepath, "r", encoding="utf-8") as f:
+                    count = 0
+                    for line in f:
+                        line = line.strip()
+                        # Skip empty lines and comment lines
+                        if line and not line.startswith("#"):
+                            count += 1
+                    return count
         except Exception as e:
             print(f"Error counting rules in {filepath}: {e}")
             return 0
@@ -127,9 +160,11 @@ def generate_file_tree_html(public_dir, base_url="."):
                         "path": rel_path,
                         "size": get_file_size(full_path),
                     }
-                    # Add rule count for files in List directory
+                    # Add rule count for files in List directory with supported extensions
                     if rel_path.startswith("List" + os.sep) or rel_path.startswith("List/"):
-                        file_info["rules"] = count_rules(full_path)
+                        file_ext = os.path.splitext(entry)[1].lower()
+                        if file_ext in rule_extensions:
+                            file_info["rules"] = count_rules(full_path)
                     items.append(file_info)
         except Exception as e:
             print(f"Error scanning {dir_path}: {e}")
@@ -214,7 +249,16 @@ def generate_file_tree_html(public_dir, base_url="."):
     return html_content
 
 
-def build_file_list_page(public_dir, output_path, base_url=".", github_token=None):
+def build_file_list_page(public_dir, output_path, base_url=".", github_token=None, rule_extensions=None):
+    """Build the file list page.
+    
+    Args:
+        public_dir: Directory to scan
+        output_path: Output HTML file path
+        base_url: Base URL for file links
+        github_token: GitHub token for API requests
+        rule_extensions: List of file extensions to count rules for
+    """
     print("[Web] Start building file list page...")
 
     template_path = os.path.join(os.path.dirname(__file__), "web_index_template.md")
@@ -233,7 +277,7 @@ def build_file_list_page(public_dir, output_path, base_url=".", github_token=Non
         print("[Web] Failed to build file list page")
         return
 
-    file_tree_html = generate_file_tree_html(public_dir, base_url)
+    file_tree_html = generate_file_tree_html(public_dir, base_url, rule_extensions)
     html_content = html_content.replace("{{FILE_TREE}}", file_tree_html)
 
     # Use web_index_template.html (special template for index page)
@@ -261,4 +305,5 @@ if __name__ == "__main__":
         config.out_dir,
         os.path.join(config.out_dir, "index.html"),
         github_token=config.github_token,
+        rule_extensions=config.web_rule_extensions,
     )

@@ -123,6 +123,7 @@ def build_web():
         config.out_dir,
         os.path.join(config.out_dir, "index.html"),
         github_token=config.github_token,
+        rule_extensions=config.web_rule_extensions,
     )
 
 
