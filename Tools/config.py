@@ -110,8 +110,7 @@ copy_file = {
 Web相关
 """
 
-# File extensions to count rules for in the List directory
-web_rule_extensions = [".conf", ".json"]
+web_rule_extensions = [".conf", ".json", ".txt"]
 
 """
 处理相关
